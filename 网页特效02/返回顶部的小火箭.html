@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .main {
+            text-align: center;
+        }
+        .rocket {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ccc;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+    <script src = "固定导航栏/my.js"></script>
+    <script>
+        window.onload = function() {
+            var rocket = document.getElementById("toTop");
+            var leader = 0, target = 0, timer = null;
+            window.onscroll = function() {
+                //alert(leader);
+                if(scroll().top > 0) {
+                    rocket.style.display = "block";
+                }else {
+                    rocket.style.display = "none";
+                }
+                leader = scroll().top;
+                rocket.onclick = function() {
+                    timer = setInterval(function() {
+                        leader = leader + (target - leader) / 10;
+                        console.log(leader);
+                        window.scrollTo(0,leader);
+                        if(leader == 0) {
+                            clearInterval(timer);
+                        }
+                    },30);
+                };
+
+            };
+
+        }
+    </script>
+</head>
+<body>
+    <div class="main">
+        <img src="固定导航栏/images/main.png" alt="">
+    </div>
+    <div class="rocket" id = "toTop">
+        <p>返回顶部</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin: 0;padding: 0;}
+		div {
+			width: 50px;
+			height: 50px;
+			background-color: pink;
+			margin-top: 10px;
+		}
+	</style>
+	<script>
+		window.onload = function() {
+			//var boxs = document.getElementsByClassName("box");
+			var boxs = getClassname("box");
+			alert(boxs.length);
+			console.log(boxs);
+			function getClassname(classname) {
+				var arr = [];
+				if(document.getElementsByClassName) {
+					return document.getElementsByClassName(classname);
+				}else {
+					var tag = document.getElementsByTagName("*");
+					for(var i = 0; i < tag.length; i++) {
+						if(tag[i].className == classname) {
+							arr.push(this);
+						}else {
+							var name = tag[i].className;
+							var nameArr = name.split(" ");
+							for(var j = 0; j < nameArr.length; j++) {
+								if(nameArr[j] == classname) {
+									arr.push(tag[i]);
+								}
+							}
+							
+						}
+					}
+					return arr;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div></div>
+	<div class = "box"></div>
+	<div></div>
+	<div class = "text box"></div>
+	<div class = "abc sd9 mk3 sd3 sdl2 box"></div>
+	<div class = "box"></div>
+</body>
+</html>

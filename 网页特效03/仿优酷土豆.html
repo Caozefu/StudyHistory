@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box1, .box2 {
+            width: 128px;
+            height: 40px;
+            margin-top: 20px;
+            position: absolute;
+            left: -88px;
+        }
+        .box1 {
+            background-color: pink;
+            top: 10px;
+        }
+        .box2 {
+            background-color: skyblue;
+            top: 80px;
+        }
+    </style>
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+//        function animate(obj,target) {
+//            var timer;
+//            var left = obj.offsetLeft;
+//            var speed = left > target ? -1 : 1;
+//            clearInterval(obj.timer);
+//            obj.timer = setInterval(function() {
+//                left = left + speed;
+//                obj.style.left = left + "px";
+//                if(left == target) {
+//                    clearInterval(timer);
+//                }
+//            },1)
+//        }
+        function animate(obj,target) {
+            var left = obj.offsetLeft;
+            var speed = left > target ? -1 : 1;
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                left = left + speed;
+                obj.style.left = left + "px";
+                if(left == target) {
+                    clearInterval(obj.timer);
+                }
+            },1)
+        }
+        window.onload = function() {
+            $("one").onmouseover = function() {
+                //debugger;
+                animate(this,0);
+            };
+            $("one").onmouseout = function() {
+                animate(this,-88);
+            };
+
+            $("two").onmouseover = function() {
+                //debugger;
+                animate(this,0);
+            };
+            $("two").onmouseout = function() {
+                animate(this,-88);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class = "box1" id = "one">第一条</div>
+    <div class = "box2" id = "two">第二条</div>
+</body>
+</html>

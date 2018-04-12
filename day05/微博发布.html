@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>微博发布</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		textarea {
+			width: 475px;
+			resize: none;
+			line-height: 20px;
+		}
+		.box {
+			width: 600px;
+			border: 1px solid black;
+			margin: 100px auto;
+		}
+		ul li {
+			width: 475px;
+			margin: 5px auto;
+			border-bottom: 1px dashed gray;
+			line-height: 25px;
+		}
+		ul li a {
+			float: right;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			function $(id) {
+				return document.getElementById(id);
+			}
+			//点击发布
+			$("btn").onclick = function () {
+				var text = $("text").value;
+				//debugger;
+				//判断输入不能为空
+				if(text == "") {
+					alert("输入不能为空！");
+					return false;
+				}
+				//创建节点
+				var li = document.createElement("li");
+				//添加内容
+				li.innerHTML = text + "<a href = 'javascript:;' id = 'del'>删除</a>";
+				//节点位置
+				if($("ul").children.length == 0) {
+					$("ul").insertBefore(li,null);	
+				}else {
+					$("ul").insertBefore(li,$("ul").children[0]);
+				}
+				//文本框内容清空
+				$("text").value = "";
+
+				//删除键
+				var as = document.getElementsByTagName("a");
+				for (var i = 0; i < as.length; i++) {
+					as[i].onclick = function () {
+						$("ul").removeChild(this.parentNode);
+					}
+				}
+			}
+			
+				
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<span>微博内容:</span>
+		<textarea name="" id="text" cols="30" rows="10"></textarea>
+		<button id = "btn">发布</button>
+		<ul id = "ul">
+		</ul>
+	</div>
+</body>
+</html>

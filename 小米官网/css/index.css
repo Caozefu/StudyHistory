@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #b0b0b0;
+}
+i {
+    font-style: normal;
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+fieldset, img,input,button { border:none; padding:0;margin:0;outline-style:none; }
+/*顶部*/
+.top {
+    width: 100%;
+    height: 40px;
+    background-color: #333333;
+    font-size: 12px;
+    line-height: 40px;
+}
+/*版心*/
+.container {
+    width: 1226px;
+    margin: 0 auto;
+}
+.top .container .top_left a {
+    float: left;
+    text-decoration: none;
+    color: #b0b0b0;
+}
+.top .container a:hover {
+    color: #fff;
+}
+.top .container span {
+    font-family: sans-serif;
+    color: #424242;
+    margin: 0 6px;
+}
+.top .container span {
+    float: left;
+}
+.top .container .cart a{
+    width: 120px;
+    float: right;
+    margin-left: 15px;
+    background-color: #424242;
+    text-align: center;
+    color: #b0b0b0;
+}
+.top .container .top_right {
+    height: 40px;
+    float: right;
+}
+.top .container .top_right a{
+    float: left;
+}
+/*顶部结束*/
+/*头部*/
+.header {
+    height: 100px;
+    /*background-color: pink;*/
+}
+/*logo部分*/
+.header .logo {
+    /*background: url("../images/mi-logo.png");*/
+    width: 55px;
+    margin-top: 22px;
+    float: left;
+    background-color: #ee702e;
+}
+.header .logo a {
+    display: block;
+    text-indent: -9999em;
+    width: 55px;
+    height: 55px;
+    background: url("../images/mi-logo.png") no-repeat 50% 50%;
+}
+/*中间导航栏部分*/
+.header .nav {
+    width: 850px;
+    height: 100px;
+    margin-left: 7px;
+    float: left;
+}
+.nav .ul {
+    padding: 12px 0 0 30px;
+}
+.nav .ul li{
+    height: 88px;
+    float: left;
+    font-size: 16px;
+    display: block;
+}
+.nav .ul li a {
+    color: #333;
+    display: block;
+    padding: 26px 10px 38px 10px;
+}
+.nav .ul li a:hover {
+    color: #ff6700;
+}
+.nav .ul .blank {
+    width: 127px;
+    height: 88px;
+    padding-right: 15px;
+}
+/*右侧搜索框*/
+.search {
+    margin-top: 25px;
+    float: right;
+    position: relative;
+}
+.search .box {
+    float: left;
+    width: 223px;
+    height: 48px;
+    padding: 0 10px;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    border-right: none;
+    transition: all 0.3s;
+}
+/*搜索按钮*/
+.search .button {
+    color: #616161;
+    float: left;
+    width: 36px;
+    height: 45px;
+    padding: 1px 7px 2px 7px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.search .button:hover {
+    color: white;
+    background-color: #ff6700;
+    border: 1px solid #ff6700!important;
+}
+/*框内热词*/
+.search .hot_word {
+    position: absolute;
+    right: 62px;
+    top: 16px;
+}
+.search .hot_word a {
+    color: #757575;
+    background-color: #eee;
+    transition: all 0.2s;
+    font-size: 12px;
+    margin-left: 5px;
+    padding: 0 5px;
+    float: left;
+}
+.search .hot_word a:hover {
+    color: white;
+    background-color: #ff6700;
+}
+/*轮播图部分*/
+.home {
+    height: 1272px;
+    position: relative;
+}
+.home .rollimages {
+    height: 460px;
+    position: relative;
+}
+.home .rollimages img {
+    width: 1226px;
+    height: 460px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.5s;
+}
+/*左侧菜单*/
+.home .menu ul{
+    width: 234px;
+    height: 420px;
+    padding: 20px 0;
+    background-color: rgba(0,0,0,.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.home .menu ul li {
+    height: 42px;
+    cursor: pointer;
+    position: relative;
+    /*background-color: #ff6700;*/
+}
+.home .menu ul li a {
+    color: #fff;
+    padding: 0 0 0 30px;
+    line-height: 42px;
+    font-size: 14px;
+}
+.home .menu ul li i {
+    color: rgba(255,255,255,.5);
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+}
+/*切换图片的按钮*/
+.home .cut .left, .right {
+    display: block;
+    width: 41px;
+    height: 69px;
+    line-height: 69px;
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    transform: translate(0,-50%);
+    /*50%是移动自己盒子的一半*/
+}
+.home .cut .left {
+    background: url("../images/rollImages/icon-slides.png") no-repeat -83px 0;
+    left: 234px;
+}
+.home .cut .right {
+    background: url("../images/rollImages/icon-slides.png") no-repeat -125px 0;
+    right: 0;
+}
+.home .cut .left:hover {
+    background: url("../images/rollImages/icon-slides.png") no-repeat 0px 0;
+}
+.home .cut .right:hover {
+    background: url("../images/rollImages/icon-slides.png") no-repeat -42px 0;
+}
+/*小圆点*/
+.home .circle {
+    width: 400px;
+    height: 10px;
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+    text-align: right;
+}
+.home .circle ul {
+    float: right;
+}
+.home .circle li {
+    float: left;
+    width: 6px;
+    height: 6px;
+    margin: 0 5px;
+    background-color: rgba(0,0,0,0.4);
+    border: 2px solid rgba(255,255,255,0.3);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-indent: -9999em;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.home .circle li.active {
+    background-color: rgba(255,255,255,0.4);
+    border-color: rgba(0,0,0,.4);
+}
+.page_main {
+    height: 6974px;
+    padding-top: 60px;
+    background-color: orangered;
+}
+.footer {
+    height: 272px;
+    background-color: #ff1;
+}
+.page_info {
+    height: 166px;
+    padding: 30px 0;
+    background-color: skyblue;
+}

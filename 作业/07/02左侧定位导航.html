@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左侧定位导航n</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        i,s,h1,h2,h3,h4,h4,h5,h6 {
+            font-style: normal;
+            text-decoration: none;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+        a:active {
+            color: #000;
+        }
+        ul {
+            list-style: none;
+        }
+        div {
+            width: 60px;
+            height: 320px;
+            border: 1px solid #fd6397;
+            margin: 100px 100px;
+        }
+        div li {
+            width: 60px;
+            height: 62px;
+            line-height: 62px;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            color: #abaaab;
+        }
+        div li span.white {
+            color: #fff;
+        }
+        div ul .first {
+            background-color: #fd6397;
+        }
+        div li span {
+            font-size: 12px;
+            line-height: 19px;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        div .first span {
+            font-size: 14px;
+            line-height: 19px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        div li:nth-child(2) {
+            background: url("images/bg.jpg") no-repeat 0 0 ;
+        }
+        div li:nth-child(3) {
+            background: url("images/bg.jpg") no-repeat -176px -63px;
+        }
+        div li:nth-child(4) {
+            background: url("images/bg.jpg") no-repeat 0 -124px;
+        }
+        div li:nth-child(5) {
+            background: url("images/bg.jpg") no-repeat 0 -186px;
+        }
+        div li:nth-child(2):hover {
+            background: url("images/bg.jpg") no-repeat -88px 0 ;
+            color: #fd6397!important;
+        }
+        div li:nth-child(4):hover {
+            background: url("images/bg.jpg") no-repeat -88px -124px;
+            color: #fd6397!important;
+        }
+        div li:nth-child(5):hover {
+            background: url("images/bg.jpg") no-repeat -88px -186px;
+            color: #fd6397!important;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li class = "first"><span class = "white">聚美<br/>首页</span></li>
+            <li><span>每日必看</span></li>
+            <li><span class = "white">爆款榜</span></li>
+            <li><span>上新单品</span></li>
+            <li><span>品牌团</span></li>
+        </ul>
+    </div>
+</body>
+</html>

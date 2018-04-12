@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .top {
+            height: 168px;
+            background: url(images/top.png) no-repeat top center;
+        }
+        .main, .nav {
+            text-align: center;
+        }
+        .fixed {
+            position: fixed;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class = "top"></div>
+<div class="nav" id = "nav">
+    <img src="images/nav.png" alt="">
+</div>
+<div class="main">
+    <img src="images/main.png" alt="">
+</div>
+</body>
+</html>
+<script src = "my.js"></script>
+<script>
+    var nav = $("nav");
+    var navTop = nav.offsetTop;
+    //alert(navTop);
+    window.onscroll = function() {
+        if(scroll().top >= navTop) {
+            nav.className = "nav fixed";
+        }else {
+            nav.className = "nav";
+        }
+    }
+</script>

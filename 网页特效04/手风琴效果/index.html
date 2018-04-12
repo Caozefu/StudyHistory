@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {margin:0;padding:0;}
+        .box {
+            width: 100%;
+            height: 465px;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+        .box div {
+            width: 288px;
+            float: left;
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        function $(id) {return document.getElementById(id)}
+        function getStyle(obj,attr) {
+            if(obj.currentStyle) {
+                return obj.currentStyle[attr];
+            }else {
+                return window.getComputedStyle(obj,null)[attr];
+            }
+        }
+        function animate(obj,json) {
+            clearInterval(obj.timer);
+            //遍历json得到属性值k，目标值json.k
+            obj.timer = setInterval(function() {
+                var flag = true;
+                for(var k in json) {
+                    //初始位置
+                    var style = parseInt(getStyle(obj,k));
+                    console.log(style);
+                    //步数
+                    var step = (json[k] - style) / 10;
+                    //取整
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    obj.style[k] = style + step + "px";
+                    if(style != json[k]) {
+                        flag = false;
+                    }
+                }
+                if(flag) {
+                    clearInterval(obj.timer);
+                }
+            },10);
+
+        }
+
+
+        window.onload = function() {
+            //总宽度
+            var width = getStyle($("big"),"width");
+            var len = $("big").children.length;
+            //图片的宽度
+            var imgWidth = $("big").children[0].children[0].offsetWidth;
+            //原始宽度
+            var start = parseInt(width) / len;
+            console.log(start);
+            //剩下每个图片应得的宽度
+            var over = (parseInt(width) - imgWidth) / (len - 1);
+            over = Math.floor(over);
+            console.log(over);
+            for(var i = 0; i < $("big").children.length; i ++) {
+                $("big").children[i].index = i;
+                $("big").children[i].onmouseover = function() {
+                    for(var j = 0; j < $("big").children.length; j ++) {
+                        if(j == this.index) {
+                            animate($("big").children[this.index],{width: imgWidth});
+                            continue;
+                        }
+                        animate($("big").children[j],{width: over});
+                    }
+                }
+                $("big").children[i].onmouseout = function() {
+                    for(var j = 0; j < $("big").children.length; j ++) {
+                        animate($("big").children[j],{width: start});
+                    }
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div class = "box" id = "big">
+        <div><img src="images/1.jpg" alt=""></div>
+        <div><img src="images/2.jpg" alt=""></div>
+        <div><img src="images/3.jpg" alt=""></div>
+        <div><img src="images/4.jpg" alt=""></div>
+        <div><img src="images/5.jpg" alt=""></div>
+    </div>
+</body>
+</html>

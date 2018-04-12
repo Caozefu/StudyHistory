@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            z-index: 2;
+            opacity: 0.2;
+        }
+    </style>
+    <script>
+        function getStyle(obj,attr) {
+            if(obj.currentStyle) {
+                return obj.currentStyle[attr];
+            }else {
+                return window.getComputedStyle(obj,null)[attr];
+            }
+        }
+        window.onload = function() {
+            var box = document.getElementById("box");
+            console.log(getStyle(box,"width"));
+            console.log(getStyle(box,"zIndex"));
+        }
+    </script>
+</head>
+<body>
+    <div id = "box"></div>
+</body>
+</html>

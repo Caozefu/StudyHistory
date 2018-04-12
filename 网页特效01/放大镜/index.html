@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        .small {
+            position: relative;
+        }
+        .move {
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 0, .3);
+            cursor: move;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .big {
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            top: -1px;
+            left: 360px;
+            border: 1px solid #ccc;
+            display: none;
+            overflow: hidden;
+        }
+        .big img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id = "box">
+        <div class="small">
+            <img src="images/001.jpg" alt="">
+            <div class="move" id = "move"></div>
+        </div>
+        <div class="big">
+            <img src="images/0001.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");
+    var move = document.getElementById("move");
+    var small = box.children[0];
+    var big = box.children[1];
+    var img = big.children[0];
+    small.onmouseover = function() {
+        move.style.display = "block";
+        big.style.display = "block";
+    };
+    small.onmouseout = function() {
+        move.style.display = "none";
+        big.style.display = "none";
+    };
+    box.onmousemove = function(event) {
+        var event = event || window.event;
+        var x = event.clientX - this.offsetLeft - move.offsetWidth / 2;
+        var y = event.clientY - this.offsetTop - move.offsetHeight / 2;
+        //console.log(x,y);
+        x <= 0 ? x = 0 : x >= this.offsetWidth - move.offsetWidth ? x = this.offsetWidth - move.offsetWidth : x;
+        y <= 0 ? y = 0 : y >= this.offsetHeight - move.offsetHeight ? y = this.offsetHeight - move.offsetHeight : y;
+        move.style.top = y + "px";
+        move.style.left = x + "px";
+
+
+
+        img.style.height = img.style.width = (big.offsetHeight-2) * (box.offsetHeight-2) /move.offsetHeight + "px";
+        //console.log(img.offsetHeight,big.offsetHeight,small.offsetHeight,move.offsetHeight);
+        img.style.left = -(x * img.offsetWidth / small.offsetHeight ) + "px";
+        img.style.top = -(y * img.offsetHeight / small.offsetHeight) + "px";
+    }
+</script>

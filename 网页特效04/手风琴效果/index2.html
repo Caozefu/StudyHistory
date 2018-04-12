@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {margin: 0;padding: 0;}
+        .box {
+            width: 1000px;
+            height: 460px;
+            margin-left: 200px;
+            border: 1px solid pink;
+        }
+        .box ul {
+            width: 1000px;
+            height: 460px;
+            list-style: none;
+        }
+        .box ul li {
+            width: 200px;
+            height: 460px;
+            float: left;
+        }
+    </style>
+    <script>
+        function $(id) {return document.getElementById(id)}
+        function getStyle(obj,attr) {
+            if(obj.currentStyle) {
+                return obj.currentStyle[attr];
+            }else {
+                return window.getComputedStyle(obj,null)[attr];
+            }
+        }
+        function animate() {
+
+        }
+
+        window.onload = function() {
+            var children = $("ul").children;
+            for(var i = 0; i < children.length; i ++) {
+                children[i].style.backgroundImage = "url(images/"+ (i+1) +".jpg)";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class = "box">
+        <ul id = "ul">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function() {
+            var demo = document.getElementById("demo");
+            var num = 10;
+            var timer = setInterval(fun,1000);
+            function fun () {
+                num--;
+                demo.innerHTML = num;
+                while (num < 0) {
+                    clearInterval(timer);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="demo">10</div>
+</body>
+</html>

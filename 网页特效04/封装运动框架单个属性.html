@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 200px;
+            background-color: greenyellow;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            opacity: 0.5;
+        }
+    </style>
+    <script>
+        function $(id) {return document.getElementById(id)}
+        function getStyle(obj,attr) {
+            if(obj.currentStyle) {
+                return obj.currentStyle[attr];
+            }else {
+                return window.getComputedStyle(obj,null)[attr];
+            }
+        }
+        //缓动动画
+        function slowAnimate(obj,attr,target) {
+            clearInterval(obj.timer);
+            //开启定时器
+            obj.timer = setInterval(function() {
+                //初始位置begin
+                var begin = parseInt(getStyle(obj,attr));
+                //步数=末-初
+                var step = (target - begin) / 10;
+                //步数取整
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+
+                obj.style[attr] = begin + step + "px";
+                if(begin == target) {
+                    //obj.style[attr] = target + "px";
+                    clearInterval(obj.timer);
+                }
+            },30);
+        }
+
+        //匀速动画
+        function uniformAnimate (obj,attr,target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                //获取属性
+                var style = parseInt(getStyle(obj,attr));
+                //判断步长的正负值
+                var step = target > style ? 5 : -5;
+                obj.style[attr] = style + step + "px";
+                //距离目标位置绝对值小于步长，停止定时器，跳到目标位置
+                if(Math.abs(target - style) <= Math.abs(step)) {
+                    clearInterval(obj.timer);
+                    obj.style[attr] = target + "px";
+                }
+            },30);
+        }
+
+
+
+
+        window.onload = function() {
+            $("btn1").onclick = function() {
+                slowAnimate($("box"),"height",200);
+            };
+            $("btn2").onclick = function() {
+                uniformAnimate($("box"),"height",400);
+            };
+        }
+    </script>
+</head>
+<body>
+    <button id = "btn1">200</button>
+    <button id = "btn2">400</button>
+    <div id = "box"></div>
+</body>
+</html>

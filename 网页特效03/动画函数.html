@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+            top: 30px;
+            left: 0;
+        }
+        .inp {
+            width: 50px;
+            height: 15px;
+        }
+        .btn {
+            width: 50px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <span>请输入移动距离：</span><input type="text" class = "inp" id = "text" value = "0">
+    <button class = "btn" id = "start">开始</button>
+    <div class = "box" id = "Box"></div>
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    $("text").onkeyup = function(e) {
+        var code = e.charCode || e.keyCode;
+        if(code == 13) {
+            $("start").onclick();
+        }
+    }
+    $("start").onclick = function() {
+        //debugger;
+        var distance = $("text").value;
+        animate($("Box"),distance);
+    }
+    function animate(obj,target) {
+        clearInterval(obj.timer);
+        var left = obj.offsetLeft;
+        var speed = obj.offsetLeft - target < 0 ? 5 : -5;
+        obj.timer = setInterval(function() {
+            left = left + speed;
+            obj.style.left = left + "px";
+            if(Math.abs(left - target) <= 5) {
+                clearInterval(obj.timer);
+                obj.style.left = target + "px";
+            }
+        },10)
+    }
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #text {
+            width: 500px;
+            height: 500px;
+            margin: 50px;
+        }
+        #mask {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id = "text">
+        设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫司机接设计师及基建司手机就叫
+    </div>
+    <div id="mask"></div>
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    $("text").onmouseup = function(event) {
+        var event = event || window.event;
+        $("mask").style.display = "block";
+        var x = event.clientX;
+        var y = event.clientY;
+        $("mask").style.top = y + "px";
+        $("mask").style.left = x + "px";
+        var txt;
+        if(window.getSelection) {
+            txt = window.getSelection().toString();
+        }else {
+            txt = document.selection.createRange().text;
+        }
+        if(txt == "") {
+            $("mask").style.display = "none";
+        }
+        $("mask").innerHTML = txt;
+    }
+</script>

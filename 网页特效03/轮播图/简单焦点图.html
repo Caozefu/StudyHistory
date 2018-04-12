@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none; border:0;}
+.all{
+  width:500px;
+  height:200px;
+  padding:7px;
+  border:1px solid #ccc;
+  margin:100px auto;
+  position:relative;
+}
+.screen{
+	width:500px;
+	height:200px;
+	 overflow:hidden; 
+	position:relative;
+}
+
+.screen li{ width:500px; height:200px; overflow:hidden; float:left;}
+.screen ul{ position:absolute; left:0; top:0px; width:3000px;}
+.all ol{ position:absolute; right:10px; bottom:10px; line-height:20px; text-align:center;}
+.all ol li{ float:left; width:20px; height:20px; background:#fff; border:1px solid #ccc; margin-left:10px; cursor:pointer;}
+.all ol li.current{ background:yellow;}
+
+</style>
+<script type="text/javascript">
+    //动画函数
+    function animate(obj,target) {
+        clearInterval(obj.timer);
+        var left = obj.offsetLeft;
+        var speed = target > left ? 5 : -5;
+        obj.timer = setInterval(function() {
+            left += speed;
+            obj.style.left = left + "px";
+            if(Math.abs(left - target) <= 5) {
+                clearInterval(obj.timer);
+                obj.style.left = target + "px";
+            }
+        },1)
+    }
+    window.onload = function() {
+        var all = document.getElementById("all");
+        var ul = document.getElementById("ul");
+        //克隆节点
+        ul.appendChild(ul.children[0].cloneNode(true));
+        //创建ol 和 li
+        var ol = document.createElement("ol");
+        all.appendChild(ol);
+        for(var i = 0; i < ul.children.length - 1; i ++) {
+            var li = document.createElement("li");
+            li.innerHTML = i + 1;
+            ol.appendChild(li);
+        }
+        ol.children[0].className = "current";
+        //鼠标放上变色
+        for(var j = 0; j < ol.children.length; j++) {
+            ol.children[j].index = j;
+            ol.children[j].onmouseover = function() {
+                for(var k = 0; k < ol.children.length; k ++) {
+                    ol.children[k].className = "";
+                }
+                this.className = "current";
+                animate(ul,-this.index * ul.children[0].offsetWidth);
+                key = s = this.index;
+            }
+        }
+        //定时器
+        var key = 0;    //控制图片的全局变量
+        var s = 0;      //控制小方块
+        var timer = null;
+        timer = setInterval(autoplay,1000);
+        function autoplay() {
+            key ++;
+            if(key > ul.children.length - 1) {
+                key = 1;
+                ul.style.left = 0;
+            }
+            animate(ul,-key * ul.children[0].offsetWidth);
+            s ++;
+            if(s > ol.children.length - 1) {
+                s = 0;
+            }
+            for(var i = 0; i < ol.children.length; i++) {
+                ol.children[i].className = "";
+            }
+            ol.children[s].className = "current";
+        }
+
+        //鼠标移动停止定时器
+        all.onmouseover = function() {
+            clearTimeout(timer);
+        }
+        all.onmouseout = function() {
+            timer = setInterval(autoplay,1000);
+        }
+    }
+</script>
+
+</head>
+
+<body>
+<div class="all" id='all'>
+	<div class="screen">
+        <ul id="ul">
+            <li><img src="images/taobao/1.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/2.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/3.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/4.jpg" width="500" height="200" /></li>
+            <li><img src="images/taobao/5.jpg" width="500" height="200" /></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

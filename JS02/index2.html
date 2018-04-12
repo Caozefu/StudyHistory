@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		for(var i = 100;i <= 999;i++) {
+			var one = parseInt(i/100);
+			var two = parseInt((i % 100)/10);
+			var thr = i % 10;
+			if(Math.pow(one,3) + Math.pow(two,3) + Math.pow(thr,3) == i) {
+				console.log(i);
+			}
+		}
+	</script>
+</body>
+</html>

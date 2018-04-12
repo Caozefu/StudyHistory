@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <style>
+        .box {
+            font-size: 30px;
+            color: red;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            function $(id) {
+                return document.getElementById(id);
+            }
+            var endDay = new Date("2017/8/31 0:00");
+            setInterval(function() {
+                var nowDay = new Date();
+                var second = parseInt((endDay.getTime() - nowDay.getTime()) / 1000);
+                var day = parseInt(second / 3600 / 24);
+                var hour = parseInt((second / 3600) % 24);
+                var min = parseInt((second / 60) % 60);
+                var sec = parseInt(second % 60);
+                //console.log(day,hour,min,sec);
+                day < 10 ? day = "0" + day : day;
+                hour < 10 ? hour = "0" + hour : hour;
+                min < 10 ? min = "0" + min : min;
+                sec < 10 ? sec = "0" + sec : sec;
+                $("box").innerHTML = "距离活动结束还有："+ day +"天"+ hour +"时"+ min +"分"+ sec +"秒";
+            },1000);
+        }
+    </script>
+</head>
+<body>
+    <div class="box" id = "box">距离活动结束还有：00天00时00分00秒</div>
+</body>
+</html>

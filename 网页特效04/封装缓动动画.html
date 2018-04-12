@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            position: absolute;
+            left: 0px;
+
+        }
+    </style>
+    <script>
+        function $(id) {return document.getElementById(id)}
+        function animate(obj,target) {
+            clearInterval(obj.timer);
+            var left,step;
+            obj.timer = setInterval(function() {
+                left = obj.offsetLeft;
+                step = (target - left) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                obj.style.left = left + step + "px";
+                if(left == target) {
+                    clearInterval(obj.timer);
+                }
+            },10);
+        }
+        window.onload = function() {
+            $("txt").onkeydown = function(e) {
+                var code = e.charCode || e.keyCode;
+                if(code == 13) {
+                    $("btn").onclick();
+                }
+            };
+            $("btn").onclick = function() {
+                var text = $("txt").value;
+                animate($("box"),text);
+            }
+        }
+    </script>
+</head>
+<body>
+    <span>请输入移动距离：</span><input type="text" id = "txt" value = "">
+    <button id = "btn">开始</button>
+    <div id = "box"></div>
+</body>
+</html>

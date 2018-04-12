@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: pink;
+        }
+    </style>
+    <script src = my.js></script>
+    <script>
+        window.onload = function() {
+            window.onresize = reSize;
+            function reSize() {
+                var pageWidth = client().width;
+                if(pageWidth > 980) {
+                    document.body.style.backgroundColor = "pink";
+                }else if (pageWidth > 640) {
+                    document.body.style.backgroundColor = "yellow";
+                }else {
+                    document.body.style.backgroundColor = "blue";
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+</body>
+</html>

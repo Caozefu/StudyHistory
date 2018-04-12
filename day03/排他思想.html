@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function () {
+			var btns = document.getElementsByTagName("button");
+			for(var i = 0; i < btns.length; i++) {
+				btns[i].index = i + 1;
+				btns[i].onclick = function() {
+					alert("这是第"+ this.index +"个盒子");
+					for(var j = 0; j < btns.length; j++) {
+						btns[j].style.backgroundColor = "";
+					}
+					this.style.backgroundColor = "pink";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<button>我是按钮</button>
+	<button>我是按钮</button>
+	<button>我是按钮</button>
+	<button>我是按钮</button>
+	<button>我是按钮</button>
+	<button>我是按钮</button>
+</body>
+</html>

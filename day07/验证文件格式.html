@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="file" id = "File">
+</body>
+</html>
+<script>
+    var file = document.getElementById("File");
+    file.onchange = function() {
+        var name = this.value;
+        var form = name.substr(name.lastIndexOf(".")).toUpperCase();
+        if(form == ".HTML") {
+            alert("true");
+        }else {
+            alert("false");
+        }
+        //console.log(form);
+    }
+
+</script>

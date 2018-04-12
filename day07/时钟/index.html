@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 600px;
+            height: 600px;
+            margin: 50px auto;
+            background: url(images/clock.jpg);
+            position: relative;
+        }
+        .box div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .h {
+            background: url(images/hour.png) no-repeat center center;
+        }
+        .m {
+            background: url(images/minute.png) no-repeat center center;
+        }
+        .s {
+            background: url(images/second.png) no-repeat center center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+            setInterval(function() {
+                var date = new Date();
+                var milliSecond = date.getMilliseconds();
+                var second = date.getSeconds() + milliSecond / 1000;
+                var minute = date.getMinutes() + second / 60;
+                var hour = date.getHours() + minute / 60;
+                //console.log(milliSecond,second,minute,hour);
+                $("second").style.webkitTransform = "rotate("+ second * 6 +"deg)";
+                $("minute").style.webkitTransform = "rotate("+ minute * 6 +"deg)";
+                $("hour").style.webkitTransform = "rotate("+ hour * 30 +"deg)";
+            },1);
+
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class = "h" id = "hour"></div>
+        <div class = "m" id = "minute"></div>
+        <div class = "s" id = "second"></div>
+    </div>
+</body>
+</html>

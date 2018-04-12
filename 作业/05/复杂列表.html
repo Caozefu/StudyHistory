@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复杂列表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        i,s,h1,h2,h3,h4,h4,h5,h6 {
+            font-style: normal;
+            text-decoration: none;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+        a:active {
+            color: #000;
+        }
+        .box {
+            width: 200px;
+            height: 600px;
+            box-sizing: border-box;
+            border: 1px solid #BF0000;
+            margin: 100px 100px;
+        }
+        .box h1 {
+            background-color: #BF0000;
+            font-size: 16px;
+            text-align: center;
+            line-height: 33px;
+            color: #fff;
+        }
+        .box>div {
+            box-sizing: border-box;
+            width: 183px;
+            padding: 15px 13px 8px 13px;
+            margin: 0 auto;
+            border-bottom: 1px dashed #8f8f8f;
+        }
+        .box div p {
+            line-height: 24px;
+            padding-left: 30px;
+        }
+        .box div .classify {
+            width: 161px;
+            margin-top: 5px;
+        }
+        .box div .classify span {
+            display: inline-block;
+            font-size: 12px;
+            line-height: 35px;
+            margin-right: 5px;
+        }
+        .red {
+            color: #bf0000;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box">
+        <h1>全部产品</h1>
+        <div>
+            <p style = "background: url('images/demo2/face.png') no-repeat left top;"><a href="">产品系列</a></p>
+            <div class="classify">
+                <span><a href="" class = "red">豆腐补水</a></span><span><a href="">大米修复</a></span><span><a href="">樱花褪黄</a></span><span><a href="">小麦清润</a></span><span><a href="" class = "red">苹果籽-孕纹护理</a></span><span><a href="">洋甘菊-舒缓修复</a></span><span><a href="">其他单品</a></span>
+            </div>
+        </div>
+        <div>
+            <p style = "background: url('images/demo2/body.png') no-repeat left top;"><a href="">产品功效</a></p>
+            <div class="classify">
+                <span><a href="" class = "red">保湿补水</a></span><span><a href="">美白亮肤</a></span><span><a href="">控油</a></span><span><a href="">紧致抗皱</a></span><span><a href="" class = "red">妊娠纹-防护</a></span><span><a href="">舒缓敏感</a></span><span><a href="">眼部护理</a></span><span><a href="">护唇</a></span>
+            </div>
+        </div>
+        <div>
+            <p style = "background: url('images/demo2/wen.png') no-repeat left top;"><a href="">面部护理</a></p>
+            <div class="classify">
+                <span><a href="">洁面</a></span><span><a href="" class = "red">水</a></span><span><a href="">眼霜</a></span><span><a href="">精华液</a></span><span><a href="">乳液</a></span><span><a href="">面霜</a></span><span><a href="">隔离</a></span><span><a href="">BB霜</a></span><span><a href="" class = "red">CC霜</a></span><span><a href="">面膜</a></span><span><a href="">唇膏</a></span><span><a href="">卸妆油</a></span>
+            </div>
+        </div>
+        <div>
+            <p style = "background: url('images/demo2/pro.png') no-repeat left top;"><a href="">身体护理步骤</a></p>
+            <div class="classify">
+                <span><a href="" class = "red">洗发护发</a></span><span><a href="">身体洗护</a></span><span><a href="">孕纹护理</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度换肤</title>
+	<style type = "text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		body {
+			background: url(images/1.jpg) top center;
+		}
+		.top {
+			width: 100%;
+			height: 200px;
+			background-color: rgba(255,255,255,.3);
+			overflow: hidden;
+		}
+		.top ul {
+			width: 790px;
+			margin: 50px auto;
+		}
+		.top ul li {
+			margin-right: 10px;
+			float: left;
+			cursor: pointer;
+		}
+		.top ul .last {
+			margin-right: 0;
+		}
+		.top ul li img {
+			width: 150px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="top">
+		<ul id = "pic">
+			<li><img src="images/1.jpg" alt=""></li>
+			<li><img src="images/2.jpg" alt=""></li>
+			<li><img src="images/3.jpg" alt=""></li>
+			<li><img src="images/4.jpg" alt=""></li>
+			<li class = "last"><img src="images/5.jpg" alt=""></li>
+		</ul>
+	</div>
+	<script>
+		window.onload = function() {
+			function $(id) {
+				return document.getElementById(id);
+			}
+			for(var i = 0; i < 5; i++) {
+				//debugger;
+				$("pic").children[i].index = i+1;
+				$("pic").children[i].onclick = function() {
+					document.body.style.background = "url(images/"+ this.index +".jpg)";
+				}
+			}
+		}
+	</script>
+</body>
+</html>

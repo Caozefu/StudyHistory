@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .pic {
+            width: 512px;
+            height: 400px;
+            overflow: hidden;
+            margin: 100px auto;
+            position: relative;
+        }
+        .pic img {
+            position: absolute;
+            top: 0;
+        }
+        .pic div {
+            width: 512px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+        }
+        .pic .b {
+            top: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+            var count = 0;
+            var timer = null;
+            $("up").onmouseover = function() {
+                clearInterval(timer);
+                timer = setInterval(function() {
+                    if(count <= -1070) {
+                        clearInterval(timer);
+                    }else {
+                        count--;
+                        console.log(count);
+                        $("img").style.top = count + "px";
+                    }
+                },10);
+            };
+            $("down").onmouseover = function() {
+                clearInterval(timer);
+                timer = setInterval(function() {
+                    if(count >= 0) {
+                        clearInterval(timer);
+                    }else {
+                        count++;
+                        $("img").style.top = count + "px";
+                    }
+                },50);
+            }
+            $("up").onmouseout = $("down").onmouseout = function() {
+                clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="pic">
+        <img src="images/mi.png" alt="" id = "img">
+        <div class = "t" id = "up"></div>
+        <div class = "b" id = "down"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="myBtn">点击</button>
+	<script>
+		function callme(name){
+			alert(name+"点击我了！");
+		}
+		document.getElementById("myBtn").onclick=function(){
+			var name="李四";
+			callme(name);
+		};
+	</script>
+</body>
+</html>

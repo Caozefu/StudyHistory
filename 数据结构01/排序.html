@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插入排序</title>
+</head>
+<body>
+<script>
+    //数组内交换
+    function arraySwap(arr,index1,index2) {
+        //先判断角标是否在范围内
+        if(index1 >= 0 && index1 < arr.length && index2 >=0 && index2 < arr.length) {
+            var center = arr[index1];
+            arr[index1] = arr[index2];
+            arr[index2] = center;
+            return arr;
+        }else {
+            console.log("error");
+        }
+
+    }
+    //获取范围内的随机数字
+    function getRandomNumber(length) {
+        var num = Math.ceil(Math.random()*length);
+        return num;
+    }
+    //选择排序
+    function selectionSort1(arr) {
+        for(var i = 0; i < arr.length; i ++) {
+            var count = arr[i];
+            for(var j = i + 1; j < arr.length; j ++) {
+                if(arr[j] <= count) {
+                    var num = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = num;
+                }
+            }
+        }
+    }
+    //选择排序优化
+    function selectionSort2(arr) {
+        for(var i = 0; i < arr.length; i ++) {
+            //记录最小的数的角标
+            var minIndex = i;
+            var temp = arr[i];
+            //循环获得最小的数的角标
+            for(var j = i + 1; j < arr.length; j ++) {
+                if(arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            //最小的数和第一个数交换
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
+    //插入排序
+    function insertionSort(arr) {
+        //从第二个元素开始遍历
+        for(var i = 1; i < arr.length; i ++) {
+            //这个元素和前面每个元素比大小,向前遍历
+            for(var j = i; j > 0 ; j --) {
+                if(arr[j] < arr[j - 1]) {
+                    //如果arr[j]比它前一个元素小，就往前换
+                    arraySwap(arr,j,j - 1);
+                }else {
+                    //如果比前一个大，直接退出循环，不用比较了
+                    break;
+                }
+            }
+        }
+    }
+    //插入排序优化
+    function insertionSort2(arr) {
+        for(var i = 1; i < arr.length; i ++) {
+            //复制一份arr[i]
+            var e = arr[i];
+            var j;
+            for(j = i; j > 0 && e < arr[j - 1]; j --) {
+                //应该更换
+                arr[j] = arr[j - 1];
+            }
+            //不应该更换了，插入到第j个位置
+            arr[j] = e;
+        }
+    }
+    //希尔排序
+    function shellSort(arr) {
+        var d = arr.length;
+        while(d !== 1) {
+            d = d/2;
+            d = Math.floor(d);
+            //第一层循环，i为第一个首元素
+            for(var i = 0; i < d ; i ++) {
+                for(var j = i + d; j < arr.length; j += d) {
+                    var e = arr[j];
+                    var x;
+                    for(x = j; x > 0 && e < arr[x - d]; x = x - d) {
+                        arr[x] = arr[x - d];
+                    }
+                    arr[x] = e;
+                }
+            }
+        }
+    }
+    //希尔排序优化
+    function shellSort2(arr) {
+        var len = arr.length;
+        for(var fraction = Math.floor(len / 2); fraction > 0; fraction = Math.floor(fraction / 2)){
+            for(var i = fraction; i < len; i ++){
+                for(var j = i - fraction; j >= 0 && arr[j] > arr[fraction + j]; j -= fraction){
+                    var temp = arr[j];
+                    arr[j] = arr[fraction + j];
+                    arr[fraction + j] = temp;
+                }
+            }
+        }
+    }
+    //冒泡排序
+    function bubbleSort(arr) {
+        //计数器，count记录交换了多少次
+        var count = 1;
+        //交换次数为0 时，停止循环。
+        while(count >= 1) {
+            //初始化count
+            count = 0;
+            for(var i = 1; i < arr.length; i ++) {
+                if(arr[i] < arr[i - 1]) {
+                    arraySwap(arr,i,i - 1);
+                    //每交换一次count++
+                    count ++;
+                }
+            }
+        }
+
+    }
+    //冒泡排序优化
+    function bubbleSort2(arr) {
+        var i = arr.length, j;
+        var tempExchangVal;
+        //循环一次最后一个数必为最大的数。因此循环一次i-1。
+        while (i > 0) {
+            for (j = 0; j < i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+//                    tempExchangVal = arr[j];
+//                    arr[j] = arr[j + 1];
+//                    arr[j + 1] = tempExchangVal;
+                    arraySwap(arr,j,j + 1);
+                }
+            }
+            i--;
+        }
+        return arr;
+    }
+
+    var arr = [9,8,7,6,5,4,3,2,1,0];
+    var arr2 = new Array(500000);
+    for(var i = 0; i < arr2.length; i ++) {
+        arr2[i] = getRandomNumber(arr2.length);
+    }
+    var startTime = new Date().getTime();
+//    insertionSort2(arr2);     //1062ms
+//   selectionSort2(arr2);     //2200ms
+//    bubbleSort2(arr2);        //7100ms
+    shellSort2(arr2);         //30ms
+    var endTime = new Date().getTime();
+
+    var useTime = endTime - startTime;
+    console.log(useTime);
+    console.log(arr2);
+
+</script>
+</body>
+</html>

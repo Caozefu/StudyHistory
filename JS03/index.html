@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>改变盒子大小</title>
+	<style type = "text/css">
+		#box {
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div id = "box"></div>
+	<button id = "btn1">变大</button>
+	<button id = "btn2">变小</button>
+	<button id = "btn3">恢复</button>
+<script>
+	function $(id) {
+		return document.getElementById(id);
+	}
+	function changeSize(size) {
+		box.style.width = size + "px";
+		box.style.height = size + "px";
+	}
+	var box = $("box");
+	var btn1 = $("btn1");
+	var btn2 = $("btn2");
+	var btn3 = $("btn3");
+	btn1.onclick = function() {
+		changeSize(200)
+	}
+	btn2.onclick = function() {
+		changeSize(50);
+	}
+	btn3.onclick = function() {
+		changeSize(100);
+	}
+</script>
+</body>
+</html>

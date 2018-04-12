@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 150px;
+            height: 160px;
+            margin: 100px auto;
+            background-color: #ff98e9;
+        }
+        .box p {
+            line-height: 30px;
+            text-align: center;
+        }
+        .box span {
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: #5be6ff;
+            font-size: 60px;
+            text-align: center;
+            line-height: 100px;
+            margin: 10px auto;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var dayArr = ["日","一","二","三","四","五","六"];
+            var box = document.getElementById("box");
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            box.children[1].innerHTML = day;
+            box.children[0].innerHTML = ""+ year +"-"+ month +"-"+ day +" 星期"+ dayArr[date.getDay()]+"";
+        }
+    </script>
+</head>
+<body>
+    <div class="box" id = "box">
+        <p></p>
+        <span></span>
+    </div>
+</body>
+</html>

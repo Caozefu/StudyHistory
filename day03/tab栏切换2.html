@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		.fl {
+			float: left;
+		}
+		.clearfix:after, .clearfix:before {
+			content: '';
+			display: table;
+		}
+		.clearfix:after {
+			clear: both;
+		}
+		.box {
+			width: 200px;
+			margin: 100px auto;
+			border: 1px solid #ccc;
+		}
+		.top span {
+			float: left;
+			width: 50px;
+			height: 20px;
+			line-height: 20px;
+			text-align: center;
+			cursor: pointer;
+		}
+		.bottom {
+			height: 200px;
+		}
+		.bottom ul li {
+			height: 200px;
+			background-color: pink;
+			display: none;
+		}
+		.current {
+			background-color: pink;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			function tab(id) {
+				var lis = document.getElementById(id).getElementsByTagName("span");
+				var divs = document.getElementById(id).getElementsByTagName("li");
+				for(var i = 0,len = lis.length; i < len; i++) {
+					lis[i].index = i;
+					lis[i].onmouseover = function () {
+						for(var j = 0,len = lis.length; j < len; j++) {
+							lis[j].className = "";
+						}
+						this.className = "current";
+						for(var m = 0,len = divs.length; m < len; m++) {
+							divs[m].style.display = "none";
+						}
+						divs[this.index].style.display = "block";
+					}
+				}
+			}
+			tab("box1");
+			tab("box2");
+			tab("box3");
+			tab("box4");
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id = "box1">
+		<div class="top clearfix" id = "top">
+			<span class = "current">北京</span>
+			<span>上海</span>
+			<span>杭州</span>
+			<span>温州</span>
+		</div>
+		<div class="bottom" id = "bottom">
+			<ul>
+				<li  style = "display: block;">
+					<div>北京</div>
+				</li>
+				<li>
+					<div>上海</div>
+				</li>
+				<li>
+					<div>杭州</div>
+				</li>
+				<li>
+					<div>温州</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="box" id = "box2">
+		<div class="top clearfix" id = "top">
+				<span class = "current">北京</span>
+				<span>上海</span>
+				<span>杭州</span>
+				<span>温州</span>
+		</div>
+		<div class="bottom" id = "bottom">
+			<ul>
+				<li style = "display: block;">
+					<div>北京</div>
+				</li>
+				<li>
+					<div>上海</div>
+				</li>
+				<li>
+					<div>杭州</div>
+				</li>
+				<li>
+					<div>温州</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="box" id = "box3">
+		<div class="top clearfix" id = "top">
+				<span class = "current">北京</span>
+				<span>上海</span>
+				<span>杭州</span>
+				<span>温州</span>
+		</div>
+		<div class="bottom" id = "bottom">
+			<ul>
+				<li style = "display: block;">
+					<div>北京</div>
+				</li>
+				<li>
+					<div>上海</div>
+				</li>
+				<li>
+					<div>杭州</div>
+				</li>
+				<li>
+					<div>温州</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="box" id = "box4">
+		<div class="top clearfix" id = "top">
+				<span class = "current">北京</span>
+				<span>上海</span>
+				<span>杭州</span>
+				<span>温州</span>
+		</div>
+		<div class="bottom" id = "bottom">
+			<ul>
+				<li style = "display: block;">
+					<div>北京</div>
+				</li>
+				<li>
+					<div>上海</div>
+				</li>
+				<li>
+					<div>杭州</div>
+				</li>
+				<li>
+					<div>温州</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

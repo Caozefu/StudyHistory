@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var endDate = new Date("2017/9/4 0:00");
+            var time = document.getElementById("time");
+            setInterval(function() {
+                var date = new Date();
+                var second = (endDate.getTime() - date.getTime()) / 1000;
+                var hour = parseInt((second / 3600) % 24);
+                var min = parseInt((second / 60) % 60);
+                var sec = parseInt(second % 60);
+                //console.log(hour,min,sec);
+                hour < 10 ? hour = "0" + hour : hour;
+                min < 10 ? min = "0" + min : min;
+                sec < 10 ? sec = "0" + sec : sec;
+                time.innerHTML = hour + "时"+ min +"分"+ sec +"秒";
+            },1000);
+
+
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        距离活动结束还有：<span id = "time">00时00分00秒</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+.header .w {
+	position: relative;
+}
+.header .logo {
+	position: absolute;
+	top: -31px;
+	left: 0;
+	width: 190px;
+	height: 170px;
+	background-color: #fff;
+	box-shadow: 0 -12px 10px rgba(0,0,0,.2);
+}
+.header .logo h1 {
+	width: 190px;
+	height: 170px;
+	text-indent: -9999em;
+	background: url(../images/logo.jpg) no-repeat;
+	background-size: 190px 170px;
+}
+.header .search {
+	width: 550px;
+	height: 35px;
+    position: absolute;
+    left: 320px;
+    top: 25px;
+}
+.header .search input {
+	width: 494px;
+	height: 33px;
+	border: 1px solid #F10215;
+	font: 14px/33px "microsoft yahei";
+	padding-left: 4px;
+	color: #999999;
+	float: left;
+}
+.header .btn {
+	width: 48px;
+	height: 35px;
+	background: url(../images/search.png) no-repeat;
+	border: 1px solid #F10215;
+	float: left;
+	cursor: pointer;
+}
+
+/*图标*/
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:14px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}

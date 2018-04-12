@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 400px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById("btn");
+            var box = document.getElementById("box");
+            var target = 0;
+            var timer = null;
+            btn.onclick = function() {
+                timer = setInterval(function() {
+                    var step = (target - box.offsetLeft) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    box.style.left = box.offsetLeft + step + "px";
+                    if(box.offsetLeft == target) {
+                        clearInterval(timer);
+                    }
+                },30)
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id = "btn">开始</button>
+    <div id = "box"></div>
+</body>
+</html>

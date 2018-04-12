@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var foo = 1;
+    function main(){
+        alert(foo);
+        var foo = 2;
+        this.foo = 3;
+        alert(this.foo);
+    }
+    var m1 = main();
+    //var m2 = new main();
+</script>
+</body>
+</html>

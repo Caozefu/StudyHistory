@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #btn {
+            width: 120px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+            var timer = null;
+            $("btn").onclick = function() {
+                clearInterval(timer);
+                var _this = this;
+                var num = 10;
+                timer = setInterval(function () {
+                    //console.log(num);
+                    _this.disabled = true;
+                    if(num >= 0) {
+                        _this.innerHTML = num + "秒后重新发送";
+                        num--;
+                    }else {
+                        _this.innerHTML = "重新发送验证码";
+                        clearInterval(timer);
+                        _this.disabled = false;
+                    }
+                },1000);
+
+            }
+        }
+    </script>
+</head>
+<body>
+<form action="">
+    <input type="" id = "inp">
+    <button id = "btn">发送验证码</button>
+    <input type="submit">
+</form>
+</body>
+</html>

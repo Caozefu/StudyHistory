@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 2000px;
+        }
+        button {
+            width: 50px;
+            height: 20px;
+            float: right;
+            margin: 5px;
+        }
+        #mask {
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+            position: fixed;
+            filter: alpha(opacity = 50);
+            top: 0;
+            left: 0;
+            opacity: 0.5;
+            display: none;
+        }
+        #login {
+            width: 500px;
+            height: 400px;
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -200px 0 0 -250px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id = "mask"></div>
+    <button>注册</button>
+    <button id = "btn">登陆</button>
+    <div id = "login"></div>
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    $("btn").onclick = function(event) {
+        $("mask").style.display = "block";
+        $("login").style.display = "block";
+        var event = event || window.event;
+        if(event && event.stopPropagation) {
+            event.stopPropagation();
+        }else {
+            event.cancelBubble = true;
+        }
+        document.body.style.overflow = "hidden";
+    }
+    $("login").onclick = function(event) {
+        var event = event || window.event;
+        if(event && event.stopPropagation) {
+            event.stopPropagation();
+        }else {
+            event.cancelBubble = true;
+        }
+    }
+    document.onclick = function() {
+        $("mask").style.display = "none";
+        $("login").style.display = "none";
+        document.body.style.overflow = "";
+    }
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 400px;
+            height: 300px;
+            background-color: pink;
+            position: absolute;
+            top: 200px;
+            left: 500px;
+            display: block;
+        }
+        .top {
+            height: 30px;
+            background-color: yellow;
+            line-height: 30px;
+            cursor: move;
+        }
+        .top a {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id = "BOX">
+        <div class="top">
+            <span>登陆提示窗（可以拖拽）</span>
+            <a href="javascript:;" id = "close">[关闭]</a>
+        </div>
+        <div class="bottom"></div>
+    </div>
+</body>
+</html>
+<script>
+    var box = document.getElementById("BOX");
+    var top = box.children[0];
+    var close = document.getElementById("close");
+    close.onclick = function() {
+        box.style.display = "none";
+    };
+    top.onmousedown = function(event) {
+        var event = event || window.event;
+        var left = event.clientX - box.offsetLeft;
+        var top = event.clientY - box.offsetTop;
+        box.onmousemove = function(event) {
+            window.getSelection() ? window.getSelection().removeAllRanges() : document.selection.empty();
+            var event = event || window.event;
+            var x = event.clientX - left;
+            var y = event.clientY - top;
+            box.style.left = x + "px";
+            box.style.top = y + "px";
+        };
+        document.onmouseup = function() {
+            box.onmousemove = null;
+        }
+    }
+</script>

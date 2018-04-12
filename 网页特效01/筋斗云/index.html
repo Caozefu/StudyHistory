@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        body {
+            background-color: pink;
+        }
+        .nav {
+            width: 1000px;
+            height: 42px;
+            margin: 100px auto;
+            /*background-color: pink;*/
+            background: white url(images/rss.png) no-repeat right center;
+            position: relative;
+        }
+        .ul {
+            position: absolute;
+            left: 0;
+        }
+        .ul li {
+            float: left;
+            width: 83px;
+            line-height: 42px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .cloud {
+            width: 83px;
+            height: 42px;
+            display: block;
+            position: absolute;
+            left: 0;
+            background-image: url(images/cloud.gif);
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <span class = "cloud" id = "Cloud"></span>
+        <ul class = "ul" id = "UL">
+            <li>北京校区</li>
+            <li>广州校区</li>
+            <li>上海校区</li>
+            <li>杭州校区</li>
+            <li>西安校区</li>
+            <li>深圳校区</li>
+            <li>沈阳校区</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var leader = 0, target = 0, current = 0;
+    var childs = $("UL").children;
+    for(var i = 0; i < childs.length; i++) {
+        childs[i].onmouseover = function () {
+            //debugger;
+            //clearInterval(timer);
+            target = this.offsetLeft;
+            //console.log(target);
+            this.style.color = "red";
+        };
+        childs[i].onmouseout = function() {
+            target = current;
+            this.style.color = "black";
+            //clearInterval(timer);
+
+        };
+        childs[i].onclick = function() {
+            current = this.offsetLeft;
+        }
+    }
+    setInterval(function() {
+        leader = leader + (target - leader) / 10;
+        $("Cloud").style.left = leader + "px";
+    },10);
+</script>

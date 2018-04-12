@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>微博发布</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.box {
+			width: 400px;
+			margin: 100px auto;
+			border: 1px solid black;
+		}
+		textarea {
+			width: 250px;
+			resize: none;
+		}
+		ul {
+			list-style: none;
+		}
+		ul li {
+			width: 300px;
+			margin: 0 auto;
+			border-bottom: 1px dashed #ccc;
+			line-height: 20px;
+		}
+		a {
+			float: right;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			function $(id) {
+				return document.getElementById(id);
+			}
+			var ul = document.createElement("ul");
+			$("box").appendChild(ul);
+			ul.setAttribute("id","ul");
+			$("btn").onclick = function() {
+				var text = $("txt").value;
+				var lis = document.createElement("li");
+				if(text == "") {
+					alert("输入内容不能为空");
+					return;
+				}
+				lis.innerHTML = text + "<a href = 'javascript:;'>删除</a>";
+				if($("ul").children.length == 0) {
+					$("ul").insertBefore(lis,null);
+				}else {
+					$("ul").insertBefore(lis,$("ul").children[0]);
+				}
+				$("txt").value = "";
+
+				var as = document.getElementsByTagName("a");
+				for (var i = 0; i < as.length; i++) {
+					as[i].onclick = function() {
+						$("ul").removeChild(this.parentNode);
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id = "box">
+		<span>微博内容：</span>
+		<textarea name="" id="txt" cols="30" rows="10"></textarea>
+		<button id = "btn">发布</button>
+<!-- 		<ul>
+			<li>123456123</li>
+			<li>123456123</li>
+			<li>123456123</li>
+		</ul> -->
+	</div>
+</body>
+</html>

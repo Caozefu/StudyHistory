@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆角应用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #555455;
+        }
+        .box {
+            width: 300px;
+            height: 300px;
+            background: url("images/demo1/7.jpg");
+            margin: 100px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .box:hover .mask{
+            display: block;
+        }
+        .box .mask {
+            width: 300px;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            background-color: rgba(0,0,0,0.3);
+            display: none;
+        }
+        .box .mask span {
+            color: #fff;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 22px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="mask">
+            <span>新品试用<br />IPSA明星王牌套装</span>
+        </div>
+    </div>
+</body>
+</html>

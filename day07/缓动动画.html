@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            top: 100px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <button id = "btn1">匀速开始</button>
+    <button id = "btn2">缓动开始</button>
+    <div class = "box" id = "Box"></div>
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var leader = 0;
+    var target = 500;
+    var timer = null;
+    $("btn1").onclick = function() {
+        timer = setInterval(function() {
+            leader++;
+
+        },10);
+    }
+    $("btn2").onclick = function() {
+        timer = setInterval(function() {
+            leader = leader + (target - leader) / 10;
+            if(leader <= target) {
+                $("Box").style.left = leader + "px";
+            }else {
+                clearInterval(timer);
+            }
+        },30);
+    }
+</script>

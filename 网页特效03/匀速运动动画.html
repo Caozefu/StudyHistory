@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById("btn");
+            var box = document.getElementById("div");
+            var timer = null;
+            btn.onclick = function() {
+                clearInterval(timer);
+                timer = setInterval(function() {
+                    if(box.offsetLeft < 400) {
+                        box.style.left = box.offsetLeft + 10 + "px";
+                    }else {
+                        clearInterval(timer);
+                    }
+                },10);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id = "btn">400</button>
+    <div id = "div"></div>
+</body>
+</html>

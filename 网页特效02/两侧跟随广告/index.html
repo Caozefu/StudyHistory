@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .main {
+            text-align: center;
+        }
+        .left {
+            left: 10px;
+        }
+        .right {
+            right: 10px;
+        }
+        .ad {
+            position: absolute;
+            top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <img src="images/main.png" alt="">
+    </div>
+    <div class="ad left">
+        <img src="images/aside.jpg" alt="">
+    </div>
+    <div class="ad right">
+        <img src="images/aside.jpg" alt="">
+    </div>
+</body>
+</html>
+<script src = "my.js"></script>
+<script>
+    var ads = document.getElementsByClassName("ad");
+    var timer = null;
+    var leader = 0, target = 0;
+    window.onscroll = function() {
+        target = scroll().top;
+        timer = setInterval(function() {
+            clearInterval(timer);
+            leader = leader + (target - leader) / 10;
+            for(var i = 0; i < ads.length; i++) {
+                ads[i].style.top = leader + 30 + "px";
+            }
+        },30);
+        //alert(target);
+    };
+
+
+</script>

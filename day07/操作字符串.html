@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id = "box1">what's your name?</div>
+    <div id = "box2">how are you?</div>
+    <button id = "btn">concat()</button><span></span>
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var text1 = $("box1").innerHTML;
+    var text2 = $("box2").innerHTML;
+    function onBtnClick(btn,text) {
+        btn.onclick = function() {
+            this.nextSibling.innerHTML = text;
+        }
+    }
+    onBtnClick($("btn"),text1.concat(text2));
+</script>

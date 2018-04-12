@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var PI = 3.1415926;
+    //方法1
+    function toFixedOne(num,hold) {
+        var str = num + "";
+        var index = str.indexOf(".");
+        var result = str.substr(0,index + hold + 1);
+        return result;
+    }
+    //方法2
+    function toFixedTwo(num,hold) {
+        var pows = Math.pow(10,hold);
+        var result = parseInt(num * pows) / pows;
+        return result;
+    }
+    //方法3
+    alert(PI.toFixed(3));
+    var num = toFixedOne(PI,3);
+    var num2 = toFixedTwo(PI,3);
+    console.log(num2);
+</script>
+</body>
+</html>

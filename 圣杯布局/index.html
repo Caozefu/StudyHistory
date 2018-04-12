@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>圣杯布局</title>
+	<style type = "text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			min-width: 700px;
+		}
+		.container {
+			height: 300px;
+			padding: 0 100px;
+			position: relative;
+		}
+		.center {
+			height: 300px;
+			width: 100%;
+			background-color: red;
+			float: left;
+		}
+		.left {
+			height: 300px;
+			width: 100px;
+			float: left;
+			position: relative;
+			left: -100px;
+			margin-left: -100%;
+			background-color: yellow;
+		}
+		.right {
+			height: 300px;
+			width: 100px;
+			float: left;
+			position: relative;
+			right: -100px;
+			margin-left: -100px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class = "container">
+		<div class = "center"><p>撒大苏打实打实大苏打实打实大苏打实打实大苏打实打实大苏打实打实大苏	打实打实大苏打实打实大苏打实打实大苏打实打实</p></div>
+		<div class = "left"></div>
+		<div class = "right"></div>
+	</div>
+</body>
+</html>

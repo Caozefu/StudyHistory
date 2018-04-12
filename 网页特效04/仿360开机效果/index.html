@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {margin: 0; padding: 0; vertical-align: bottom;}
+        .box {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        span {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 9px;
+        }
+    </style>
+    <script type = text/javascript src = "../多个属性运动框架.js"></script>
+    <script>
+        function $(id) {return document.getElementById(id)}
+        window.onload = function() {
+            $("close").onclick = function() {
+                animate($("b"),{height: 0},function() {
+                    animate($("Box"),{width: 0});
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class = "box" id = "Box">
+        <span id = "close"></span>
+        <div id = "t">
+            <img src="images/t.jpg" alt="">
+        </div>
+        <div id = "b">
+            <img src="images/b.jpg" alt="">
+        </div>
+    </div>
+    
+</body>
+</html>

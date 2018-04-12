@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>侧边栏导航滑动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        body {
+            background-color: #242526;
+        }
+        .box {
+            width: 40px;
+            margin: 100px 100px;
+        }
+        .box ul li {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 5px;
+            transition: all 0.3s;
+        }
+        .box ul li:nth-child(1) {
+            background: url("images/demo1/bg.png") -80px -280px;
+        }
+        .box ul li:nth-child(2) {
+            background: url("images/demo1/bg.png") 0 -200px;
+        }
+        .box ul li:nth-child(3) {
+            background: url("images/demo1/bg.png") 0 -240px;
+        }
+        .box ul li:nth-child(4) {
+            background: url("images/demo1/bg.png") 0 -320px;
+        }
+        .box ul li:nth-child(5) {
+            background: url("images/demo1/bg.png") 0 0;
+        }
+        .box ul li:nth-child(1):hover {
+            background-position: -120px -280px;
+        }
+        .box ul li:nth-child(2):hover {
+            background-position: -40px -200px;
+        }
+        .box ul li:nth-child(3):hover {
+            background-position: -40px -240px;
+        }
+        .box ul li:nth-child(4):hover {
+            background-position: -40px -320px;
+        }
+        .box ul li:nth-child(5):hover {
+            background-position: -40px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

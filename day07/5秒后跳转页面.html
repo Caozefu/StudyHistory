@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 400px;
+            height: 100px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 50px;
+            margin: 100px auto;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var count = 5;
+            var speed = 1000;
+            var text = document.getElementById("text");
+            setTimeout(goIndexPage,speed);
+            function goIndexPage() {
+                count--;
+                if(count <= 0) {
+                    window.location.href = "http://www.baidu.com";
+                }else {
+                    text.innerHTML = count + "秒后跳转到首页"
+                    setTimeout(goIndexPage,speed);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <p id = "text">5秒后跳转到首页</p>
+        <p><a href="http://www.baidu.com">点击立即跳转到首页</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>搜索框</title>
+	<style type = "text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			font: 14px/20px "Microsoft Yahei";
+		}
+		.search {
+			width: 300px;
+			margin: 100px auto;
+			position: relative;
+		}
+		.search label {
+			height: 20px;
+			position: absolute;
+			top: 1px;
+			left: 10px;
+			color: #ccc;
+			cursor: text;
+			display: block;
+		}
+		.search input {
+			height: 20px;
+			font: 14px/20px "Microsoft Yahei";
+		}
+	</style>
+	<script>
+		window.onload = function() {
+			function $(id) {
+				return document.getElementById(id);
+			}
+			$("inp").oninput = $("inp").onpropertyChange = function () {
+				if(this.value == "") {
+					$("lab").style.display = "block";
+				}else {
+					$("lab").style.display = "none";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="search">
+		<input type="text" id = "inp">
+		<label for="inp" id = "lab">移动电源</label>
+	</div>
+</body>
+</html>

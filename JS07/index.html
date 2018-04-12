@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>查询中奖</title>
+	<style type = "text/css">
+		#inp {
+			color: #ccc;
+		}
+	</style>
+	<script>
+		window.onload = function() {
+			function $(id) {
+				return document.getElementById(id);
+			}
+			$("inp").onfocus = function() {
+				if(this.value == "请输入") {
+					this.value = "";
+					this.style.color = "black";
+				}
+			}
+			$("inp").onblur = function() {
+				if(this.value == "") {
+					this.value = "请输入";
+					this.style.color = "#ccc";
+				}
+			}
+			$("btn").onclick = function() {
+				if($("inp").value == "abc") {
+					alert("yes");
+				}else {
+					alert("no");
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" value = "请输入" id = "inp">
+	<button id = "btn">查询</button>
+</body>
+</html>

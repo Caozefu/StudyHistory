@@ -1,0 +1,178 @@
+@charset "UTF-8";
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+fieldset, img,input,button { border:none; padding:0;margin:0;outline-style:none; }
+ul, ol { list-style:none; }
+input{
+    font-family:Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif
+}
+select, input { vertical-align:middle;}
+select, input, textarea { font-size:12px; margin:0; }
+textarea { resize:none; } /*防止拖动*/
+img {border:0;	vertical-align:middle; }  /*  去掉图片低测默认的3像素空白缝隙*/
+table { border-collapse:collapse; }
+body{
+    -webkit-font-smoothing:antialiased;
+    background-color:#F6F6F6;
+    font:12px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+    color:#666;
+}
+a {color:#999; text-decoration:none; }
+a:hover{color:#C81623;}
+h1,h2,h3,h4,h5,h6 {text-decoration:none;font-weight:normal;font-size:100%;}
+s,i,em{font-style:normal;text-decoration:none;}
+.col-red{color: #F10215!important;}
+
+/*iconfont*/
+@font-face {
+    font-family: 'iconfont';  /* project id 433219 */
+    src: url('//at.alicdn.com/t/font_433219_dxn0l0qmjpxpqfr.eot');
+    src: url('//at.alicdn.com/t/font_433219_dxn0l0qmjpxpqfr.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_433219_dxn0l0qmjpxpqfr.woff') format('woff'),
+    url('//at.alicdn.com/t/font_433219_dxn0l0qmjpxpqfr.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_433219_dxn0l0qmjpxpqfr.svg#iconfont') format('svg');
+}
+
+/*公共类*/
+.w {  /*版心 提取 */
+    width: 1190px;
+    margin:0 auto;
+    position: relative;
+}
+.fl {
+    float:left
+}
+.fr {
+    float:right
+}
+.al {
+    text-align:left
+}
+.ac {
+    text-align:center
+}
+.ar {
+    text-align:right
+}
+.hide {
+    display:none
+}
+/*清除浮动*/
+.clearfix:before,.clearfix:after {
+	content: '';
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+
+/*头部导航开始*/
+.shortcut {
+    width: 100%;
+    height: 30px;
+    background-color: #E3E4E5;
+    border-bottom: 1px solid #DDD;
+    color: #999999;
+    line-height: 30px;
+}
+.shortcut .place {
+    color: #f10215;
+}
+.fl {
+    position: absolute;
+    left: 200px;
+}
+.w .fl .dt {
+    width: 42px; 
+    height: 29px;
+    border: 1px solid #E3E4E5;
+    border-bottom: 1px solid #DDD;
+    /*background-color: red;*/
+    padding: 0 7px;
+}
+.w .fl .hover {
+    height: 30px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    z-index: 200;
+    position: absolute;
+}
+.w .fl .dd {
+    width: 300px;
+    padding: 10px;
+    background-color: white;
+    position: absolute;
+    top: 30px;
+    border: 1px solid #ccc;
+    display: block;
+    z-index: 199;
+}
+.dd .check .item {
+    width: 60px;
+    padding: 2px 0;
+    line-height: 24px;
+    float: left;
+    text-align: -webkit-match-parent;
+}
+.dd .check .item a {
+    float: left;
+    padding: 0 8px;
+}
+.dd .check .item a:hover {
+    color: #B82E2D;
+    background-color: #F4F4F4;
+}
+.dd .check .selected {
+    background-color: #F10216;
+    color: white;
+}
+/*.w .fl .dt span {*/
+    /*padding-left: 18px;*/
+    /*!*background: url(../images/sprite.png) no-repeat;*!*/
+/*}*/
+.topNav li {
+    float: left;
+    /*padding: 0 12px;*/
+}
+.topNav .line {
+    height: 10px;
+    width: 1px;
+    margin: 11px 5px 0;
+    background-color: #CCC;
+}
+.topNav .dt {
+    padding: 0 7px;
+}
+.topNav .first {
+    margin-right: 8px;
+}
+.cw_icon {
+    padding-right: 20px !important;
+    position: relative;
+}
+.topNav .iconfont {
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+.topNav .mobile {
+    position: relative;
+}
+/*.mobile div {*/
+    /*width: 60px;*/
+    /*height:60px;*/
+    /*padding: 6px;*/
+    /*border: 1px solid #CFCFCF;*/
+    /*background: url(../images/mobile_jd.png) no-repeat 6px 6px;*/
+    /*position: absolute;*/
+    /*top: 30px;*/
+/*}*/
+
+

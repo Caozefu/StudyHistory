@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 500px;
+            height: 500px;
+        }
+        #small {
+            width: 100px;
+            height: auto;
+            background-color: pink;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            function $(id) {
+                return document.getElementById(id);
+            }
+            document.onmouseup = function(event) {
+                var event = event || window.event;
+                var x = event.clientX;
+                var y = event.clientY;
+                var txt;
+                if(window.getSelection) {
+                    txt = window.getSelection().toString();
+                }else {
+                    txt = document.selection.createRange().text;
+                }
+                if(txt) {
+                    setTimeout(function() {
+                        $("small").style.display = "block";
+                        $("small").style.left = x + "px";
+                        $("small").style.top = y + "px";
+                        $("small").innerHTML = txt;
+                    },200);
+                }
+            }
+            document.onmousedown = function(event) {
+                var event = event || window.event;
+                var targetId = event.target ? event.target.id : event.srcElement.id;
+                if(targetId !== "small") {
+                     $("small").style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <span id = "small">事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊</span>
+    <div id = "box">
+        啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上啊啊啊啊啊啊啊啊啊啊啊啊啊事实上事实上事实上事实上事实上
+    </div>
+</body>
+</html>

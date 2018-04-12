@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标滑过切换图片</title>
+	<style type = "text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+		}
+		.clearfix:after, .clearfix:before {
+			content: '';
+			display: table;
+		}
+		.clearfix:after {
+			clear: both;
+		}
+		.clearfix {
+			zoom: 1;
+		}
+		.fl {
+			float: left;
+		}
+		.fr {
+			float: right;
+		}
+		.box {
+			width: 790px;
+			height: 340px;
+			margin: 50px auto;
+			position: relative;
+			overflow: hidden;
+		}
+		.pic {
+			height: 340px;
+		}
+		.pic ul {
+			width: 7000px;
+			position: absolute;
+			left: 0;
+		}
+		.circle {
+			margin-left: -91px;
+			padding: 4px 8px;
+			position:absolute;
+			bottom: 20px;
+			left: 50%;
+			width: 166px;
+			height: 12px;
+			border-radius: 10px;
+			background-color: rgba(255,255,255,.3);
+		}
+		.circle span {
+			float: left;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background-color: #fff;
+			margin-right: 10px;
+			/*cursor: pointer;*/
+		}
+		.circle span.last {
+			margin-right: 0;
+		}
+		#cir .current {
+			background-color: #DB192A;
+		}
+		.arrow {
+			display: none;
+		}
+		.arrow-l, .arrow-r {
+			width: 30px;
+			height: 60px;
+			color: white;
+			text-align: center;
+			font: 400 19px/60px "宋体";
+			background: rgba(0,0,0,.1);
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			margin-top: -30px;
+		}
+		.arrow-r {
+			right: 0;
+		}
+		#arrow a:hover {
+			background: rgba(0,0,0,.6);
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id = "box">
+		<div class="pic" id = "pic">
+			<ul id = "ul">
+				<li class = "fl"><img src="images/1.jpg" alt=""></li>
+				<li class = "fl"><img src="images/2.jpg" alt=""></li>
+				<li class = "fl"><img src="images/3.jpg" alt=""></li>
+				<li class = "fl"><img src="images/4.jpg" alt=""></li>
+				<li class = "fl"><img src="images/7.jpg" alt=""></li>
+				<li class = "fl"><img src="images/5.jpg" alt=""></li>
+				<li class = "fl"><img src="images/6.jpg" alt=""></li>
+				<li class = "fl"><img src="images/8.jpg" alt=""></li>
+			</ul>
+		</div>
+		<div class="arrow" id = "arrow">
+			<a href="javascript:;" class="arrow-l"><</a>
+			<a href="javascript:;" class="arrow-r">></a>
+		</div>
+
+		<!-- <div class="circle" id = "cir">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span class = "last"></span>
+		</div> -->
+	</div>
+<script>
+	function $(id) {
+		return document.getElementById(id);
+	}
+
+	//显示小三角
+	$("box").onmouseover = function() {
+		$("arrow").style.display = "block";
+	}
+	$("box").onmouseout = function() {
+		$("arrow").style.display = "none";
+	}
+	
+	//动态生成小圆点
+	var circle = document.createElement("div");
+	var lis = $("ul").children.length;
+	var width = (lis-1)*22 + 12;
+	$("box").appendChild(circle);
+	circle.setAttribute("class","circle");
+	circle.setAttribute("id","cir");
+	$("cir").style.width = width + "px";
+	for (var i = 0; i < lis; i++) {
+		//debugger;
+        //console.log(i);
+        $("cir").appendChild(document.createElement("span"));
+        if(i == (lis-1)) {
+            cir.children[i].setAttribute("class","last");
+            i++;
+        }
+    }
+	$("cir").children[0].className = "current";
+	//end
+	
+	//小圆点切换图片
+	var cirs = $("cir").children;
+	var leader = 0,target;
+	var timer = null;
+	for (var i = 0; i < cirs.length; i++) {
+		cirs[i].index = i;
+		cirs[i].onmouseover = function a() {
+		    clearInterval(timer);
+			for (var j = 0; j < cirs.length; j++) {
+				cirs[j].style.backgroundColor = "white";
+			}
+			this.style.backgroundColor = "#DB192A";
+			target = this.index * 790;
+			console.log(target);
+            timer = setInterval(picRoll,30);
+
+		};
+        function picRoll() {
+            leader = leader + (target - leader) / 10;
+            $("ul").style.left = -leader + "px";
+        }
+	}
+</script>
+</body>
+</html>

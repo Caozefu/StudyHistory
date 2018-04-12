@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: yellowgreen;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+    </style>
+    <script>
+        function $(id) {return document.getElementById(id)}
+        function getStyle(obj,attr) {
+            if(obj.currentStyle) {
+                return obj.currentStyle[attr];
+            }else {
+                return window.getComputedStyle(obj,null)[attr];
+            }
+        }
+        function animate(obj,json) {
+            clearInterval(obj["timer"]);
+            obj["timer"] = setInterval(function() {
+                //flag用来判断是否有没到位的属性
+                var flag = true;
+                //遍历json
+                for(var k in json) {
+                    //得到每个属性值
+                    var style = parseInt(getStyle(obj,k));
+                    //console.log(style);
+                    var step  = (json[k] - style) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    obj.style[k] = style + step + "px";
+                    if(style != json[k]) {
+                        flag = false;
+                    }
+                }
+                if(flag) {
+                    clearInterval(obj.timer);
+                }
+            },30);
+
+        }
+        //第二次
+        function animate2(obj,json) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                var flag = true;
+                //遍历json
+                for(var k in json) {
+                    //当前样式
+                    var style = parseInt(getStyle(obj,k));
+                    var step = (json[k] - style) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor (step);
+                    //添加透明度判断
+                    if(k == "opacity") {
+                        //step = (json[k] - style) / 10;
+                        //step = step > 0 ? Math.ceil(step) : Math.floor (step);
+                        obj.style[k] = json[k];
+                    }else {
+                        obj.style[k] = style + step + "px";
+                    }
+                    if(style != json[k]) {
+                        flag = false;
+                    }
+                }
+                if(flag) {
+                    clearInterval(obj.timer);
+                }
+            },30);
+        }
+
+        window.onload = function() {
+            $("btn1").onclick = function () {
+                animate2($("box"),{width: 60,left: 100,top: 70,opacity: 1});
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id = "btn1">按钮1</button>
+    <button id = "btn2">按钮2</button>
+    <div id = "box"></div>
+</body>
+</html>
