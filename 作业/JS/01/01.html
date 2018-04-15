@@ -13,87 +13,162 @@
             position: relative;
         }
         .bigBox {
+            width: 450px;
+            height: 250px;
+            margin: 100px auto;
+            user-select: none;
+            font-size: 12px;
+        }
+        .bigBox li.on {
+            background-color: #ee6f2d!important;
+        }
+        .leftButton ul {
+            float: left;
+        }
+        .leftButton ul li {
+            width: 100px;
+            background-color: #000;
+            color: #fff;
+            line-height: 30px;
+            text-align: center;
+            margin-bottom: 3px;
+            cursor: pointer;
+        }
+        .rightPart {
             width: 326px;
             height: 204px;
-            margin: 100px auto;
-            background-color: pink;
+            position: relative;
+            overflow: hidden;
         }
-        .bigBox .car::before, .food::before, .beauty::before {
-            color: white;
-            display: block;
-            width: 100px;
-            font-size: 12px;
-            line-height: 30px;
-            background-color: black;
-            text-align: center;
+        .rightPart div {
+            display: none;
+        }
+        .rightPart div img {
+            display: none;
             position: absolute;
-            left: -102px;
-        }
-        .bigBox .car::before {
-            content: "豪车";
-        }
-        .bigBox .food::before {
-            content: "美味";
-            top: 31px;
-        }
-        .bigBox .beauty::before {
-            content: "美女风景";
-            top: 62px;
-        }
-
-        .imgs li {
-            position: absolute;
-            top: 0;
             left: 0;
+            top: 0;
+        }
+        .rightPart div.on {
+            display: block;
+        }
+        .rightPart div img.on {
+            display: block;
+        }
+        .rightPart div .index {
+            height: 25px;
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+        .rightPart div .index li{
+            display: block;
+            float: left;
+            margin-left: 3px;
+            width: 24px;
+            line-height: 24px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
         }
     </style>
-    <script>
-        window.onload = function() {
-            function $(id) {
-                return document.getElementById(id);
-            }
-            var lis = $("ul").children;
-            for(var i = 0; i < lis.length; i ++) {
-                lis[i].index = i;
-                this.style.
-            }
-        }
-    </script>
 </head>
 <body>
     <div class = "bigBox">
-        <ul id = "ul">
-            <li class = "car">
-                <div>
-                    <ul class = "imgs">
-                        <li><img src="images/1.jpg" alt=""></li>
-                        <li><img src="images/2.jpg" alt=""></li>
-                        <li><img src="images/3.jpg" alt=""></li>
-                        <li><img src="images/4.jpg" alt=""></li>
-                    </ul>
-                    <ul class="number">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-            </li>
-            <li class = "food">
-                <div class = "smallBox">
-                    <ul>
-                        <li></li>
-                    </ul>
-                </div>
-            </li>
-            <li class = "beauty">
-                <div class = "smallBox">
-                    <ul>
-                        <li></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+        <div class="leftButton" id = "leftPart">
+            <ul>
+                <li class = "on">豪车</li>
+                <li>美味</li>
+                <li>美女风景</li>
+            </ul>
+        </div>
+        <div class="rightPart">
+            <div class="on" id = "part1">
+                <img src="images/1.jpg" alt="" class = "on">
+                <img src="images/2.jpg" alt="">
+                <img src="images/3.jpg" alt="">
+                <img src="images/4.jpg" alt="">
+                <ul class = "index">
+                    <li class = "on">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </div>
+            <div id = "part2">
+                <img src="images/m1.jpg" alt="" class = "on">
+                <img src="images/m2.jpg" alt="">
+                <img src="images/m3.jpg" alt="">
+                <img src="images/m4.jpg" alt="">
+                <img src="images/m5.jpg" alt="">
+                <ul class = "index">
+                    <li class = "on">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+            <div id = "part3">
+                <img src="images/s1.jpg" alt="" class = "on">
+                <img src="images/s2.jpg" alt="">
+                <img src="images/s3.jpg" alt="">
+                <img src="images/s4.jpg" alt="">
+                <img src="images/s5.jpg" alt="">
+                <ul class = "index">
+                    <li class = "on">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 </html>
+<script>
+    (function() {
+        var leftBtns = document.querySelectorAll(".leftButton li"),
+            imgs = document.querySelectorAll(".rightPart div"),
+            part1Lis = document.querySelectorAll("#part1 li"),
+            part1imgs = document.querySelectorAll("#part1 img"),
+            part2Lis = document.querySelectorAll("#part2 li"),
+            part2imgs = document.querySelectorAll("#part2 img"),
+            part3Lis = document.querySelectorAll("#part3 li"),
+            part3imgs = document.querySelectorAll("#part3 img")
+        ;
+        onmouseEnter(leftBtns,imgs,true);
+        onmouseEnter(part1Lis,part1imgs);
+
+        function onmouseEnter(nodeList1,nodeList2,bool) {
+
+            for(var i = 0; i < nodeList1.length; i ++) {
+                nodeList1[i].index = i;
+                if (nodeList2.lastSelect) {
+                    nodeList1[nodeList2.lastSelect].className = "";
+                    nodeList2[nodeList2.lastSelect].className = "";
+                    nodeList1[0].className = "on";
+                    nodeList2[0].className = "on";
+                }
+                nodeList2.lastSelect = 0;
+                nodeList1[i].onmouseenter = function() {
+                    if(nodeList2.lastSelect === this.index) {
+                        return;
+                    }
+                    nodeList1[nodeList2.lastSelect].className = "";
+                    nodeList2[nodeList2.lastSelect].className = "";
+                    nodeList2.lastSelect = this.index;
+                    nodeList1[this.index].className = "on";
+                    nodeList2[this.index].className = "on";
+                    if(bool) {
+                        onmouseEnter(part1Lis,part1imgs);
+                        onmouseEnter(part2Lis,part2imgs);
+                        onmouseEnter(part3Lis,part3imgs);
+                    }
+                }
+            }
+        }
+    })();
+</script>

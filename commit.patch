@@ -1,0 +1,1347 @@
+Index: 作业/02/案例一.html
+===================================================================
+--- 作业/02/案例一.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/02/案例一.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,21 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>案例一：border绘制三角形</title>
+-    <style>
+-        div {
+-            width: 0;
+-            height: 0;
+-            /*background-color: pink;*/
+-            border-top: 50px solid red;
+-            border-right: 50px solid transparent;
+-            border-bottom: 50px solid transparent;
+-            border-left: 50px solid transparent;
+-        }
+-    </style>
+-</head>
+-<body>
+-    <div></div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/02/案例三.html
+===================================================================
+--- 作业/02/案例三.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/02/案例三.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,48 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>案例三：图片展示效果</title>
+-    <style>
+-        * {
+-            margin: 0;
+-            padding: 0;
+-        }
+-        ul {
+-            list-style: none;
+-        }
+-        a {
+-            text-decoration: none;
+-            color: #000;
+-        }
+-        a:active {
+-            color: #000;
+-        }
+-        body {
+-            background-color: #eee;
+-        }
+-        div {
+-            width: 320px;
+-            height: 424px;
+-            background-color: #fff;
+-            margin: 100px auto;
+-            padding: 20px;
+-            box-sizing: border-box;
+-        }
+-        div ul li a {
+-            display: block;
+-            font: 16px/2 "microsoft yahei";
+-        }
+-    </style>
+-</head>
+-<body>
+-    <div>
+-        <img src="images/1.png" alt="" title="">
+-        <ul>
+-            <li><a href="#" title = "【神泣莹】水之密语靓彩">【神泣莹】水之密语靓彩</a></li>
+-            <li><a href="#" title = "【抢新品120号】千金净雅妇科专用">【抢新品120号】千金净雅妇科专用</a></li>
+-            <li><a href="#" title = "【抢新品120号】千金净雅妇科专用">【抢新品120号】千金净雅妇科专用</a></li>
+-        </ul>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/02/案例二.html
+===================================================================
+--- 作业/02/案例二.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/02/案例二.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,49 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>案例二：新闻列表</title>
+-    <style>
+-        * {
+-            padding: 0;
+-            margin: 0;
+-        }
+-        body {
+-            background-color: #eee;
+-        }
+-        .box {
+-            width: 240px;
+-            height: 300px;
+-            margin: 100px auto;
+-            background-color: #fff;
+-            overflow: hidden;
+-        }
+-        .box ul {
+-            /*list-style: none;*/
+-            width: 200px;
+-            height: 228px;
+-            border: 1px solid #ccc;
+-            margin: 36px auto;
+-            box-sizing: border-box;
+-            padding: 20px;
+-        }
+-        .box ul li {
+-            line-height: 30px;
+-            font-size: 12px;
+-            border-bottom: 1px dashed #ddd;
+-        }
+-    </style>
+-</head>
+-<body>
+-    <div class = "box">
+-            <ul>
+-                <li>蓝唇妆居然这么火？</li>
+-                <li>大牌画风为何突变？</li>
+-                <li>欧莱雅男士面膜</li>
+-                <li>COACH与追梦女性</li>
+-                <li>元气少女养成记！</li>
+-                <li>佑天兰中国体験会</li>
+-            </ul>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/03/案例一.html
+===================================================================
+--- 作业/03/案例一.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/03/案例一.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,78 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>案例一 ：天猫产品列表</title>
+-    <style>
+-        * {
+-            margin: 0;
+-            padding: 0;
+-        }
+-        i {
+-            font-style: normal;
+-            text-decoration: none;
+-        }
+-        a {
+-            color: #000;
+-            text-decoration: none;
+-        }
+-        a:active {
+-            color: #000;
+-        }
+-        ul {
+-            list-style: none;
+-        }
+-        .box {
+-            width: 1205px;
+-            height: 220px;
+-            overflow: hidden;
+-            margin: 100px auto;
+-        }
+-        .box ul li {
+-            width: 236px;
+-            height: 220px;
+-            float: left;
+-            margin-right: 5px;
+-            padding: 25px 0 0 20px;
+-            box-sizing: border-box;
+-        }
+-        .box ul li p {
+-            font-size: 18px;
+-        }
+-        .box ul li i {
+-            display: block;
+-            color: #9acf74;
+-            font-size: 14px;
+-        }
+-        .box ul li img {
+-            float: right;
+-        }
+-    </style>
+-</head>
+-<body>
+-    <div class="box">
+-        <ul>
+-            <li>
+-                <p><a href="" title = "抱抱果新首发">抱抱果新首发</a></p>
+-                <i>抱一下就幸福</i>
+-                <img src="images/demo1/1.jpg" alt="" width = "150px" height = "150px" title = "抱抱果新首发"></li>
+-            <li>
+-                <p><a href="" title = "天猫冰冰冰箱节">天猫冰冰冰箱节</a></p>
+-                <i>智由随风</i>
+-                <img src="images/demo1/2.jpg" alt="" width = "150px" height = "150px" title = "天猫冰冰冰箱节"></li>
+-            <li>
+-                <p><a href="" title = "西门子全球精选">西门子全球精选</a></p>
+-                <i>旗舰新品享你所想</i>
+-                <img src="images/demo1/3.jpg" alt="" width = "150px" height = "150px" title = "西门子全球精选"></li>
+-            <li>
+-                <p><a href="" title = "进口葡萄酒专场">进口葡萄酒专场</a></p>
+-                <i>原装进口品质保证</i>
+-                <img src="images/demo1/4.jpg" alt="" width = "150px" height = "150px" title = "进口葡萄酒专场"></li>
+-            <li>
+-                <p><a href="" title = "手机专场">手机专场</a></p>
+-                <i>天天搞机</i>
+-                <img src="images/demo1/5.jpg" alt="" width = "150px" height = "150px" title = "手机专场"></li>
+-        </ul>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/03/案例二.html
+===================================================================
+--- 作业/03/案例二.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/03/案例二.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,66 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>案列二：美食</title>
+-    <style>
+-        * {
+-            margin: 0;
+-            padding: 0;
+-        }
+-        body {
+-            background-color: #006600;
+-        }
+-        ul {
+-            list-style: none;
+-        }
+-        a {
+-            color: #000;
+-            text-decoration: none;
+-        }
+-        a:active {
+-            color: #000;
+-        }
+-        div {
+-            width: 360px;
+-            height: 360px;
+-            background-color: #fff;
+-            margin: 100px auto;
+-        }
+-        .top {
+-            height: 36px;
+-            background-color: #eceded;
+-        }
+-        .top li {
+-            float: left;
+-            line-height: 36px;
+-            width: 55px;
+-            text-align: center;
+-        }
+-        div img {
+-            margin: 10px 10px 0;
+-        }
+-        .text {
+-            line-height: 26px;
+-            font-size: 14px;
+-            color: #9a9898;
+-            padding: 0 10px;
+-        }
+-    </style>
+-</head>
+-<body>
+-    <div>
+-        <ul class = "top">
+-            <li><a href="#">鲜城</a></li>
+-            <li><a href="#">美食</a></li>
+-            <li><a href="#">休闲</a></li>
+-        </ul>
+-        <img src="images/demo2/food.png" alt="" width = "340px" height = "227px">
+-        <ul class="text">
+-            <li>美食| 藤椒红油烫出火锅成都味 橘洲美妙空间</li>
+-            <li>美食| 人气卤味店的秘制羊肉火锅 涮串铁板烧</li>
+-            <li>休闲| 冲上云霄品世界各地美酒 吃吃喝喝</li>
+-        </ul>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/04/左侧菜单.html
+===================================================================
+--- 作业/04/左侧菜单.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/04/左侧菜单.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,41 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>新闻潮流排行</title>
+-    <style>
+-        * {
+-            margin: 0;
+-            padding: 0;
+-        }
+-        ul {
+-            list-style: none;
+-        }
+-        body {
+-            background-color: #242526;
+-        }
+-        .box {
+-            width: 40px;
+-            margin: 100px 100px;
+-        }
+-        .box ul li {
+-            width: 40px;
+-            height: 40px;
+-            margin-bottom: 5px;
+-            background-image: url("images/demo1/1.png");
+-        }
+-    </style>
+-    
+-</head>
+-<body>
+-    <div class="box">
+-        <ul>
+-            <li style = "background-position: -80px -280px"></li>
+-            <li style = "background-position: 0 -200px"></li>
+-            <li style = "background-position: 0 -240px"></li>
+-            <li style = "background-position: 0 -320px"></li>
+-            <li style = "background-position: 0 0"></li>
+-        </ul>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/04/新闻潮流排行.html
+===================================================================
+--- 作业/04/新闻潮流排行.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/04/新闻潮流排行.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,74 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>左侧菜单</title>
+-    <style>
+-        * {
+-            margin: 0;
+-            padding: 0;
+-        }
+-        i {
+-            font-style: normal;
+-            text-decoration: none;
+-        }
+-        a {
+-            color: #000;
+-            text-decoration: none;
+-        }
+-        a:active {
+-            color: #000;
+-        }
+-        ul {
+-            list-style: none;
+-        }
+-        div {
+-            width: 302px;
+-            height: 313px;
+-            border: 1px solid #d9d9d9;
+-            margin: 100px auto;
+-            box-sizing: border-box;
+-            padding: 10px 15px;
+-        }
+-        div p {
+-            line-height: 43px;
+-            font-size: 19px;
+-            border-bottom: 1px solid #d9d9d9;
+-            font-weight: 700;
+-        }
+-        div p span {
+-            font-size: 15px;
+-            color: #dfdede;
+-        }
+-        div ul li {
+-            font-size: 14px;
+-            line-height: 35px;
+-        }
+-        div ul li i {
+-            display: inline-block;
+-            width: 21px;
+-            height: 16px;
+-            background-image: url("images/demo2/bg.png");
+-            margin-right: 12px;
+-            vertical-align: middle;
+-        }
+-    </style>
+-</head>
+-<body>
+-    <div>
+-        <p>
+-            潮流排行
+-            <span>Most Read</span>
+-        </p>
+-        <ul>
+-            <li><i style = "background-position: 0px 0px"></i>秋冬拗造型 你也需要一款时髦...</li>
+-            <li><i style = "background-position: 0px -30px"></i>屡登女富豪榜首 川普女儿能挣...</li>
+-            <li><i style = "background-position: 0px -60px"></i>英王室175年传家宝 男女出生必...</li>
+-            <li><i style = "background-position: 0px -90px"></i>k帅穿裙装变美 天使AA换裤装男...</li>
+-            <li><i style = "background-position: 0px -120px"></i>夏琳王妃美过10年前？ 穿Dior高...</li>
+-            <li><i style = "background-position: 0px -150px"></i>东京红毯吹出强劲中国风 吴亦凡...</li>
+-            <li><i style = "background-position: 0px -180px"></i>一场"最诗艺"的时装秀</li>
+-        </ul>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/05/复杂列表.html
+===================================================================
+--- 作业/05/复杂列表.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/05/复杂列表.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,92 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>复杂列表</title>
+-    <style>
+-        * {
+-            margin: 0;
+-            padding: 0;
+-        }
+-        i,s,h1,h2,h3,h4,h4,h5,h6 {
+-            font-style: normal;
+-            text-decoration: none;
+-        }
+-        a {
+-            color: #000;
+-            text-decoration: none;
+-        }
+-        a:active {
+-            color: #000;
+-        }
+-        .box {
+-            width: 200px;
+-            height: 600px;
+-            box-sizing: border-box;
+-            border: 1px solid #BF0000;
+-            margin: 100px 100px;
+-        }
+-        .box h1 {
+-            background-color: #BF0000;
+-            font-size: 16px;
+-            text-align: center;
+-            line-height: 33px;
+-            color: #fff;
+-        }
+-        .box>div {
+-            box-sizing: border-box;
+-            width: 183px;
+-            padding: 15px 13px 8px 13px;
+-            margin: 0 auto;
+-            border-bottom: 1px dashed #8f8f8f;
+-        }
+-        .box div p {
+-            line-height: 24px;
+-            padding-left: 30px;
+-        }
+-        .box div .classify {
+-            width: 161px;
+-            margin-top: 5px;
+-        }
+-        .box div .classify span {
+-            display: inline-block;
+-            font-size: 12px;
+-            line-height: 35px;
+-            margin-right: 5px;
+-        }
+-        .red {
+-            color: #bf0000;
+-        }
+-    </style>
+-
+-</head>
+-<body>
+-    <div class="box">
+-        <h1>全部产品</h1>
+-        <div>
+-            <p style = "background: url('images/demo2/face.png') no-repeat left top;"><a href="">产品系列</a></p>
+-            <div class="classify">
+-                <span><a href="" class = "red">豆腐补水</a></span><span><a href="">大米修复</a></span><span><a href="">樱花褪黄</a></span><span><a href="">小麦清润</a></span><span><a href="" class = "red">苹果籽-孕纹护理</a></span><span><a href="">洋甘菊-舒缓修复</a></span><span><a href="">其他单品</a></span>
+-            </div>
+-        </div>
+-        <div>
+-            <p style = "background: url('images/demo2/body.png') no-repeat left top;"><a href="">产品功效</a></p>
+-            <div class="classify">
+-                <span><a href="" class = "red">保湿补水</a></span><span><a href="">美白亮肤</a></span><span><a href="">控油</a></span><span><a href="">紧致抗皱</a></span><span><a href="" class = "red">妊娠纹-防护</a></span><span><a href="">舒缓敏感</a></span><span><a href="">眼部护理</a></span><span><a href="">护唇</a></span>
+-            </div>
+-        </div>
+-        <div>
+-            <p style = "background: url('images/demo2/wen.png') no-repeat left top;"><a href="">面部护理</a></p>
+-            <div class="classify">
+-                <span><a href="">洁面</a></span><span><a href="" class = "red">水</a></span><span><a href="">眼霜</a></span><span><a href="">精华液</a></span><span><a href="">乳液</a></span><span><a href="">面霜</a></span><span><a href="">隔离</a></span><span><a href="">BB霜</a></span><span><a href="" class = "red">CC霜</a></span><span><a href="">面膜</a></span><span><a href="">唇膏</a></span><span><a href="">卸妆油</a></span>
+-            </div>
+-        </div>
+-        <div>
+-            <p style = "background: url('images/demo2/pro.png') no-repeat left top;"><a href="">身体护理步骤</a></p>
+-            <div class="classify">
+-                <span><a href="" class = "red">洗发护发</a></span><span><a href="">身体洗护</a></span><span><a href="">孕纹护理</a>
+-            </div>
+-        </div>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/05/小僵尸.html
+===================================================================
+--- 作业/05/小僵尸.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/05/小僵尸.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,104 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>小僵尸</title>
+-    <style>
+-        * {
+-            margin: 0;
+-            padding: 0;
+-        }
+-        i,s,h1,h2,h3,h4,h4,h5,h6 {
+-            font-style: normal;
+-            text-decoration: none;
+-        }
+-        a {
+-            color: #000;
+-            text-decoration: none;
+-        }
+-        a:active {
+-            color: #000;
+-        }
+-        .box {
+-            width: 272px;
+-            height: 341px;
+-            border: 1px solid #e5e4e5;
+-            box-sizing: border-box;
+-            margin: 0 0 10px 100px;
+-            padding: 10px;
+-            color: #8b8b8b;
+-            font-size: 12px;
+-            line-height: 25px;
+-        }
+-        .box p a{
+-            font-size: 14px;
+-            font-weight: 700;
+-            line-height: 32px;
+-            color: #656565;
+-        }
+-        .box .classify .first {
+-            color: #e556a0;
+-        }
+-        .box h5 span {
+-            margin-right: 14px;
+-        }
+-        .red {
+-            color: #e5507f;
+-        }
+-        .box .playButton {
+-            display: block;
+-            width: 16px;
+-            height: 16px;
+-            background: url("images/demo1/play.png");
+-        }
+-    </style>
+-</head>
+-<body>
+-    <div class="box">
+-        <a href=""><img src="images/demo1/pic1.jpg" alt="" style = "display: block; margin-bottom: 7px;"></a>
+-        <p>
+-            <a href="">动画便利店X果壳网《西门子洗碗机》...</a>
+-        </p>
+-        <h3 class = "classify">
+-            <span class = "first">原创作品</span>
+-            -
+-            <span>影视</span>
+-            -
+-            <span>Motion Graphic</span>
+-        </h3>
+-        <h4 class = "time">
+-            <span>3</span>小时前上传
+-        </h4>
+-        <h5>
+-            <span class = "play_times red">1284</span>
+-            <span class = "hot">人气/<i class = "red">11</i></span>
+-            <span class = "comment">评论/<i class = "red">47</i></span>
+-            <span class = "recommend">推荐</span>
+-        </h5>
+-        <i class="playButton"></i>
+-    </div>
+-    <div class="box">
+-        <a href=""><img src="images/demo1/pic2.jpg" alt="" style = "display: block; margin-bottom: 7px;"></a>
+-        <p>
+-            <a href="">动画便利店X果壳网《西门子洗碗机》...</a>
+-        </p>
+-        <h3 class = "classify">
+-            <span class = "first">原创作品</span>
+-            -
+-            <span>影视</span>
+-            -
+-            <span>Motion Graphic</span>
+-        </h3>
+-        <h4 class = "time">
+-            <span>3</span>小时前上传
+-        </h4>
+-        <h5>
+-            <span class = "play_times red">1284</span>
+-            <span class = "hot">人气/<i class = "red">11</i></span>
+-            <span class = "comment">评论/<i class = "red">47</i></span>
+-            <span class = "recommend">推荐</span>
+-        </h5>
+-        <i class="playButton"></i>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/06/侧边栏导航滑动.html
+===================================================================
+--- 作业/06/侧边栏导航滑动.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/06/侧边栏导航滑动.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,70 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>侧边栏导航滑动</title>
+-    <style>
+-        * {
+-            margin: 0;
+-            padding: 0;
+-        }
+-        ul {
+-            list-style: none;
+-        }
+-        body {
+-            background-color: #242526;
+-        }
+-        .box {
+-            width: 40px;
+-            margin: 100px 100px;
+-        }
+-        .box ul li {
+-            width: 40px;
+-            height: 40px;
+-            margin-bottom: 5px;
+-            transition: all 0.3s;
+-        }
+-        .box ul li:nth-child(1) {
+-            background: url("images/demo1/bg.png") -80px -280px;
+-        }
+-        .box ul li:nth-child(2) {
+-            background: url("images/demo1/bg.png") 0 -200px;
+-        }
+-        .box ul li:nth-child(3) {
+-            background: url("images/demo1/bg.png") 0 -240px;
+-        }
+-        .box ul li:nth-child(4) {
+-            background: url("images/demo1/bg.png") 0 -320px;
+-        }
+-        .box ul li:nth-child(5) {
+-            background: url("images/demo1/bg.png") 0 0;
+-        }
+-        .box ul li:nth-child(1):hover {
+-            background-position: -120px -280px;
+-        }
+-        .box ul li:nth-child(2):hover {
+-            background-position: -40px -200px;
+-        }
+-        .box ul li:nth-child(3):hover {
+-            background-position: -40px -240px;
+-        }
+-        .box ul li:nth-child(4):hover {
+-            background-position: -40px -320px;
+-        }
+-        .box ul li:nth-child(5):hover {
+-            background-position: -40px 0px;
+-        }
+-    </style>
+-</head>
+-<body>
+-    <div class="box">
+-        <ul>
+-            <li></li>
+-            <li></li>
+-            <li></li>
+-            <li></li>
+-            <li></li>
+-        </ul>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/06/竖直二级菜单.html
+===================================================================
+--- 作业/06/竖直二级菜单.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/06/竖直二级菜单.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,47 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>竖直二级菜单</title>
+-    <style>
+-        * {
+-            margin: 0;
+-            padding: 0;
+-        }
+-        .box {
+-            width: 300px;
+-            margin: 100px auto;
+-        }
+-        .box p {
+-            padding-left: 45px;
+-            line-height: 40px;
+-            background: url("images/demo2/bg1.png") no-repeat -164px -416px;
+-        }
+-        .box div {
+-            width: 300px;
+-            height: 40px;
+-            background-color: #ddd;
+-            margin-bottom: 1px;
+-            padding-left: 10px;
+-            box-sizing: border-box;
+-            font-size: 16px;
+-            line-height: 40px;
+-            transition: all 0.2s;
+-        }
+-        .box div:hover {
+-            background-color: #dbb783;
+-            color: #fff;
+-        }
+-    </style>
+-</head>
+-<body>
+-    <div class = "box">
+-        <p>美图赏析</p>
+-        <div>美女人像</div>
+-        <div>风光人文</div>
+-        <div>动物微距</div>
+-        <div>鸟类摄影</div>
+-        <div>综合摄影</div>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/07/00 圆角应用.html
+===================================================================
+--- 作业/07/00 圆角应用.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/07/00 圆角应用.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,49 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>圆角应用</title>
+-    <style>
+-        * {
+-            margin: 0;
+-            padding: 0;
+-        }
+-        body {
+-            background-color: #555455;
+-        }
+-        .box {
+-            width: 300px;
+-            height: 300px;
+-            background: url("images/demo1/7.jpg");
+-            margin: 100px auto;
+-            border-radius: 50%;
+-            overflow: hidden;
+-            cursor: pointer;
+-        }
+-        .box:hover .mask{
+-            display: block;
+-        }
+-        .box .mask {
+-            width: 300px;
+-            height: 300px;
+-            line-height: 300px;
+-            text-align: center;
+-            background-color: rgba(0,0,0,0.3);
+-            display: none;
+-        }
+-        .box .mask span {
+-            color: #fff;
+-            display: inline-block;
+-            vertical-align: middle;
+-            line-height: 22px;
+-        }
+-    </style>
+-</head>
+-<body>
+-    <div class="box">
+-        <div class="mask">
+-            <span>新品试用<br />IPSA明星王牌套装</span>
+-        </div>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/07/01 美女介绍.html
+===================================================================
+--- 作业/07/01 美女介绍.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/07/01 美女介绍.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,114 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>美女介绍</title>
+-    <style>
+-        * {
+-            margin: 0;
+-            padding: 0;
+-        }
+-        i,s,h1,h2,h3,h4,h4,h5,h6 {
+-            font-style: normal;
+-            text-decoration: none;
+-        }
+-        a {
+-            color: #000;
+-            text-decoration: none;
+-        }
+-        a:active {
+-            color: #000;
+-        }
+-        .main {
+-            width: 380px;
+-            height: 138px;
+-            border-bottom: 1px solid #d9d9d8;
+-            margin-left: 100px;
+-            overflow: hidden;
+-        }
+-        .last {
+-            border-bottom: none;
+-        }
+-        .main img {
+-            display: block;
+-            width: 90px;
+-            height: 90px;
+-            border: 4px solid #cccccb;
+-            border-radius: 50%;
+-            margin: 20px 0;
+-            float: left;
+-            cursor: pointer;
+-        }
+-        .main div {
+-            width: 268px;
+-            height: 98px;
+-            float: left;
+-            padding-left: 14px;
+-            margin-top: 20px;
+-            line-height: 98px;
+-        }
+-        .main div p {
+-            font-size: 13px;
+-            font-weight: 700;
+-            display: inline-block;
+-        }
+-        .main div .txt {
+-            font-weight: normal;
+-        }
+-        .main div span {
+-            font-size: 14px;
+-            display: inline-block;
+-            vertical-align: middle;
+-            line-height: 21px;
+-        }
+-        .main img:hover {
+-            border-color: #efa042;
+-        }
+-        .main div p:hover {
+-            color: #efa042;
+-        }
+-    </style>
+-</head>
+-<body>
+-    <div class = main>
+-        <img src="images/demo2/1.jpg" alt="">
+-        <div>
+-            <span>
+-                <p>AmyRoiland</p>
+-                <br>
+-                <p class = "txt">「AmyRoiland」美国洛杉矶 风格复古又新潮，总能在清新、性感和复古中轻松切换</p>
+-            </span>
+-        </div>
+-    </div>
+-    <div class = main>
+-        <img src="images/demo2/2.jpg" alt="">
+-        <div>
+-            <span>
+-                <p>Tonya S.</p>
+-                <br>
+-                <p class = "txt">「Tonya S.」美国</p>
+-            </span>
+-        </div>
+-    </div>
+-    <div class = main>
+-        <img src="images/demo2/3.jpg" alt="">
+-        <div>
+-            <span>
+-                <p>EvaVelt</p>
+-                <br>
+-                <p class = "txt">「EvaVelt」荷兰时尚博主</p>
+-            </span>
+-        </div>
+-    </div>
+-    <div class = "main last">
+-        <img src="images/demo2/4.jpg" alt="">
+-        <div>
+-            <span>
+-                <p>Nicola Nilsen</p>
+-                <br>
+-                <p class = "txt">「Nicola Nilsen」挪威 风格清新甜美</p>
+-            </span>
+-        </div>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/07/02左侧定位导航.html
+===================================================================
+--- 作业/07/02左侧定位导航.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/07/02左侧定位导航.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,97 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>左侧定位导航n</title>
+-    <style>
+-        * {
+-            margin: 0;
+-            padding: 0;
+-        }
+-        i,s,h1,h2,h3,h4,h4,h5,h6 {
+-            font-style: normal;
+-            text-decoration: none;
+-        }
+-        a {
+-            color: #000;
+-            text-decoration: none;
+-        }
+-        a:active {
+-            color: #000;
+-        }
+-        ul {
+-            list-style: none;
+-        }
+-        div {
+-            width: 60px;
+-            height: 320px;
+-            border: 1px solid #fd6397;
+-            margin: 100px 100px;
+-        }
+-        div li {
+-            width: 60px;
+-            height: 62px;
+-            line-height: 62px;
+-            font-weight: 700;
+-            text-align: center;
+-            vertical-align: middle;
+-            cursor: pointer;
+-            color: #abaaab;
+-        }
+-        div li span.white {
+-            color: #fff;
+-        }
+-        div ul .first {
+-            background-color: #fd6397;
+-        }
+-        div li span {
+-            font-size: 12px;
+-            line-height: 19px;
+-            display: inline-block;
+-            vertical-align: bottom;
+-        }
+-        div .first span {
+-            font-size: 14px;
+-            line-height: 19px;
+-            display: inline-block;
+-            vertical-align: middle;
+-        }
+-
+-        div li:nth-child(2) {
+-            background: url("images/bg.jpg") no-repeat 0 0 ;
+-        }
+-        div li:nth-child(3) {
+-            background: url("images/bg.jpg") no-repeat -176px -63px;
+-        }
+-        div li:nth-child(4) {
+-            background: url("images/bg.jpg") no-repeat 0 -124px;
+-        }
+-        div li:nth-child(5) {
+-            background: url("images/bg.jpg") no-repeat 0 -186px;
+-        }
+-        div li:nth-child(2):hover {
+-            background: url("images/bg.jpg") no-repeat -88px 0 ;
+-            color: #fd6397!important;
+-        }
+-        div li:nth-child(4):hover {
+-            background: url("images/bg.jpg") no-repeat -88px -124px;
+-            color: #fd6397!important;
+-        }
+-        div li:nth-child(5):hover {
+-            background: url("images/bg.jpg") no-repeat -88px -186px;
+-            color: #fd6397!important;
+-        }
+-    </style>
+-</head>
+-<body>
+-    <div>
+-        <ul>
+-            <li class = "first"><span class = "white">聚美<br/>首页</span></li>
+-            <li><span>每日必看</span></li>
+-            <li><span class = "white">爆款榜</span></li>
+-            <li><span>上新单品</span></li>
+-            <li><span>品牌团</span></li>
+-        </ul>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/07/index.html
+===================================================================
+--- 作业/07/index.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
++++ 作业/07/index.html	(revision f88904e82b9bd4e9cb8bc6971675e620d25dca34)
+@@ -1,17 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-    <style>
+-        div {
+-            width: 100px;
+-            height: 100px;
+-            background: url("images/demo2/1.jpg");
+-        }
+-    </style>
+-</head>
+-<body>
+-    <div></div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: 作业/JS/01/01.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 作业/JS/01/01.html	(date 1523503136000)
++++ 作业/JS/01/01.html	(date 1523503136000)
+@@ -0,0 +1,99 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>Title</title>
++    <style>
++        * {
++            margin: 0;
++            padding: 0;
++        }
++        ul {
++            list-style: none;
++            position: relative;
++        }
++        .bigBox {
++            width: 326px;
++            height: 204px;
++            margin: 100px auto;
++            background-color: pink;
++        }
++        .bigBox .car::before, .food::before, .beauty::before {
++            color: white;
++            display: block;
++            width: 100px;
++            font-size: 12px;
++            line-height: 30px;
++            background-color: black;
++            text-align: center;
++            position: absolute;
++            left: -102px;
++        }
++        .bigBox .car::before {
++            content: "豪车";
++        }
++        .bigBox .food::before {
++            content: "美味";
++            top: 31px;
++        }
++        .bigBox .beauty::before {
++            content: "美女风景";
++            top: 62px;
++        }
++
++        .imgs li {
++            position: absolute;
++            top: 0;
++            left: 0;
++        }
++    </style>
++    <script>
++        window.onload = function() {
++            function $(id) {
++                return document.getElementById(id);
++            }
++            var lis = $("ul").children;
++            for(var i = 0; i < lis.length; i ++) {
++                lis[i].index = i;
++                this.style.
++            }
++        }
++    </script>
++</head>
++<body>
++    <div class = "bigBox">
++        <ul id = "ul">
++            <li class = "car">
++                <div>
++                    <ul class = "imgs">
++                        <li><img src="images/1.jpg" alt=""></li>
++                        <li><img src="images/2.jpg" alt=""></li>
++                        <li><img src="images/3.jpg" alt=""></li>
++                        <li><img src="images/4.jpg" alt=""></li>
++                    </ul>
++                    <ul class="number">
++                        <li></li>
++                        <li></li>
++                        <li></li>
++                        <li></li>
++                    </ul>
++                </div>
++            </li>
++            <li class = "food">
++                <div class = "smallBox">
++                    <ul>
++                        <li></li>
++                    </ul>
++                </div>
++            </li>
++            <li class = "beauty">
++                <div class = "smallBox">
++                    <ul>
++                        <li></li>
++                    </ul>
++                </div>
++            </li>
++        </ul>
++    </div>
++</body>
++</html>
+\ No newline at end of file
+diff --git 作业/02/images/1.png 作业/02/images/1.png
+deleted file mode 100644
+index 4ed13f4fb5c2b887f2fb6ea54fd8d3f59da8f34b..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/03/images/demo1/1.jpg 作业/03/images/demo1/1.jpg
+deleted file mode 100644
+index 7b78212c3fc273ee24ac0bb21d7615bfb28c3a64..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/03/images/demo1/2.jpg 作业/03/images/demo1/2.jpg
+deleted file mode 100644
+index 23f87f09d9e2841bca51f077756bb92822d3bcde..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/03/images/demo1/3.jpg 作业/03/images/demo1/3.jpg
+deleted file mode 100644
+index deffcda6331aa7430248b66701ea65dfd3c9ab09..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/03/images/demo1/4.jpg 作业/03/images/demo1/4.jpg
+deleted file mode 100644
+index b958d4f4536a3e4cc531b16bfbb9996871c9b56d..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/03/images/demo1/5.jpg 作业/03/images/demo1/5.jpg
+deleted file mode 100644
+index c9be541b4ab4c5000eea47df4c4701aa69b3656b..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/03/images/demo2/food.png 作业/03/images/demo2/food.png
+deleted file mode 100644
+index 67fee97b7e426b678e4226e589d9f430c0ba49b5..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/04/images/demo1/1.png 作业/04/images/demo1/1.png
+deleted file mode 100644
+index 8239e8c689cbedd1b258c0af76e0685174af0581..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/04/images/demo2/bg.png 作业/04/images/demo2/bg.png
+deleted file mode 100644
+index 9cb27a7a9341a7af432c8a76da622e1829dd1b04..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/05/images/demo1/pic1.jpg 作业/05/images/demo1/pic1.jpg
+deleted file mode 100644
+index 28907129fd3a13475ac662c6ed80a022bf1bb042..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/05/images/demo1/pic2.jpg 作业/05/images/demo1/pic2.jpg
+deleted file mode 100644
+index dc0d6826b22d77a77494031c37c45cd1c7c13f48..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/05/images/demo1/play.png 作业/05/images/demo1/play.png
+deleted file mode 100644
+index 3907f8092938b7f3a33527ca3257e8337b5b4234..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/05/images/demo2/body.png 作业/05/images/demo2/body.png
+deleted file mode 100644
+index f890ef61693cf7ee186b67bda36511d17fa9428a..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/05/images/demo2/face.png 作业/05/images/demo2/face.png
+deleted file mode 100644
+index dbe87b13a961eedbc820f18d07d1462b2397fb46..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/05/images/demo2/line.gif 作业/05/images/demo2/line.gif
+deleted file mode 100644
+index bfdd936edc96cf91cf882d85544cf693d32f24c1..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/05/images/demo2/pro.png 作业/05/images/demo2/pro.png
+deleted file mode 100644
+index e8b4e43883d54e55c959d38feb7fb68c8cbf950d..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/05/images/demo2/wen.png 作业/05/images/demo2/wen.png
+deleted file mode 100644
+index 8a479f9e63d3c794b02663cf04558b634384d0e2..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/05/images/demo2/左侧菜单.png 作业/05/images/demo2/左侧菜单.png
+deleted file mode 100644
+index 01bf92276c97a5fb4fd4aa7be0852ad747cfebf1..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/06/images/demo1/bg.png 作业/06/images/demo1/bg.png
+deleted file mode 100644
+index 8239e8c689cbedd1b258c0af76e0685174af0581..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/06/images/demo2/bg1.png 作业/06/images/demo2/bg1.png
+deleted file mode 100644
+index 3ccc5b301ff46267e45b7da05232480f23390768..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/07/images/demo1/7.jpg 作业/07/images/demo1/7.jpg
+deleted file mode 100644
+index eb45a3ba9f96bf5cccb80a1e3b069d4910da4ad1..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/07/images/demo2/1.jpg 作业/07/images/demo2/1.jpg
+deleted file mode 100644
+index b9ebcec8b0e9d7caf6041e22c782aa9a5918590c..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/07/images/demo2/2.jpg 作业/07/images/demo2/2.jpg
+deleted file mode 100644
+index c66e272d4dccdf9c4cbc7c1c310d06d16e730de4..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/07/images/demo2/3.jpg 作业/07/images/demo2/3.jpg
+deleted file mode 100644
+index cbac453a1215aa4ef071881024cbd4bdb6b9b355..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/07/images/demo2/4.jpg 作业/07/images/demo2/4.jpg
+deleted file mode 100644
+index 3e2d0854c1b04ab96f17877e1e93fdd66b87bc4c..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git 作业/07/images/bg.jpg 作业/07/images/bg.jpg
+deleted file mode 100644
+index 0936d96e8228caa3069c3d8f74a43194f7b5c96a..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
