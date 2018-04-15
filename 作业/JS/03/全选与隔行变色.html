@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选与隔行变色</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .top {
+            width: 400px;
+            border: 1px solid pink;
+            margin: 100px auto;
+            border-bottom: none;
+        }
+        .top ul li ,.top .btn {
+            width: 340px;
+            line-height: 50px;
+            padding-left: 60px;
+            border-bottom: 1px solid pink;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .top ul li i, .btn i{
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: url("images/ck.png") no-repeat;
+            position: absolute;
+            top: 50%;
+            margin-top: -10px;
+            left: 10px;
+        }
+        .top ul li i.on, .btn i.on {
+            background: url("images/cked.jpg") no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <ul id = "ul">
+            <li><i></i>number01</li>
+            <li><i></i>number02</li>
+            <li><i></i>number03</li>
+            <li><i></i>number04</li>
+            <li><i></i>number05</li>
+            <li><i></i>number06</li>
+            <!--<li><i></i>number07</li>-->
+            <!--<li><i></i>number08</li>-->
+            <!--<li><i></i>number09</li>-->
+        </ul>
+        <div class="btn" id = "allSelect"><i></i>全选</div>
+    </div>
+
+</body>
+</html>
+<script>
+    function $(id) {return document.getElementById(id);}
+    var lis = $("ul").children;
+    var selectNum = 0;
+
+    //隔行变色+添加点击事件
+    for(var i = 0; i < lis.length; i = i + 3) {
+        lis[i].style.backgroundColor = "#f60";
+        lis[i].onclick = function() {
+            click.call(this,false);
+        };
+    }
+    for(var j = 1; j < lis.length; j = j + 3) {
+        lis[j].style.backgroundColor = "#a02";
+        lis[j].onclick = function() {
+            click.call(this,false);
+        };
+    }
+    for(var m = 2; m < lis.length; m = m + 3) {
+        lis[m].style.backgroundColor = "green";
+        lis[m].onclick = function() {
+            click.call(this,false);
+        };
+    }
+
+    //全选按钮
+    $("allSelect").onclick = function() {
+        if(this.children[0].className && selectNum === lis.length) {
+            for(var x = 0; x < lis.length; x ++) {
+                lis[x].children[0].className = "";
+                lis[x].style.paddingLeft = "60px";
+                lis[x].style.width = "340px";
+            }
+            this.children[0].className = "";
+            selectNum = 0;
+        }else {
+            this.children[0].className = "on";
+            for(var n = 0; n < lis.length; n ++) {
+                click.call(lis[n],true);
+            }
+        }
+
+
+    };
+
+    //点击事件
+    function click(bool) {
+        if(bool) {
+            this.children[0].className = "on";
+            this.style.paddingLeft = "40px";
+            this.style.width = "360px";
+            selectNum = lis.length;
+        }else {
+            if(this.children[0].className === "") {
+                selectNum ++;
+                this.children[0].className = "on";
+                this.style.paddingLeft = "40px";
+                this.style.width = "360px";
+            }else {
+                selectNum --;
+                this.children[0].className = "";
+                this.style.paddingLeft = "60px";
+                this.style.width = "340px";
+            }
+            if(selectNum === lis.length) {
+                $("allSelect").children[0].className = "on";
+            }else {
+                $("allSelect").children[0].className = "";
+            }
+        }
+
+
+    }
+</script>
