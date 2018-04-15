@@ -10,17 +10,35 @@ window.onload = function() {
         this.style.color = "#b0b0b0";
     };
 
-    $("bigBox").onmouseover = function() {
+    //搜索框部分
+    var hotWord = $("bigBox").querySelectorAll(".hot_word a");
+    function mouseOver() {
         $("searchBox").style.borderColor = "#b0b0b0";
         $("searchButton").style.borderColor = "#b0b0b0";
-    };
-    $("bigBox").onmouseout = function() {
+    }
+    function mouseOut() {
         $("searchBox").style.borderColor = "#e0e0e0";
         $("searchButton").style.borderColor = "#e0e0e0";
-    };
-    $("searchBox").onfocus = function() {
+    }
+
+    $("bigBox").onmouseover = mouseOver;
+    $("bigBox").onmouseout = mouseOut;
+    $("searchBox").onclick = function() {
         this.style.borderColor = "#ff6700";
         $("searchButton").style.borderColor = "#ff6700";
+        $("bigBox").onmouseover = null;
+        $("bigBox").onmouseout = null;
+        for(var i = 0; i < hotWord.length; i ++) {
+            hotWord[i].style.opacity = "0";
+        }
+    };
+    $("searchBox").onblur = function() {
+        mouseOut();
+        $("bigBox").onmouseover = mouseOver;
+        $("bigBox").onmouseout = mouseOut;
+        for(var i = 0; i < hotWord.length; i ++) {
+            hotWord[i].style.opacity = "1";
+        }
     };
 
     // 轮播图左侧菜单栏

@@ -150,11 +150,12 @@ fieldset, img,input,button { border:none; padding:0;margin:0;outline-style:none;
 .search .hot_word a {
     color: #757575;
     background-color: #eee;
-    transition: all 0.2s;
     font-size: 12px;
     margin-left: 5px;
     padding: 0 5px;
     float: left;
+    opacity: 1;
+    transition: all 0.2s;
 }
 .search .hot_word a:hover {
     color: white;
