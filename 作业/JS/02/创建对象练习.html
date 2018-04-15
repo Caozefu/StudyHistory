@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        //创建一个电脑对象
+        var computer1 = new Object();
+        computer1.color = "red";
+        computer1.weight = "250g";
+        computer1.brand = "Lenovo";
+        computer1.model = "MH230";
+        computer1.playMovie = function(name) {
+            console.log("play" + name);
+        };
+
+        // 工厂模式
+        function createComputer2(color,weight,brand,model) {
+            var Computer2 = new Object();
+            Computer2.color = color;
+            Computer2.weight = weight;
+            Computer2.brand = brand;
+            Computer2.model = model;
+            Computer2.playMovie = function(name) {
+                console.log("play" + name);
+            };
+        }
+
+        //自定义构造函数
+        function Computer3(color,weight,brand,model) {
+            this.color = color;
+            this.weight = weight;
+            this.brand = brand;
+            this.model = model;
+            this.playMovie = function(name) {
+                alert("play" + name);
+            }
+        }
+
+        var c = new Computer3("blue","250g","Lenovo","H2304");
+        console.log(c.color + c.weight + c.brand + c.model);
+        c.playMovie("GOOD");
+
+        //函数字面量形式
+        let Computer4 = {
+            color: "blue",
+            weight: "250g",
+            brand: "Lenovo",
+            model: "JA215",
+            playMovie: function(name) {
+                alert("play" + name);
+            }
+        };
+
+        Computer4.playMovie("aaa");
+    </script>
+</body>
+</html>

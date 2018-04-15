@@ -69,6 +69,29 @@
         .three:hover img {
             transform: rotateX(180deg);
         }
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: pink;
+            position: relative;
+        }
+        .yellow {
+            width: 0px;
+            height: 0px;
+            border-radius: 50%;
+            background-color: yellow;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transition: all 0.3s;
+        }
+        .circle:hover .yellow{
+            width: 100px;
+            height: 100px;
+            top: 0;
+            left: 0;
+        }
     </style>
 </head>
 <body>
@@ -85,6 +108,9 @@
     <!--<img src="小米官网/images/rollImages/1.jpg" alt="" width = "1226px" height = "460px">-->
 <!--</div>-->
 
+<div class = "circle">
+    <div class="yellow"></div>
+</div>
 
 <div class="miImg">
     <img src="小米官网/images/mi.jpg" alt="">
