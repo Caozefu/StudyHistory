@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 500px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">100</button>
+    <button id="btn2">200</button>
+    <div id="box"></div>
+    <script>
+        var box = document.getElementById("box"),
+            btn1 = document.getElementById("btn1"),
+            btn2 = document.getElementById("btn2"),
+            leader = 0,
+            timer = null,
+            step = 0
+        ;
+
+        btn1.onclick = function() {
+            animate(box,100);
+        };
+        btn2.onclick = function() {
+            animate(box,200);
+        };
+
+        function animate(obj,target) {
+            clearInterval(timer);
+            timer = setInterval(function() {
+                leader = obj.offsetLeft;
+                step = (target - leader) / 30;
+                step = target > leader ? Math.ceil(step) : Math.floor(step);
+                obj.style.left = leader + step + "px";
+                if(leader === target) {
+                    clearInterval(timer);
+                }
+            },10);
+        }
+    </script>
+</body>
+</html>
