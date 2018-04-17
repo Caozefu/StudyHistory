@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" value = "第一个按钮" id = "btn1">
+    <input type="button" value = "删除第一个按钮里的事件" id = "btn2">
+    <script>
+        var btn1 = document.getElementById("btn1"),
+            btn2 = document.getElementById("btn2")
+        ;
+
+        function fn() {
+            console.log("abc");
+        }
+
+        addEventListener(btn1,"click",fn);
+        addEventListener(btn1,"click",function() {
+            console.log("abcsad");
+        });
+        addEventListener(btn2,"click",function() {
+            removeEventListener(btn1,"click",fn);
+        });
+        //添加事件监听：三个参数（事件体、事件类型、事件执行函数）
+
+        function addEventListener(obj,type,fn) {
+            if(obj.addEventListener) {
+                obj.addEventListener(type,fn,false);
+            }else if(obj.attachEvent) {
+                obj.attachEvent("on" + type,fn);
+            }else {
+                obj["on" + type] = fn;
+            }
+        }
+
+        //解除监听
+        function removeEventListener(obj,type,fn) {
+            if(obj.removeEventListener) {
+                obj.removeEventListener(type,fn,false);
+            }else if(obj.detachEvent) {
+                obj.detachEvent("on" + type,fn);
+            }else {
+                obj["on" + type] = null;
+            }
+        }
+    </script>
+</body>
+</html>
