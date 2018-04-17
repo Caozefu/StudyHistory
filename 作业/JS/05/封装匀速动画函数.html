@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 500px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id = "box"></div>
+    <button id = "btn100">100</button>
+    <button id = "btn200">200</button>
+    <script>
+        var box = document.getElementById("box"),
+            btn1 = document.getElementById("btn100"),
+            btn2 = document.getElementById("btn200"),
+            timer = null
+        ;
+
+        btn1.onclick = function() {
+            animate(box,500,100);
+
+        };
+        btn2.onclick = function() {
+            animate(box,500,200);
+
+        };
+
+        /*
+        * @progam : 匀速动画函数
+        *           obj 执行动画的元素
+        *           speed  速度(px/s)
+        *           target  目标位置
+        * */
+        function animate(obj,speed,target) {
+            clearInterval(timer);
+            var presentPlace = obj.offsetLeft;
+            speed = presentPlace < target ? (speed / 100) : (speed / -100);
+            timer = setInterval(function() {
+                if(Math.abs(presentPlace - target) <= Math.abs(speed)) {
+                    obj.style.left = target + "px";
+                    clearInterval(timer);
+                }else {
+                    presentPlace += speed;
+                    obj.style.left = presentPlace + "px";
+                }
+
+            },10);
+        }
+    </script>
+</body>
+
+</html>
