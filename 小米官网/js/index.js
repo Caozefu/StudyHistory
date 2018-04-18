@@ -1,13 +1,53 @@
 window.onload = function() {
+    var timer = null;
+
+    /*
+    * @program获取CSS属性
+    * */
+
+    function getStyle(obj,attr) {
+        if(obj.currentStyle) {
+            return obj.currentStyle[attr];
+        }else {
+            return window.getComputedStyle(obj,null)[attr];
+        }
+    }
+
+    /*
+        * @program : 匀速动画函数
+        *           obj 执行动画的元素
+        *           speed  速度(px/s)
+        *           target  目标位置
+        * */
+    function animate(obj,speed,target) {
+        clearInterval(timer);
+        var presentPlace = parseInt(getStyle(obj,"lineHeight"));
+        speed = presentPlace < target ? (speed / 100) : (speed / -100);
+        timer = setInterval(function() {
+            if(Math.abs(presentPlace - target) <= Math.abs(speed)) {
+                obj.style.lineHeight = target + "px";
+                clearInterval(timer);
+            }else {
+                presentPlace += speed;
+                obj.style.lineHeight = presentPlace + "px";
+            }
+
+        },10);
+    }
+
+
     function $(id) {return document.getElementById(id)}
     //购物车
     $("cart").onmouseover = function() {
-        this.style.backgroundColor = "#fff";
-        this.style.color = "#ff6700";
+        this.children[0].style.backgroundColor = "#fff";
+        this.children[0].style.color = "#ff6700";
+        // this.children[1].style.lineHeight = "98px";
+        animate(this.children[1],600,98);
     };
     $("cart").onmouseout = function() {
-        this.style.backgroundColor = "#424242";
-        this.style.color = "#b0b0b0";
+        this.children[0].style.backgroundColor = "#424242";
+        this.children[0].style.color = "#b0b0b0";
+        animate(this.children[1],600,0);
     };
 
     //搜索框部分
