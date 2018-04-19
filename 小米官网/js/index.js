@@ -1,15 +1,15 @@
-window.onload = function() {
+window.onload = function () {
     var timer = null;
 
     /*
     * @program获取CSS属性
     * */
 
-    function getStyle(obj,attr) {
-        if(obj.currentStyle) {
+    function getStyle(obj, attr) {
+        if (obj.currentStyle) {
             return obj.currentStyle[attr];
-        }else {
-            return window.getComputedStyle(obj,null)[attr];
+        } else {
+            return window.getComputedStyle(obj, null)[attr];
         }
     }
 
@@ -19,43 +19,48 @@ window.onload = function() {
         *           speed  速度(px/s)
         *           target  目标位置
         * */
-    function animate(obj,speed,target) {
+    function animate(obj, speed, target) {
         clearInterval(timer);
-        var presentPlace = parseInt(getStyle(obj,"lineHeight"));
+        var presentPlace = parseInt(getStyle(obj, "lineHeight"));
         speed = presentPlace < target ? (speed / 100) : (speed / -100);
-        timer = setInterval(function() {
-            if(Math.abs(presentPlace - target) <= Math.abs(speed)) {
+        timer = setInterval(function () {
+            if (Math.abs(presentPlace - target) <= Math.abs(speed)) {
                 obj.style.lineHeight = target + "px";
                 clearInterval(timer);
-            }else {
+            } else {
                 presentPlace += speed;
                 obj.style.lineHeight = presentPlace + "px";
             }
 
-        },10);
+        }, 10);
     }
 
 
-    function $(id) {return document.getElementById(id)}
+    function $(id) {
+        return document.getElementById(id)
+    }
+
     //购物车
-    $("cart").onmouseover = function() {
+    $("cart").onmouseover = function () {
         this.children[0].style.backgroundColor = "#fff";
         this.children[0].style.color = "#ff6700";
         // this.children[1].style.lineHeight = "98px";
-        animate(this.children[1],600,98);
+        animate(this.children[1], 600, 98);
     };
-    $("cart").onmouseout = function() {
+    $("cart").onmouseout = function () {
         this.children[0].style.backgroundColor = "#424242";
         this.children[0].style.color = "#b0b0b0";
-        animate(this.children[1],600,0);
+        animate(this.children[1], 600, 0);
     };
 
     //搜索框部分
     var hotWord = $("bigBox").querySelectorAll(".hot_word a");
+
     function mouseOver() {
         $("searchBox").style.borderColor = "#b0b0b0";
         $("searchButton").style.borderColor = "#b0b0b0";
     }
+
     function mouseOut() {
         $("searchBox").style.borderColor = "#e0e0e0";
         $("searchButton").style.borderColor = "#e0e0e0";
@@ -63,34 +68,34 @@ window.onload = function() {
 
     $("bigBox").onmouseover = mouseOver;
     $("bigBox").onmouseout = mouseOut;
-    $("searchBox").onclick = function() {
+    $("searchBox").onclick = function () {
         this.style.borderColor = "#ff6700";
         $("searchButton").style.borderColor = "#ff6700";
         $("bigBox").onmouseover = null;
         $("bigBox").onmouseout = null;
-        for(var i = 0; i < hotWord.length; i ++) {
+        for (var i = 0; i < hotWord.length; i++) {
             hotWord[i].style.opacity = "0";
         }
     };
-    $("searchBox").onblur = function() {
+    $("searchBox").onblur = function () {
         mouseOut();
         $("bigBox").onmouseover = mouseOver;
         $("bigBox").onmouseout = mouseOut;
-        for(var i = 0; i < hotWord.length; i ++) {
+        for (var i = 0; i < hotWord.length; i++) {
             hotWord[i].style.opacity = "1";
         }
     };
 
     // 轮播图左侧菜单栏
     var lis = $("ul").children;
-    for(var i = 0; i < lis.length; i ++) {
-        lis[i].onmouseover = function() {
-            for(var j = 0; j < lis.length; j ++) {
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].onmouseover = function () {
+            for (var j = 0; j < lis.length; j++) {
                 lis[j].style.backgroundColor = "";
             }
             this.style.backgroundColor = "#ff6700";
         }
-        lis[i].onmouseout = function() {
+        lis[i].onmouseout = function () {
             this.style.backgroundColor = "";
         }
     }
@@ -98,24 +103,24 @@ window.onload = function() {
     //轮播图左右按钮
     var imgs = $("imgs").children;
     $("nextImg").onclick = function () {
-        setTimeout(function() {
+        setTimeout(function () {
             // debugger;
-        // console.log(typeof ($("img1").style.opacity));
-            for(var i = 0; i < imgs.length; i ++) {
-                if(imgs[i].children[0].style.opacity === "1") {
-                        imgs[i].children[0].style.opacity = "0";
-                    if(i < 4) {
+            // console.log(typeof ($("img1").style.opacity));
+            for (var i = 0; i < imgs.length; i++) {
+                if (imgs[i].children[0].style.opacity === "1") {
+                    imgs[i].children[0].style.opacity = "0";
+                    if (i < 4) {
                         imgs[i + 1].children[0].style.opacity = "1";
-                        click( i + 1 );
-                    }else {
+                        click(i + 1);
+                    } else {
                         i = 0;
                         imgs[i].children[0].style.opacity = "1";
-                        click( i );
+                        click(i);
                     }
                     return;
                 }
             }
-        },100);
+        }, 100);
         // for(var j = 0; j < imgs.length; j ++) {
         //     imgs[j].style.opacity = "0";
         // }
@@ -123,14 +128,14 @@ window.onload = function() {
         // $("img2").style.opacity = "1";
     };
     $("lastImg").onclick = function () {
-        setTimeout(function() {
-            for(var i = 0; i < imgs.length; i ++) {
-                if(imgs[i].children[0].style.opacity === "1") {
+        setTimeout(function () {
+            for (var i = 0; i < imgs.length; i++) {
+                if (imgs[i].children[0].style.opacity === "1") {
                     imgs[i].children[0].style.opacity = "0";
-                    if(i > 0) {
+                    if (i > 0) {
                         imgs[i - 1].children[0].style.opacity = "1";
-                        click( i - 1 );
-                    }else {
+                        click(i - 1);
+                    } else {
                         i = 4;
                         imgs[i].children[0].style.opacity = "1";
                         click(i);
@@ -138,7 +143,7 @@ window.onload = function() {
                     return;
                 }
             }
-        },100);
+        }, 100);
 
         // $("img1").style.opacity = "1";
         // $("img2").style.opacity = "0";
@@ -149,21 +154,21 @@ window.onload = function() {
     console.log(circles.length);
     var thisIndex = 0;
 
-    for ( var i = 0; i < circles.length; i ++ ) {
+    for (var i = 0; i < circles.length; i++) {
         var lastSelect = 0;
         circles[i].index = i;
-        circles[i].onmouseenter = function() {
-            if(lastSelect !== thisIndex) {
+        circles[i].onmouseenter = function () {
+            if (lastSelect !== thisIndex) {
                 circles[lastSelect].className = "";
             }
             lastSelect = this.index;
             this.className = "active";
-            this.onclick = function() {
+            this.onclick = function () {
                 click(this.index);
             }
         };
-        circles[i].onmouseout = function() {
-            if(this.index === thisIndex) {
+        circles[i].onmouseout = function () {
+            if (this.index === thisIndex) {
                 return;
             }
             this.className = "";
@@ -171,8 +176,8 @@ window.onload = function() {
     }
 
     //圆点点击事件
-    function click( index ) {
-        for(var j = 0; j < circles.length; j ++) {
+    function click(index) {
+        for (var j = 0; j < circles.length; j++) {
             circles[j].className = "";
         }
         circles[index].className = "active";
@@ -209,4 +214,39 @@ window.onload = function() {
     // }
 
 
+
+    //闪购部分轮播图
+    (function() {
+        var leftBtn = document.getElementById("cutButton").children[0],
+            rightBtn = document.getElementById("cutButton").children[1],
+            imgs = document.getElementById("cutImg"),
+            colors = ["#f4af41","#91c15e","#4695ec","#d4483e"]
+        ;
+
+
+        for(var i = 0; i < imgs.children.length / 2; i ++) {
+            imgs.children[i].style.borderColor = colors[i];
+        }
+        for(var j = 4; j < imgs.children.length; j ++) {
+            imgs.children[j].style.borderColor = colors[j - 4];
+        }
+
+        if(imgs.offsetLeft === 0) {
+            rightBtn.className = "active iconfont";
+        }else {
+            leftBtn.className = "active iconfont";
+            rightBtn.className = "iconfont";
+        }
+
+        rightBtn.onclick = function() {
+            imgs.style.left = "-978px";
+            rightBtn.className = "iconfont";
+            leftBtn.className = "active iconfont";
+        };
+        leftBtn.onclick = function() {
+            imgs.style.left = "0";
+            rightBtn.className = "active iconfont";
+            leftBtn.className = "iconfont";
+        };
+    })();
 };

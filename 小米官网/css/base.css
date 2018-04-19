@@ -26,6 +26,16 @@ fieldset, img, input, button {
     margin: 0;
     outline-style: none;
 }
+.clearfix {
+    *zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
 
 /*顶部*/
 .top {

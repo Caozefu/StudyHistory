@@ -3,10 +3,12 @@
     height: 1272px;
     position: relative;
 }
+
 .home .rollimages {
     height: 460px;
     position: relative;
 }
+
 .home .rollimages img {
     width: 1226px;
     height: 460px;
@@ -16,36 +18,41 @@
     opacity: 0;
     transition: all 0.5s;
 }
+
 /*左侧菜单*/
-.home .menu ul{
+.home .menu ul {
     width: 234px;
     height: 420px;
     padding: 20px 0;
-    background-color: rgba(0,0,0,.6);
+    background-color: rgba(0, 0, 0, .6);
     position: absolute;
     top: 0;
     left: 0;
 }
+
 .home .menu ul li {
     height: 42px;
     cursor: pointer;
     position: relative;
     /*background-color: #ff6700;*/
 }
+
 .home .menu ul li a {
     color: #fff;
     padding: 0 0 0 30px;
     line-height: 42px;
     font-size: 14px;
 }
+
 .home .menu ul li i {
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, .5);
     width: 16px;
     height: 16px;
     position: absolute;
     top: 12px;
     right: 20px;
 }
+
 /*切换图片的按钮*/
 .home .cut .left, .right {
     display: block;
@@ -55,23 +62,28 @@
     position: absolute;
     cursor: pointer;
     top: 50%;
-    transform: translate(0,-50%);
+    transform: translate(0, -50%);
     /*50%是移动自己盒子的一半*/
 }
+
 .home .cut .left {
     background: url("../images/rollImages/icon-slides.png") no-repeat -83px 0;
     left: 234px;
 }
+
 .home .cut .right {
     background: url("../images/rollImages/icon-slides.png") no-repeat -125px 0;
     right: 0;
 }
+
 .home .cut .left:hover {
     background: url("../images/rollImages/icon-slides.png") no-repeat 0px 0;
 }
+
 .home .cut .right:hover {
     background: url("../images/rollImages/icon-slides.png") no-repeat -42px 0;
 }
+
 /*小圆点*/
 .home .circle {
     width: 400px;
@@ -81,16 +93,18 @@
     bottom: 20px;
     text-align: right;
 }
+
 .home .circle ul {
     float: right;
 }
+
 .home .circle li {
     float: left;
     width: 6px;
     height: 6px;
     margin: 0 5px;
-    background-color: rgba(0,0,0,0.4);
-    border: 2px solid rgba(255,255,255,0.3);
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -98,21 +112,224 @@
     transition: all 0.3s;
     cursor: pointer;
 }
+
 .home .circle li.active {
-    background-color: rgba(255,255,255,0.4);
-    border-color: rgba(0,0,0,.4);
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(0, 0, 0, .4);
 }
+
+/*轮播图下面的部分*/
+.home .down {
+    height: 170px;
+    /*float: left;*/
+    margin-top: 14px;
+    background-color: pink;
+}
+
+.home .down .leftBox {
+    width: 234px;
+    height: 170px;
+    background-color: #5e5751;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 3px 0 4px;
+}
+
+.home .down .leftBox ul li {
+    width: 75px;
+    height: 84px;
+    float: left;
+    line-height: 84px;
+    text-align: center;
+    color: #cfcdcb;
+    position: relative;
+    cursor: pointer;
+}
+
+/*框内细线*/
+.leftBox li.leftLine:before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 70px;
+    background-color: #655e58;
+    position: absolute;
+    left: 0;
+    top: 9px;
+}
+
+.leftBox li.topLine:after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 1px;
+    background-color: #655e58;
+    position: absolute;
+    left: 5px;
+    top: 0;
+}
+
+/*框内细线结束*/
+.home .down .rightBox {
+    width: 993px;
+    height: 170px;
+    background-color: #fff;
+    margin-left: -1px;
+    float: left;
+}
+
+.home .down .rightBox a {
+    height: 170px;
+    display: block;
+    margin-left: 15px;
+    float: left;
+}
+
+.home .down .rightBox a img {
+    width: 316px;
+    height: 170px;
+}
+
+/*闪购部分*/
+.sales {
+    height: 398px;
+    margin: 26px 0 42px 0;
+}
+
+.sales .sales_top {
+    height: 58px;
+}
+
+.sales_top h2 {
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 58px;
+}
+
+.sales_main .count_down {
+    width: 234px;
+    height: 340px;
+    box-sizing: border-box;
+    border-top: 1px solid #d4483e;
+    background-color: #f0eded;
+    float: left;
+}
+
+.sales_main .cut_img {
+    width: 978px;
+    height: 340px;
+    margin-left: 14px;
+    overflow: hidden;
+    float: left;
+    position: relative;
+}
+
+.sales_main .cut_img ul {
+    height: 340px;
+    width: 2000px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s;
+}
+
+.sales_main .cut_img ul li {
+    width: 234px;
+    height: 340px;
+    float: left;
+    box-sizing: border-box;
+    border-top: 1px solid #f4af41;
+    margin-right: 14px;
+    background-color: #fafafa;
+    cursor: pointer;
+}
+
+.sales_top {
+    position: relative;
+}
+
+.sales_cut {
+    width: 71px;
+    height: 24px;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+
+.sales_cut span {
+    width: 34px;
+    line-height: 22px;
+    display: block;
+    float: left;
+    text-align: center;
+    color: #e0e0e0;
+    font-weight: 700;
+    cursor: default;
+    border: 1px solid #e0e0e0;
+    user-select: none;
+}
+.sales_cut .active {
+    color: #b0b0b0;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.sales_cut .active:hover {
+    color: #ee702e;
+}
+
+/*闪购轮播图*/
+.sales_main .cut_img .content a {
+    display: block;
+    width: 160px;
+    height: 160px;
+    margin: 39px auto 22px;
+}
+
+.sales_main .cut_img .content a img {
+    width: 160px;
+    height: 160px;
+}
+
+.sales_main .cut_img .content h3 {
+    margin: 0 20px 3px;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+}
+
+.sales_main .cut_img .content p {
+    margin: 0 20px 12px;
+    font-size: 12px;
+    height: 18px;
+    text-align: center;
+    color: #b0b0b0;
+}
+
+.sales_main .cut_img .content p span {
+    font-size: 14px;
+    color: #ff6709;
+    font-weight: 400;
+}
+
+.sales_main .cut_img .content p del {
+    font-size: 14px;
+    font-weight: 400;
+}
+
 .page_main {
     height: 6974px;
     padding-top: 60px;
     background-color: orangered;
 }
+
 .footer {
     height: 272px;
     background-color: #ff1;
 }
+
 .page_info {
     height: 166px;
     padding: 30px 0;
     background-color: skyblue;
 }
+
