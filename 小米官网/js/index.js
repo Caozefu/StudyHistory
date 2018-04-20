@@ -100,153 +100,168 @@ window.onload = function () {
         }
     }
 
-    //轮播图左右按钮
-    var imgs = $("imgs").children;
-    $("nextImg").onclick = function () {
-        setTimeout(function () {
-            // debugger;
-            // console.log(typeof ($("img1").style.opacity));
-            for (var i = 0; i < imgs.length; i++) {
-                if (imgs[i].children[0].style.opacity === "1") {
-                    imgs[i].children[0].style.opacity = "0";
-                    if (i < 4) {
-                        imgs[i + 1].children[0].style.opacity = "1";
-                        click(i + 1);
-                    } else {
-                        i = 0;
-                        imgs[i].children[0].style.opacity = "1";
-                        click(i);
-                    }
-                    return;
-                }
-            }
-        }, 100);
-        // for(var j = 0; j < imgs.length; j ++) {
-        //     imgs[j].style.opacity = "0";
-        // }
-        // $("img1").style.opacity = "0";
-        // $("img2").style.opacity = "1";
-    };
-    $("lastImg").onclick = function () {
-        setTimeout(function () {
-            for (var i = 0; i < imgs.length; i++) {
-                if (imgs[i].children[0].style.opacity === "1") {
-                    imgs[i].children[0].style.opacity = "0";
-                    if (i > 0) {
-                        imgs[i - 1].children[0].style.opacity = "1";
-                        click(i - 1);
-                    } else {
-                        i = 4;
-                        imgs[i].children[0].style.opacity = "1";
-                        click(i);
-                    }
-                    return;
-                }
-            }
-        }, 100);
-
-        // $("img1").style.opacity = "1";
-        // $("img2").style.opacity = "0";
-    };
-
-    //图片下方小圆点开始
-    var circles = $("circles").children;
-    console.log(circles.length);
     var thisIndex = 0;
 
-    for (var i = 0; i < circles.length; i++) {
-        var lastSelect = 0;
-        circles[i].index = i;
-        circles[i].onmouseenter = function () {
-            if (lastSelect !== thisIndex) {
-                circles[lastSelect].className = "";
-            }
-            lastSelect = this.index;
-            this.className = "active";
-            this.onclick = function () {
-                click(this.index);
-            }
+
+    //轮播图左右按钮
+    (function () {
+        var imgBox = $("imgs"),
+            imgs = imgBox.children,
+            circles = $("circles").children,
+            timer = null
+        ;
+
+        //自动播放
+        timer = setInterval(cutNextImg, 5000);
+        imgBox.onmouseover = function() {
+            clearInterval(timer);
         };
-        circles[i].onmouseout = function () {
-            if (this.index === thisIndex) {
-                return;
+        imgBox.onmouseout = function() {
+            timer = setInterval(cutNextImg, 5000);
+        };
+
+        $("nextImg").onclick = cutNextImg;
+        $("lastImg").onclick = function () {
+            setTimeout(function () {
+                for (var i = 0; i < imgs.length; i++) {
+                    if (imgs[i].children[0].style.opacity === "1") {
+                        imgs[i].children[0].style.opacity = "0";
+                        if (i > 0) {
+                            imgs[i - 1].children[0].style.opacity = "1";
+                            click(i - 1);
+                        } else {
+                            i = 4;
+                            imgs[i].children[0].style.opacity = "1";
+                            click(i);
+                        }
+                        return;
+                    }
+                }
+            }, 100);
+
+            // $("img1").style.opacity = "1";
+            // $("img2").style.opacity = "0";
+        };
+
+        // 图片下方小圆点开始
+        for (var i = 0; i < circles.length; i++) {
+            var lastSelect = 0;
+            circles[i].index = i;
+            circles[i].onmouseenter = function () {
+                if (lastSelect !== thisIndex) {
+                    circles[lastSelect].className = "";
+                }
+                lastSelect = this.index;
+                this.className = "active";
+                this.onclick = function () {
+                    click(this.index);
+                }
+            };
+            circles[i].onmouseout = function () {
+                if (this.index === thisIndex) {
+                    return;
+                }
+                this.className = "";
             }
-            this.className = "";
         }
-    }
 
-    //圆点点击事件
-    function click(index) {
-        for (var j = 0; j < circles.length; j++) {
-            circles[j].className = "";
+        // 圆点点击事件
+        function click(index) {
+            for (var j = 0; j < circles.length; j++) {
+                circles[j].className = "";
+            }
+            circles[index].className = "active";
+            imgs[thisIndex].children[0].style.opacity = "0";
+            imgs[index].children[0].style.opacity = "1";
+            thisIndex = index;
         }
-        circles[index].className = "active";
-        imgs[thisIndex].children[0].style.opacity = "0";
-        imgs[index].children[0].style.opacity = "1";
-        thisIndex = index;
-    }
 
-    // for(var m = 0; m < circles.length; m ++) {
-    //     circles[m].index = m;
-    //     circles[m].onclick = function() {
-    //         for(var x = 0; x < circles.length; x ++) {
-    //             circles[x].className = "";
-    //         }
-    //         this.className = "active";
-    //         this.onmouseout = null;
-    //         findImg:for(var n = 0; n < imgs.length; n ++) {
-    //             if(imgs[n].children[0].style.opacity === "1") {
-    //                 imgs[n].children[0].style.opacity = "0";
-    //                 imgs[this.index].children[0].style.opacity = "1";
-    //                 break findImg;
-    //             }
-    //         }
-    //     };
-    //     circles[m].onmouseover = function() {
-    //         for(var y = 0; y < circles.length; y ++) {
-    //             circles[y].className = "";
-    //         }
-    //         this.className = "active";
-    //     };
-    //     circles[m].onmouseout = function() {
-    //         this.className = "";
-    //     };
-    // }
+        // 右侧按钮点击事件
+        function cutNextImg() {
+            setTimeout(function () {
+                // debugger;
+                // console.log(typeof ($("img1").style.opacity));
+                for (var i = 0; i < imgs.length; i++) {
+                    if (imgs[i].children[0].style.opacity === "1") {
+                        imgs[i].children[0].style.opacity = "0";
+                        if (i < 4) {
+                            imgs[i + 1].children[0].style.opacity = "1";
+                            click(i + 1);
+                        } else {
+                            i = 0;
+                            imgs[i].children[0].style.opacity = "1";
+                            click(i);
+                        }
+                        return;
+                    }
+                }
+            }, 100)
+        }
+
+    })();
 
 
+// for(var m = 0; m < circles.length; m ++) {
+//     circles[m].index = m;
+//     circles[m].onclick = function() {
+//         for(var x = 0; x < circles.length; x ++) {
+//             circles[x].className = "";
+//         }
+//         this.className = "active";
+//         this.onmouseout = null;
+//         findImg:for(var n = 0; n < imgs.length; n ++) {
+//             if(imgs[n].children[0].style.opacity === "1") {
+//                 imgs[n].children[0].style.opacity = "0";
+//                 imgs[this.index].children[0].style.opacity = "1";
+//                 break findImg;
+//             }
+//         }
+//     };
+//     circles[m].onmouseover = function() {
+//         for(var y = 0; y < circles.length; y ++) {
+//             circles[y].className = "";
+//         }
+//         this.className = "active";
+//     };
+//     circles[m].onmouseout = function() {
+//         this.className = "";
+//     };
+// }
 
-    //闪购部分轮播图
-    (function() {
+
+//闪购部分轮播图
+    (function () {
         var leftBtn = document.getElementById("cutButton").children[0],
             rightBtn = document.getElementById("cutButton").children[1],
             imgs = document.getElementById("cutImg"),
-            colors = ["#f4af41","#91c15e","#4695ec","#d4483e"]
+            colors = ["#f4af41", "#91c15e", "#4695ec", "#d4483e"]
         ;
 
 
-        for(var i = 0; i < imgs.children.length / 2; i ++) {
+        for (var i = 0; i < imgs.children.length / 2; i++) {
             imgs.children[i].style.borderColor = colors[i];
         }
-        for(var j = 4; j < imgs.children.length; j ++) {
+        for (var j = 4; j < imgs.children.length; j++) {
             imgs.children[j].style.borderColor = colors[j - 4];
         }
 
-        if(imgs.offsetLeft === 0) {
+        if (imgs.offsetLeft === 0) {
             rightBtn.className = "active iconfont";
-        }else {
+        } else {
             leftBtn.className = "active iconfont";
             rightBtn.className = "iconfont";
         }
 
-        rightBtn.onclick = function() {
+        rightBtn.onclick = function () {
             imgs.style.left = "-978px";
             rightBtn.className = "iconfont";
             leftBtn.className = "active iconfont";
         };
-        leftBtn.onclick = function() {
+        leftBtn.onclick = function () {
             imgs.style.left = "0";
             rightBtn.className = "active iconfont";
             leftBtn.className = "iconfont";
         };
     })();
-};
+}
+;
