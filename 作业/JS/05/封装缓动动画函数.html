@@ -11,8 +11,13 @@
             height: 100px;
             background-color: pink;
             position: absolute;
-            left: 500px;
-            top: 50px;
+            left: 0;
+            top: 0;
+        }
+        #btn2 {
+            position: absolute;
+            top: 200px;
+            left: 0;
         }
     </style>
 </head>
@@ -29,23 +34,41 @@
             step = 0
         ;
 
-        btn1.onclick = function() {
-            animate(box,100);
-        };
+        // btn1.onclick = function() {
+        //     animate(box,100);
+        // };
         btn2.onclick = function() {
-            animate(box,200);
+            animate(box,{"left": 100, "top" : 200},function() {
+                animate(box,{"left": 200});
+            });
         };
 
-        function animate(obj,target) {
+
+        function getStyle(obj,attr) {
+            return obj.currentStyle ? obj.currentStyle[attr] : window.getComputedStyle(obj,null)[attr];
+        }
+
+        function animate(obj,json,fn) {
             clearInterval(timer);
             timer = setInterval(function() {
-                leader = obj.offsetLeft;
-                step = (target - leader) / 30;
-                step = target > leader ? Math.ceil(step) : Math.floor(step);
-                obj.style.left = leader + step + "px";
-                if(leader === target) {
-                    clearInterval(timer);
+                var flag = true;
+                for(attr in json) {
+                    var target = json[attr];
+                    leader = parseInt(getStyle(obj,attr));
+                    step = (target - leader) / 30;
+                    step = target > leader ? Math.ceil(step) : Math.floor(step);
+                    obj.style[attr] = leader + step + "px";
+                    if(leader !== target) {
+                        flag = false;
+                    }
                 }
+                if(flag === true) {
+                    clearInterval(timer);
+                    if(fn) {
+                        fn();
+                    }
+                }
+
             },10);
         }
     </script>
