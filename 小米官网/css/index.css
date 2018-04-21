@@ -209,7 +209,45 @@
     border-top: 1px solid #d4483e;
     background-color: #f0eded;
     float: left;
+    text-align: center;
 }
+.sales_main .count_down .chang {
+    line-height: 22px;
+    font-size: 20px;
+    color: #dd4a44;
+    margin-top: 58px;
+    display: block;
+}
+.sales_main .count_down img {
+    display: block;
+    margin: 30px auto;
+}
+.sales_main .count_down p {
+    line-height: 22px;
+    font-size: 15px;
+    color: #6e6d6d;
+}
+.sales_main .count_down .time {
+    width: 168px;
+    height: 46px;
+    margin: 29px auto 49px;
+}
+.sales_main .count_down .time span {
+    width: 15px;
+    line-height: 46px;
+    font-size: 21px;
+    text-align: center;
+    color: #5e5751;
+    display: block;
+    float: left;
+    background-color: #f0eded;
+}
+.sales_main .count_down .time .block {
+    width: 46px;
+    color: white;
+    background-color: #5e5751;
+}
+
 .sales_main .cut_img {
     width: 978px;
     height: 340px;
