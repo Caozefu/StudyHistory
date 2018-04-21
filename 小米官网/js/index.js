@@ -102,7 +102,6 @@ window.onload = function () {
 
     var thisIndex = 0;
 
-
     //轮播图左右按钮
     (function () {
         var imgBox = $("imgs"),
@@ -200,36 +199,7 @@ window.onload = function () {
 
     })();
 
-
-// for(var m = 0; m < circles.length; m ++) {
-//     circles[m].index = m;
-//     circles[m].onclick = function() {
-//         for(var x = 0; x < circles.length; x ++) {
-//             circles[x].className = "";
-//         }
-//         this.className = "active";
-//         this.onmouseout = null;
-//         findImg:for(var n = 0; n < imgs.length; n ++) {
-//             if(imgs[n].children[0].style.opacity === "1") {
-//                 imgs[n].children[0].style.opacity = "0";
-//                 imgs[this.index].children[0].style.opacity = "1";
-//                 break findImg;
-//             }
-//         }
-//     };
-//     circles[m].onmouseover = function() {
-//         for(var y = 0; y < circles.length; y ++) {
-//             circles[y].className = "";
-//         }
-//         this.className = "active";
-//     };
-//     circles[m].onmouseout = function() {
-//         this.className = "";
-//     };
-// }
-
-
-//闪购部分轮播图
+    // 闪购部分轮播图
     (function () {
         var leftBtn = document.getElementById("cutButton").children[0],
             rightBtn = document.getElementById("cutButton").children[1],
@@ -263,5 +233,58 @@ window.onload = function () {
             leftBtn.className = "iconfont";
         };
     })();
-}
-;
+
+    //展示图浮动效果
+
+    (function() {
+        var imgs = $("phoneImgs").children;
+        for(var i = 0; i < imgs.length; i ++) {
+            imgs[i].onmouseover = itemActive;
+            imgs[i].onmouseout = removeActive;
+        }
+        $("left_img").onmouseover = function() {
+            this.className = " leftImg img_active";
+        };
+        $("left_img").onmouseout = function() {
+            this.className = " leftImg";
+        };
+    })();
+
+    function itemActive() {
+        this.className = "img_active";
+    }
+    function removeActive() {
+        this.className = "";
+    }
+
+};
+
+
+
+
+// for(var m = 0; m < circles.length; m ++) {
+//     circles[m].index = m;
+//     circles[m].onclick = function() {
+//         for(var x = 0; x < circles.length; x ++) {
+//             circles[x].className = "";
+//         }
+//         this.className = "active";
+//         this.onmouseout = null;
+//         findImg:for(var n = 0; n < imgs.length; n ++) {
+//             if(imgs[n].children[0].style.opacity === "1") {
+//                 imgs[n].children[0].style.opacity = "0";
+//                 imgs[this.index].children[0].style.opacity = "1";
+//                 break findImg;
+//             }
+//         }
+//     };
+//     circles[m].onmouseover = function() {
+//         for(var y = 0; y < circles.length; y ++) {
+//             circles[y].className = "";
+//         }
+//         this.className = "active";
+//     };
+//     circles[m].onmouseout = function() {
+//         this.className = "";
+//     };
+// }
