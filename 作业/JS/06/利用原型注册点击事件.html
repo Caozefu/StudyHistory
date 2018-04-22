@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            transition: all .4s;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value = "按钮" id = "btn">
+    <div id = "box"></div>
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        function Click(btnObj,boxObj,json) {
+            this.btn = btnObj;
+            this.box = boxObj;
+            this.json = json;
+        }
+        Click.prototype.init = function() {
+            var that = this;
+            this.btn.onclick = function() {
+                for( key in that.json) {
+                    that.box.style[key] = that.json[key];
+                }
+            }
+        };
+
+        var json = {"width": "200px","height": "200px","backgroundColor": "red"};
+        var clickButton = new Click($("btn"),$("box"),json);
+        clickButton.init();
+    </script>
+</body>
+</html>
