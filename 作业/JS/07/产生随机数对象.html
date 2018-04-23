@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+</head>
+<body>
+<script>
+    (function(window) {
+        function Random() {
+
+        }
+
+        Random.prototype.getRandom = function(min,max) {
+            return Math.floor(Math.random()*((max - min) + min));
+        };
+        var rm = new Random();
+        console.log(rm.getRandom(0,5));
+    })(window);
+</script>
+</body>
+</html>
