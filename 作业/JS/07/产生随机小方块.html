@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        body,div {
+            margin: 0;
+            padding: 0;
+        }
+        .bigBox {
+            width: 800px;
+            height: 600px;
+            margin: 10px;
+            background-color: skyblue;
+            position: relative;
+        }
+        .food {
+            width: 20px;
+            height: 20px;
+            background-color: greenyellow;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="bigBox"></div>
+    <script>
+        // 产生随机数
+        (function(window) {
+            function Random() {}
+            // 在原型中添加方法
+            Random.prototype.getRandom = function(min,max) {
+                return Math.floor(Math.random()* ((max - min) + min));
+            };
+            window.Random = Random;
+        })(window);
+
+        // 生成食物对象
+        (function() {
+            function Food(width,height,color) {
+                this.width = width || 20;
+                this.height = height || 20;
+                this.color = color || "greenyellow";
+                this.element = document.createElement("div");
+            }
+            Food.prototype = {
+
+            }
+        })();
+    </script>
+</body>
+</html>

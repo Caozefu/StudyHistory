@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        body,div {
+            margin: 0;
+            padding: 0;
+        }
+        .bigBox {
+            width: 224px;
+            height: 279px;
+            border: 1px solid gray;
+            margin: 100px auto;
+        }
+        .bigBox .top,.bottom {
+            line-height: 20px;
+            background-color: skyblue;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+        .center {
+            width: 224px;
+            height: 239px;
+            position: relative;
+            overflow: hidden;
+        }
+        .imgs {
+            width: 224px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="bigBox">
+        <div class="top" id = "up">上</div>
+        <div class="center">
+            <div class="imgs" id = "IMG">
+                <img src="img/scroll1.png" alt="">
+                <img src="img/scroll2.png" alt="">
+                <img src="img/scroll3.png" alt="">
+            </div>
+        </div>
+        <div class="bottom" id = "down">下</div>
+    </div>
+    <script>
+        var upBtn = document.getElementById("up"),
+            downBtn = document.getElementById("down"),
+            imgs = document.getElementById("IMG"),
+            timer = null
+        ;
+        upBtn.onmousedown = function() {
+            clearInterval(timer);
+            var num = imgs.offsetTop;
+            if(num === -489) {
+                return;
+            }
+            timer = setInterval(function() {
+                if(num === -489) {
+                    return;
+                }
+                num--;
+                imgs.style.top = num + "px";
+            },10);
+
+        };
+        downBtn.onmousedown = function() {
+            clearInterval(timer);
+            var num = imgs.offsetTop;
+            if(num === 0) {
+                return;
+            }
+            timer = setInterval(function() {
+                if(num === 0) {
+                    return;
+                }
+                num++;
+                imgs.style.top = num + "px";
+            },10);
+
+        };
+        upBtn.onmouseup = downBtn.onmouseup = function() {
+            clearInterval(timer);
+        };
+    </script>
+</body>
+</html>

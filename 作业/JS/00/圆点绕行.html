@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        body, div {
+            margin: 0;
+            padding: 0;
+        }
+
+        .roll {
+            width: 400px;
+            height: 400px;
+            border: 2px solid #000;
+            margin: 200px auto;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .circle-box {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            transform-origin: center;
+            transform: rotate(45deg);
+        }
+
+        .circle {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: -200px;
+        }
+    </style>
+</head>
+<body>
+<div class="roll">
+    <div class="circle-box" id="c">
+        <div class="circle"></div>
+    </div>
+</div>
+
+<script>
+    var c = document.getElementById("c"),
+        num = 0
+    ;
+    setInterval(function () {
+        num = num >= 360 ? 0 : num;
+        c.style.transform = "rotate(" + (++num) + "deg)";
+    }, 30);
+</script>
+</body>
+</html>

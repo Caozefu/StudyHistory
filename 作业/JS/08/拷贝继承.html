@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 简单拷贝1
+    var obj1 = {
+        name: "abc",
+        age: 26,
+        sayHi: function() {
+            console.log(this.name + "====" + this.age);
+        }
+    };
+
+    var obj2 = obj1;
+    obj2.sayHi();
+
+    //浅拷贝
+    function Person() {}
+
+</script>
+</body>
+</html>

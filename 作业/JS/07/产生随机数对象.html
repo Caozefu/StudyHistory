@@ -16,9 +16,12 @@
         Random.prototype.getRandom = function(min,max) {
             return Math.floor(Math.random()*((max - min) + min));
         };
-        var rm = new Random();
-        console.log(rm.getRandom(0,5));
+
+        window.Random = Random;
     })(window);
+
+    var rm = new Random();
+    console.log(rm.getRandom(0,10));
 </script>
 </body>
 </html>
