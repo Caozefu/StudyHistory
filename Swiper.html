@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <link rel="stylesheet" href="库/animate.min.css">
+    <link rel="stylesheet" href="库/swiper-4.2.2.min.css">
+    <style>
+        /*.box {*/
+            /*width: 200px;*/
+            /*height: 200px;*/
+            /*background-color: pink;*/
+        /*}*/
+        .swiper-container {
+            width: 600px;
+        }
+        .swiper-slide {
+            width: 300px;
+            height: 300px;
+        }
+        .swiper-slide:nth-child(1) {
+            background-color: pink;
+        }
+        .swiper-slide:nth-child(2) {
+            background-color: blue;
+        }
+        .swiper-slide:nth-child(3) {
+            background-color: yellow;
+        }
+        .swiper-slide:nth-child(4) {
+            background-color: red;
+        }
+        .swiper-slide:nth-child(5) {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <!--<div class="box animated flash"></div>-->
+
+    <!--<div class="swiper-container">-->
+        <!--<div class="swiper-wrapper">-->
+            <!--<div class="swiper-slide" id = "swiper1">123</div>-->
+            <!--<div class="swiper-slide" id = "swiper2">1231231</div>-->
+            <!--<div class="swiper-slide" id = "swiper3">1231231231231</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<script src = "库/swiper-4.2.2.min.js"></script>-->
+    <!--<script>-->
+        <!--var swiper1 = new Swiper('#swiper1');-->
+        <!--var swiper2 = new Swiper('#swiper2');-->
+        <!--var swiper3 = new Swiper('#swiper3');-->
+        <!--var mySwiper = new Swiper(".swiper-contianer",{-->
+            <!--autoplay: true-->
+        <!--});-->
+    <!--</script>-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">slider1</div>
+            <div class="swiper-slide">slider2</div>
+            <div class="swiper-slide">slider3</div>
+            <div class="swiper-slide">slider3</div>
+            <div class="swiper-slide">slider3</div>
+        </div>
+    </div>
+    <script src = "库/swiper-4.2.2.min.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: true,//可选选项，自动滑动
+            effect: "coverflow",
+            slidesPerView: 3,
+            centeredSlides: true,
+        })
+    </script>
+</body>
+</html>
