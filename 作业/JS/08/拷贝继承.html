@@ -23,6 +23,18 @@
     //浅拷贝
     function Person() {}
 
+    Person.prototype.name = "aaa";
+    Person.prototype.age = 26;
+    Person.prototype.sayHi = function() {
+        console.log(this.name);
+    };
+
+    var obj = {};
+
+    for(key in Person.prototype) {
+        obj[key] = Person.prototype[key];
+    }
+    obj.sayHi();
 </script>
 </body>
 </html>
