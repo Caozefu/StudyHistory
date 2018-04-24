@@ -386,6 +386,10 @@
     font-weight: 400;
 }
 
+.page_main .phone {
+    height: 672px;
+    margin-bottom: 42px;
+}
 .phone_top {
     line-height: 58px;
     position: relative;
