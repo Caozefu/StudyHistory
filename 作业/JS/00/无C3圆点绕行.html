@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        body, div {
+            margin: 0;
+            padding: 0;
+        }
+
+        .roll {
+            width: 400px;
+            height: 400px;
+            border: 2px solid #000;
+            margin: 200px auto;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .circle {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            left: 195px;
+            top: -5px;
+        }
+    </style>
+</head>
+<body>
+<div class="roll" id="bc">
+    <div class="circle" id="sc"></div>
+</div>
+<script>
+    var bc = document.getElementById("bc"), //大圆
+        sc = document.getElementById("sc"), //小圆
+        br = parseInt(bc.scrollWidth / 2),  //大圆半径
+        sr = parseInt(sc.scrollWidth / 2)   //小圆半径
+    ;
+    function rotate(deg) {
+        var x = br + Math.sin(deg * (Math.PI / 180)) * br - sr;
+        var y = br - Math.cos(deg * (Math.PI / 180)) * br - sr;
+        return {
+            x: x + "px",
+            y: y + "px"
+        }
+    }
+    var deg = 0;
+    setInterval(function() {
+        sc.style.left = rotate( deg ).x;
+        sc.style.top = rotate( deg ).y;
+        deg ++;
+    },30);
+</script>
+</body>
+</html>

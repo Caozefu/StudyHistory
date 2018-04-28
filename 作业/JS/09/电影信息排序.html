@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        body, div, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrapper {
+            width: 540px;
+            height: 634px;
+            box-sizing: border-box;
+            border-right: 1px solid #56d247;
+            margin: 50px auto;
+        }
+
+        .wrapper ul {
+            width: 540px;
+            line-height: 24px;
+            display: flex;
+        }
+
+        .wrapper ul li {
+            width: 135px;
+            border: 1px solid #56d247;
+            border-right: none;
+            text-align: center;
+        }
+
+        .wrapper .top .pointer {
+            cursor: pointer;
+        }
+
+        .wrapper .content ul {
+            line-height: 202px;
+        }
+
+        .wrapper .content ul img {
+            width: 134px;
+            height: 202px;
+            display: block;
+        }
+
+        .wrapper .content ul li {
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<div class="wrapper" id="wrap">
+    <div class="top">
+        <ul>
+            <li>海报</li>
+            <li class="pointer" id = "n">名称</li>
+            <li class="pointer" id = "d">时长</li>
+            <li class="pointer" id = "t">上映时间</li>
+        </ul>
+    </div>
+    <div class="content" id="contents"></div>
+</div>
+
+
+<script>
+    var content = document.getElementById("contents"),
+        n = document.getElementById("n"),
+        d = document.getElementById("d"),
+        t = document.getElementById("t")
+        ;
+
+    /*
+    * 对象排序方法
+    * bool  false逆序
+    *       true顺序
+    * */
+    function compare(attr, bool) {
+        // debugger;
+        return function sortObj(obj1, obj2) {
+            if (obj1[attr] > obj2[attr]) {
+                return bool ? 1 : -1;
+            } else if (obj1[attr] == obj2[attr]) {
+                return 0;
+            } else {
+                return bool ? -1 : 1;
+            }
+        }
+    }
+
+
+    //创建元素方法
+    function createNode(tag, attr, inner) {
+        var li = document.createElement(tag);
+        for (name in attr) {
+            li.setAttribute(name, attr[name]);
+        }
+        li.innerHTML = inner;
+        return li;
+    }
+
+    //电影对象，所有信息
+    function Movie(imgUrl, name, duration, time) {
+        this.img = imgUrl;
+        this.name = name;
+        this.duration = parseInt(duration);
+        this.time = time;
+        this.element = document.createElement("ul");
+    }
+
+    //添加li
+    Movie.prototype.addMovie = function () {
+        this.element.appendChild(createNode("li", null, "<img src = " + this.img + ">"));
+        this.element.appendChild(createNode("li", null, this.name));
+        this.element.appendChild(createNode("li", null, this.duration + "分钟"));
+        this.element.appendChild(createNode("li", null, this.time));
+        content.appendChild(this.element);
+    };
+    //移除对象节点
+    Movie.prototype.remove = function () {
+        // debugger;
+        if (content.children.length) {
+            for (var i = 0, len = this.element.children.length; i < len; i++) {
+                this.element.removeChild(this.element.children[0]);
+            }
+            content.removeChild(this.element);
+        }
+    };
+
+    //创建实例
+    var movie1 = new Movie("images/21kelajpg.jpg", "21克拉", "96分钟", "2018-04-20");
+    var movie2 = new Movie("images/kuangbao.jpg", "狂暴巨兽", "107分钟", "2018-04-13");
+    var movie3 = new Movie("images/touhao.jpg", "头号玩家", "140分钟", "2018-03-30");
+    var movies = [movie1, movie2, movie3];
+    movie1.addMovie();
+    movie2.addMovie();
+    movie3.addMovie();
+
+    console.log(new Date().getTime(movie1.time));
+
+
+    n.onclick = function () {
+        click("name");
+        // movie1.addMovie();
+    };
+    d.onclick = function() {
+        click("duration");
+    };
+    t.onclick = function() {
+        click("time");
+    };
+
+    function click(attr) {
+        movies.sort(compare(attr, true));
+        movie1.remove();
+        movie2.remove();
+        movie3.remove();
+        for (var i = 0; i < movies.length; i++) {
+            movies[i].addMovie();
+        }
+    }
+
+    // document.getElementById("wrap").appendChild(createNode("input",{
+    //     "id": "abc",
+    //     "class": "cds",
+    // },null));
+</script>
+</body>
+</html>

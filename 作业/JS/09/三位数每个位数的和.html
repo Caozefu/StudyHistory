@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function addSum(n) {
+        if (n < 10) {
+            return n;
+        }
+        return addSum(parseInt(n / 10)) + n % 10;
+    }
+
+    console.log(addSum(93853298999999));
+</script>
+</body>
+</html>

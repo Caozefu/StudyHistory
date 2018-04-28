@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>图片旋转</title>
+    <style type="text/css" >
+        #div1{ position:relative;height:800px; border:1px solid red;}
+        #div1 img{ position:absolute;}
+    </style>
+</head>
+<body >
+<div id="div1"  >
+    <img src="http://www.jb51.net/images/logo.gif"  />
+    <img src="http://www.jb51.net/images/logo.gif"  />
+    <img src="http://www.jb51.net/images/logo.gif"  />
+    <img src="http://www.jb51.net/images/logo.gif"  />
+    <img src="http://www.jb51.net/images/logo.gif"  />
+    <img src="http://www.jb51.net/images/logo.gif"  />
+</div>
+<script type="text/javascript" >
+    var centerx = 400; //圆心X
+    var centery = 300; //圆心Y
+    var r = 300; //半径
+    var oimages = document.getElementById("div1").getElementsByTagName("IMG"); //图片集合
+    var cnt = oimages.length; //图片数
+    var da = 360 / cnt; //图片间隔角度
+    var a0 = 0; //已旋转角度
+    var timer;
+    for (var i = 0; i < cnt; i++) {
+        oimages[i].onmouseover = stop;
+        oimages[i].onmouseout = start;
+    }
+    function posimgs() {
+        for (var i = 0; i < cnt; i++) {
+            oimages[i].style.left = centerx + r * Math.cos((da * i + a0) / 180 * Math.PI) + "px";
+            oimages[i].style.top = centery + r * Math.sin((da * i + a0) / 180 * Math.PI) + "px";
+        }
+    }
+    // posimgs();
+    function start() {
+        timer = window.setInterval("posimgs();a0++;", 100);
+    }
+    function stop() {
+        window.clearInterval(timer);
+    }
+    start();
+</script>
+</body>
+</html>

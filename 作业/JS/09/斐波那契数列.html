@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [];
+
+    function getFib(x) {
+        if (x === 1 || x === 2) {
+            return 1;
+        }
+        return getFib(x - 1) + getFib(x - 2);
+    }
+
+    for(var i =1;i<20;i++){
+        arr.push(getFib(i));
+    }
+
+    console.log(arr);
+</script>
+</body>
+</html>
