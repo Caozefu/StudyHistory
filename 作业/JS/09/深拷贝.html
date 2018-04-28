@@ -7,6 +7,39 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    var obj1 = {
+        name: "ab",
+        age: 19,
+        sex: "man",
+        car: ["1", "2", "3", "4"],
+        dog: {
+            name: "sadsf",
+            age: 3
+        }
+    };
 
+    var obj2 = {};
+    function extend(obj1, obj2) {
+        for (key in obj1) {
+            var item = obj1[key];
+            if (item instanceof Array) {
+                obj2[key] = [];
+                extend(item, obj2[key]);
+            } else if (item instanceof Object) {
+                obj2[key] = {};
+                extend(item, obj2[key]);
+            } else {
+                obj2[key] = obj1[key];
+            }
+        }
+
+    }
+
+    extend(obj1,obj2);
+    console.log(obj1);
+    console.log(obj2);
+
+</script>
 </body>
 </html>
