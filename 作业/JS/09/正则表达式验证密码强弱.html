@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        .lv1 {
+            color: red;
+        }
+        .lv2 {
+            color: orange;
+        }
+        .lv3 {
+            color: greenyellow;
+        }
+        #tip {
+            color: #ff98e9;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <span>密码:</span>
+    <input type="password" maxlength="16" id = "inp">&nbsp;
+    <a href = "javascript:;" id = "show">点击显示密码</a>
+    &nbsp;
+    <span id = "tip">请输入6-12位密码</span>
+    <br>
+    <span>密码强度:</span>
+    <span id = "lv" class = ""></span>
+
+    <script>
+        var inp = document.getElementById("inp"),
+            lv = document.getElementById("lv"),
+            tip = document.getElementById("tip"),
+            show = document.getElementById("show")
+        ;
+        show.onmousedown = function() {
+            inp.type = "text";
+        };
+        show.onmouseup = function() {
+            inp.type = "password";
+        };
+
+        inp.onkeyup = function() {
+            if(this.value.length < 6) {
+                lv.innerHTML = "";
+                tip.style.display = "inline-block";
+                return;
+            }else {
+                tip.style.display = "none";
+            }
+            if(/\d+/.test(inp.value)) {
+                lv.innerHTML = "弱";
+                lv.className = "lv1";
+            }
+            if(/[a-zA-Z]+/.test(inp.value)) {
+                lv.innerHTML = "中";
+                lv.className = "lv2";
+            }
+            if(/[^0-9a-zA-Z_]+/.test(inp.value)) {
+                lv.innerHTML = "强";
+                lv.className = "lv3";
+            }
+        };
+    </script>
+</body>
+</html>
