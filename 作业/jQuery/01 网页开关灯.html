@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        body {
+            transition: all 0.3s;
+        }
+        .white {
+            background-color: #fff;
+        }
+        .black {
+            background-color: #000;
+        }
+    </style>
+</head>
+<body class = "white">
+    <input type="button" value="关" id = "btn">
+    <script src = "../../jquery-3.3.1.min.js"></script>
+
+    <script>
+        //写法一
+        // $("#btn").click(function() {
+        //     if($("body").hasClass("black")) {
+        //         $("body").removeClass("black");
+        //     }else {
+        //         $("body").addClass("black");
+        //     }
+        // });
+
+        //写法二
+        $("#btn").click(function() {
+            if($(this).val() === "关") {
+                $("body").css("backgroundColor","black");
+                $(this).hide();
+            }else {
+                $("body").css("backgroundColor","white");
+                $(this).val("关");
+            }
+        });
+    </script>
+</body>
+</html>

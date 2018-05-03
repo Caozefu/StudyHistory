@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <script src = "../../jquery-3.3.1.min.js"></script>
+    <script>
+        $(function() {
+            $("#btn").click(function() {
+                $("#wrap>li:odd").css("backgroundColor","blue");
+                $("#wrap>li:even").css("backgroundColor","green");
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value = "按钮" id = "btn">
+    <ul id = "wrap">
+        <li>撒大大实打实大三大大大盛大的</li>
+        <li>撒大大实打实大三大大大盛大的</li>
+        <li>撒大大实打实大三大大大盛大的</li>
+        <li>撒大大实打实大三大大大盛大的</li>
+        <li>撒大大实打实大三大大大盛大的</li>
+        <li>撒大大实打实大三大大大盛大的</li>
+        <li>撒大大实打实大三大大大盛大的</li>
+        <li>撒大大实打实大三大大大盛大的</li>
+        <li>撒大大实打实大三大大大盛大的</li>
+    </ul>
+</body>
+</html>
