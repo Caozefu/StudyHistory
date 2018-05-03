@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        body,div,ul {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .wrap {
+            width: 306px;
+            height: 30px;
+            margin: 100px auto;
+        }
+        .wrap>ul>li {
+            width: 100px;
+            line-height: 30px;
+            float: left;
+            background-color: pink;
+            border: 1px solid yellow;
+            position: relative;
+            text-align: center;
+            cursor: pointer;
+        }
+        .wrap>ul>li ul {
+            position: absolute;
+            top: 30px;
+            display: none;
+        }
+        .wrap>ul>li ul li {
+            width: 100px;
+            line-height: 30px;
+            background-color: green;
+            border: 1px solid yellow;
+        }
+    </style>
+    <script src = "../../jquery-3.3.1.min.js"></script>
+    <script>
+        $(function() {
+            $(".wrap>ul>li").mouseover(function() {
+                $(this).children("ul").stop().show(200);
+            }).mouseleave(function() {
+                $(this).children("ul").stop().hide(200);
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li>
+                <a href="javascript:;">菜单</a>
+                <ul>
+                    <li>123</li>
+                    <li>456</li>
+                    <li>789</li>
+                    <li>000</li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">菜单</a>
+                <ul>
+                    <li>123</li>
+                    <li>456</li>
+                    <li>789</li>
+                    <li>000</li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">菜单</a>
+                <ul>
+                    <li>123</li>
+                    <li>456</li>
+                    <li>789</li>
+                    <li>000</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

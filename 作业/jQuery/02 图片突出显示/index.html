@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>突出显示</title>
+    <style>
+        body, div, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        .wrapper {
+            width: 682px;
+            padding: 20px 0 0 20px;
+            border: 1px solid #fff;
+            box-sizing: border-box;
+            margin: 100px auto;
+            overflow: auto;
+        }
+
+        .wrapper ul {
+            overflow: auto;
+        }
+
+        .wrapper ul li {
+            float: left;
+            margin: 0 20px 20px 0;
+            transition: all 0.3s;
+        }
+    </style>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $(".wrapper ul").mouseleave(function() {
+                $(this).children("li").css("opacity","1");
+            });
+            $(".wrapper ul li").mouseenter(function () {
+                var index = $(this).index();
+                $(this).css("opacity", "1");
+                $(".wrapper ul li:lt(" + index + ")").css("opacity", "0.5");
+                $(".wrapper ul li:gt(" + index + ")").css("opacity", "0.5");
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <ul>
+        <li>
+            <a href="javascript:;"><img src="images/01.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="javascript:;"><img src="images/02.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="javascript:;"><img src="images/03.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="javascript:;"><img src="images/04.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="javascript:;"><img src="images/05.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="javascript:;"><img src="images/06.jpg" alt=""></a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
