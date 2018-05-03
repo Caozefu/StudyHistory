@@ -8,8 +8,6 @@
     <style>
         body {
             transition: all 0.3s;
-        }
-        .white {
             background-color: #fff;
         }
         .black {
@@ -17,7 +15,7 @@
         }
     </style>
 </head>
-<body class = "white">
+<body>
     <input type="button" value="关" id = "btn">
     <script src = "../../jquery-3.3.1.min.js"></script>
 
@@ -32,14 +30,19 @@
         // });
 
         //写法二
+        // $("#btn").click(function() {
+        //     if($(this).val() === "关") {
+        //         $("body").css("backgroundColor","black");
+        //         $(this).hide();
+        //     }else {
+        //         $("body").css("backgroundColor","white");
+        //         $(this).val("关");
+        //     }
+        // });
+
+        //写法三
         $("#btn").click(function() {
-            if($(this).val() === "关") {
-                $("body").css("backgroundColor","black");
-                $(this).hide();
-            }else {
-                $("body").css("backgroundColor","white");
-                $(this).val("关");
-            }
+            $("body").toggleClass("black");
         });
     </script>
 </body>
