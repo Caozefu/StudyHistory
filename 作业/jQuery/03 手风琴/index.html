@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>滑动门效果</title>
+    <style>
+        body, div, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrapper {
+            width: 1200px;
+            height: 460px;
+            /*box-sizing: border-box;*/
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+
+        .wrapper ul {
+            width: 1226px;
+            overflow: auto;
+        }
+
+        .wrapper ul li {
+            width: 240px;
+            overflow: hidden;
+            float: left;
+            transition: all 0.3s;
+        }
+    </style>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $(".wrapper ul li").mouseenter(function () {
+                var index = $(this).index();
+                $(this).css("width", "800px");
+                $(".wrapper ul li:lt(" + index + ")").css("width", "100px");
+                $(".wrapper ul li:gt(" + index + ")").css("width", "100px");
+            });
+            $(".wrapper ul").mouseleave(function () {
+                $(this).children("li").css("width", "240px");
+                $(this).hasClass();
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="wrapper">
+    <ul>
+        <li><img src="images/1.jpg" alt=""></li>
+        <li><img src="images/2.jpg" alt=""></li>
+        <li><img src="images/3.jpg" alt=""></li>
+        <li><img src="images/4.jpg" alt=""></li>
+        <li><img src="images/5.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+</html>
