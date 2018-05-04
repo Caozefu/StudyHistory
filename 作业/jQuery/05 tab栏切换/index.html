@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        body, div, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrapper {
+            width: 1000px;
+            height: 500px;
+            margin: 100px auto;
+            border: 1px solid #000;
+        }
+
+        .wrapper .top li {
+            width: 50px;
+            height: 25px;
+            float: left;
+            margin: 0 20px;
+            cursor: pointer;
+        }
+
+        .wrapper .top li.active:before {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 1px;
+            background-color: red;
+        }
+
+        .wrapper .img {
+            position: relative;
+            margin-top: 25px;
+        }
+
+        .wrapper .img li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .wrapper .img li.selected {
+            display: block;
+        }
+    </style>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $(".top li").mouseenter(function () {
+                var index = $(this).index();
+                $(this).addClass("active").siblings("li").removeClass("active");
+                $(".img  li:eq(" + index + ")").addClass("selected").siblings("li").removeClass("selected");
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <ul class="top">
+        <li class="active">第一页</li>
+        <li>第二页</li>
+        <li>第三页</li>
+        <li>第四页</li>
+    </ul>
+    <ul class="img">
+        <li class="selected"><img src="imgs/guojidapai.jpg" alt=""></li>
+        <li><img src="imgs/guozhuangmingpin.jpg" alt=""></li>
+        <li><img src="imgs/nanshijingpin.jpg" alt=""></li>
+        <li><img src="imgs/qingjieyongpin.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+</html>
