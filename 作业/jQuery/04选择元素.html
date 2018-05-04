@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        body,div,ul {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .wrapper {
+            width: 150px;
+            margin: 100px auto;
+        }
+        ul li {
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script src = "jquery-3.3.1.min.js"></script>
+    <script>
+        $(function() {
+            $("#ul li").mouseenter(function() {
+                $(this).css("backgroundColor","skyblue");
+            }).mouseleave(function() {
+                $(this).parent().find("li").css("backgroundColor","");
+            }).click(function() {
+                $(this).prevAll().css("backgroundColor","yellow");
+                $(this).nextAll().css("backgroundColor","pink");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <ul id = "ul">
+            <li>晚上吃你家的饭</li>
+            <li>晚上吃你家的饭</li>
+            <li>晚上吃你家的饭</li>
+            <li>晚上吃你家的饭</li>
+            <li>晚上吃你家的饭</li>
+            <li>晚上吃你家的饭</li>
+        </ul>
+    </div>
+</body>
+</html>
