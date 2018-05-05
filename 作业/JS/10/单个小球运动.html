@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        body,div {
+            margin: 0;
+            padding: 0;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #f00;
+            background-color: #ffff00;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class = "circle" id = "c"></div>
+
+    <script>
+        var circle = document.getElementById("c"),
+            x = document.documentElement.clientWidth - circle.offsetWidth,
+            y = document.documentElement.clientHeight - circle.offsetWidth,
+            speedX = 5,
+            speedY = 5
+        ;
+
+        run();
+        function run() {
+            var left = circle.offsetLeft;
+            var top = circle.offsetTop;
+            if(top > y || top < 0) {
+                speedY = -speedY;
+            }
+            if(left > x || left < 0) {
+                speedX = -speedX;
+            }
+            circle.style.left = left + speedX + "px";
+            circle.style.top = top + speedY + "px";
+
+            requestAnimationFrame(run);
+
+        }
+
+
+    </script>
+</body>
+</html>

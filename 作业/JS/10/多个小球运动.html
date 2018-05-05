@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        body, div {
+            margin: 0;
+            padding: 0;
+        }
+
+        .circle {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #f00;
+            background-color: #ffff00;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    function getColor() {
+        var color = "#",
+            randomNumber = 0
+        ;
+        var colorArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+        // console.log(colorArr.length);
+        for (var i = 0; i < 6; i++) {
+            randomNumber = Math.floor(Math.random() * 16);
+            color += colorArr[randomNumber];
+        }
+        return color;
+    }
+
+    function Circle(speed) {
+        this.speed = speed;
+        this.element = document.createElement("div");
+        this.placeX = Math.floor(Math.random() * 1000);
+        this.placeY = Math.floor(Math.random() * 500);
+        this.init();
+    }
+
+    Circle.prototype.init = function () {
+        this.element.setAttribute("class", "circle");
+        this.element.style.left = this.placeX + "px";
+        this.element.style.top = this.placeY + "px";
+        this.element.style.backgroundColor = getColor();
+        document.body.appendChild(this.element);
+    };
+    Circle.prototype.cRun = function () {
+        var circle = this.element,
+            x = document.documentElement.clientWidth - circle.offsetWidth,
+            y = document.documentElement.clientHeight - circle.offsetWidth,
+            speedX = Math.floor(Math.random() * 2) ? this.speed : -this.speed,
+            speedY = Math.floor(Math.random() * 2) ? this.speed : -this.speed
+        ;
+
+        run();
+
+        function run() {
+            var left = circle.offsetLeft;
+            var top = circle.offsetTop;
+            if (top > y || top < 0) {
+                speedY = -speedY;
+            }
+            if (left > x || left < 0) {
+                speedX = -speedX;
+            }
+            circle.style.left = left + speedX + "px";
+            circle.style.top = top + speedY + "px";
+
+            requestAnimationFrame(run);
+
+        }
+    };
+    for (var i = 0; i < 50; i++) {
+        var c = new Circle(Math.floor(Math.random() * 5) + 5);
+        c.cRun();
+    }
+</script>
+</body>
+</html>
