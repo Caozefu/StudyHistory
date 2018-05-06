@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+    <style>
+        .wrapper {
+            width: 300px;
+            height: 300px;
+            border: 1px solid pink;
+        }
+    </style>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            // var ul = "<ul></ul>";
+            // $(".wrapper").append(ul);
+            $("#btn").click(function() {
+                var ulObj = $("<ul></ul>");
+                $(".wrapper").append(ulObj);
+                console.log(ulObj);
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="添加" id="btn">
+<div class="wrapper">
+</div>
+</body>
+</html>
