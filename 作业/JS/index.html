@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>Title</title>
+</head>
+<body>
+<script>
+    for(var i = 0; i < 10; i ++) {
+        (function(index) {
+            setTimeout((function() {
+                return function() {
+                    console.log(index);
+                }
+            })(),1000);
+        })(i);
+
+    }
+</script>
+</body>
+</html>
