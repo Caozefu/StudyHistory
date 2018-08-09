@@ -1,6 +1,8 @@
-window.onload = function () {
-    var map = document.getElementById("map");
-
+$(function () {
+    var map = document.getElementById('map');
+    $('#restart').click(function() {
+        location.reload();
+    });
     // 封装用到的方法
     (function () {
         // 设置CSS样式方法
@@ -42,9 +44,13 @@ window.onload = function () {
         };
         // 食物随机生成
         Food.prototype.create = function () {
+            var left = randomNumber(0, 49);
+            var top = randomNumber(0, 39) ;
+            this.left = left;
+            this.top = top;
             setCSS(this.element, {
-                "left": randomNumber(0, 49) * this.width + "px",
-                "top": randomNumber(0, 39) * this.height + "px"
+                "left": left * this.width + "px",
+                "top": top * this.height+ "px"
             });
             map.appendChild(this.element);
         };
@@ -98,8 +104,7 @@ window.onload = function () {
         // 小蛇运动
         Snake.prototype.run = function () {
             var that = this,
-                timer
-            ;
+                timer;
             var timer = setInterval(function () {
                 /*document.onkeydown = function (event) {
                         var keyNum;
@@ -185,22 +190,36 @@ window.onload = function () {
                         that.body[0].top++;
                         break;
                 }
-                // if (that.direction === "right") {
-                //     that.body[0].left++;
-                // } else if (that.direction === "left") {
-                //     that.body[0].left--;
-                // } else if (that.direction === "top") {
-                //     that.body[0].top--;
-                // } else if (that.direction === "bottom") {
-                //     that.body[0].top++;
-                // }
+
+                // 边缘判断
+                if(that.body[0].left >= 50 || that.body[0].left <0 || that.body[0].top >= 40 || that.body[0].top < 0) {
+                    clearInterval(timer);
+                    new Dialog({
+                        'id': 'err',
+                        'message': '游戏结束',
+                        'callback': function () {
+                            console.log('aaa');
+                        }
+                    }).open(3000);
+                    return;
+                }
+
+                // 判断碰到食物
+                if(that.body[0].left === food.left && that.body[0].top === food.top) {
+                    that.body.push({
+                        left: that.body[that.body.length - 1].left,
+                        top: that.body[that.body.length - 1].top,
+                        color: "yellow"
+                    });
+                    food.remove();
+                    food.init();
+                }
 
                 that.init();
             }, 300);
         };
 
         Snake.prototype.remove = function () {
-            //debugger;
             for (let i = 0; i < this.elements.length; i++) {
                 this.elements[i].parentNode.removeChild(this.elements[i]);
             }
@@ -213,4 +232,4 @@ window.onload = function () {
     // 实例化食物对象
     var food = new Food("green");
     var snake = new Snake(20, 20, "right");
-};
+});
