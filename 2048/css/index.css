@@ -1,0 +1,68 @@
+.wrapper {
+    width: 501px;
+    height: 501px;
+    margin: 200px auto;
+    background-color: rgb(187, 173, 160);
+    border-radius: 6px;
+    padding: 18px;
+    box-sizing: border-box;
+    position: relative;
+}
+.grid {
+    width: 480px;
+    height: 100%;
+}
+.gridCell {
+    width: 105px;
+    height: 105px;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: rgb(205, 193, 180);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.block {
+    width: 105px;
+    height: 105px;
+    line-height: 105px;
+    text-align: center;
+    color: rgb(119, 110, 101);
+    font-size: 53px;
+    font-weight: bold;
+    border-radius: 3px;
+    z-index: 99;
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    transition: all 0.3s;
+}
+
+.block-2 {
+    background-color: rgb(238, 228, 218);
+}
+
+.block-4 {
+    background-color: rgb(237, 224, 200);
+}
+
+.block-8 {
+    background-color: rgb(242, 177, 121);
+    color: #fff;
+}
+
+.block-16 {
+    background-color: rgb(245, 149, 99);
+    color: #fff;
+}
+
+.block-32 {
+    background-color: rgb(246, 124, 95);
+    color: #fff;
+}
+
+.block-64 {
+    background-color: rgb(246, 94, 59);
+    color: #fff;
+}
