@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <title>base64 decode and encode</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <style>
+        h1 {
+            text-align: center;
+            margin: 30px;
+        }
+        .btns {
+            text-align: center;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1>base64</h1>
+
+            <div class="form-group">
+                <textarea name="code" id="code" cols="30" rows="10" class="form-control" placeholder="请输入要编码/解码的内容..."></textarea>
+                <div class="btns">
+                    <button class="btn btn-primary btn-block" id="btnEncode">编码</button>
+                    <button class="btn btn-success btn-block" id="btnDecode">解码</button>
+                </div>
+                <textarea name="target" id="target" cols="30" rows="10" class="form-control" placeholder="编码/解码内容将显示在此..."></textarea>
+            </div>
+
+
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
