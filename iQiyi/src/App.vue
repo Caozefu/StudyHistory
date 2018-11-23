@@ -21,6 +21,7 @@
 
 <style>
   #app {
+    font-family: "Microsoft YaHei";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     position: relative;

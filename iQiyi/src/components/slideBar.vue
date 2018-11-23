@@ -127,6 +127,7 @@
   }
 
   .menu ul li {
+    font-weight: 900;
     line-height: 24px;
     margin-bottom: 26px;
     padding-left: 30px;

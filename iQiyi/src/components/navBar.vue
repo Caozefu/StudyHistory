@@ -2,11 +2,16 @@
   <div class="navBar">
     <div class="top">
       <div class="logo">
-        <img src="images/aiqiyi-logo.png" alt="" width="83px" height="28px">
+        <img src="@/images/aiqiyi-logo.png" alt="" width="83px" height="28px">
       </div>
-      <div class="searchBox" id="search">
-        <input type="url" value="热血街舞团">
-        <button class="iconfont">&#xe61c;</button>
+      <div class="searchBox"
+           @mouseenter="mouseChange"
+           @mouseleave="mouseChange">
+        <input type="url"
+               placeholder="热血街舞团"
+               :class="{active: isActive}"
+               @focus="searchFocus" @blur="searchBlur">
+        <button class="iconfont" :class="{active: isActive}">&#xe61c;</button>
       </div>
     </div>
   </div>
@@ -14,7 +19,29 @@
 
 <script>
   export default {
-    name: "navBar"
+    name: "navBar",
+    data() {
+      return {
+        isActive: false,
+      }
+    },
+    methods: {
+      mouseChange() {
+        this.changeActive();
+      },
+      changeActive() {
+        this.isActive = !this.isActive;
+      },
+      searchFocus() {
+        this.changeActive = () => {};
+      },
+      searchBlur() {
+        this.isActive = !this.isActive;
+        this.changeActive = () => {
+          this.isActive = !this.isActive;
+        };
+      }
+    }
   }
 </script>
 
@@ -56,6 +83,11 @@
     transition: all 0.3s;
   }
 
+  .top .searchBox input.active {
+    background-color: #333335;
+    color: #d8d8d8;
+  }
+
   .top .searchBox button {
     width: 38px;
     height: 38px;
@@ -67,5 +99,11 @@
     margin-left: -19px;
     color: #fff;
     transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .top .searchBox button.active {
+    background-color: #80f651;
+    width: 55px;
   }
 </style>

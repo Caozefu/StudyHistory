@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"> -->
+    <style>
+        .table {
+            width: 500px;
+            font-size: 16px;
+            border-collapse: collapse;
+        }
+
+        table td,
+        table th {
+            border-width: 1px;
+            border-style: solid;
+            border-color: #333;
+            background-color: #ffffff;
+            padding: 12px 10px;
+        }
+
+        .border0 {
+            padding: 0;
+        }
+
+        .border0 table {
+            width: 100%;
+            border-style: hidden;
+            border-width: 0;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="table">
+        <tr>
+            <td colspan="2">a</td>
+            <td colspan="2">a</td>
+            <td colspan="2">a</td>
+            <td colspan="2">a</td>
+            <td colspan="2">a</td>
+        </tr>
+        <tr>
+            <td colspan="2">a</td>
+            <td colspan="2">a</td>
+            <td colspan="2">a</td>
+            <td colspan="2">a</td>
+            <td colspan="2">a</td>
+        </tr>
+        <tr>
+            <td colspan="10" class="border0">
+                <table>
+                    <tr>
+                        <td style="width:5%" rowspan="2">x</td>
+                        <td style="width:15%">y</td>
+                        <td style="width:20%">123</td>
+                        <td style="width:20%">123</td>
+                        <td style="width:20%">123</td>
+                        <td style="width:20%">123</td>
+                        <tr>
+                            <td style="width:15%">123</td>
+                            <td style="width:20%">123</td>
+                            <td style="width:20%">123</td>
+                            <td style="width:20%">123</td>
+                            <td style="width:20%">123</td>
+                        </tr>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

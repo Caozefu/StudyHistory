@@ -2,6 +2,22 @@ body,div {
     margin: 0;
     padding: 0;
 }
+.control {
+    float: left;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    margin: 100px 200px;
+}
+.control div {
+    width: 200px;
+    height: 200px;
+    background-color: skyblue;
+    float: left;
+    text-align: center;
+    line-height: 200px;
+    font-size: 50px;
+}
 .map {
     width: 1000px;
     height: 800px;
@@ -10,7 +26,5 @@ body,div {
     position: relative;
 }
 #restart {
-    position: absolute;
-    left: 150px;
-    top: 50px;
+    float: left;
 }
