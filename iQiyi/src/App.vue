@@ -1,21 +1,12 @@
 <template>
   <div id="app">
-    <slide-bar></slide-bar>
-    <nav-bar></nav-bar>
-    <router-view/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import slideBar from '@/components/slideBar.vue';
-  import navBar from '@/components/navBar.vue';
-
   export default {
     name: 'App',
-    components: {
-      slideBar,
-      navBar,
-    }
   }
 </script>
 

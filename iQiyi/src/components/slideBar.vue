@@ -1,15 +1,14 @@
 <template>
   <div class="slide-bar">
     <div class="threeButton">
-      <a href="javascript:;" style="background-color: #ed6a5e"></a>
+      <a href="javascript:;" style="background-color: #ed6a5e" @click="close"></a>
       <a href="javascript:;" style="background-color: #f6bf4f"></a>
       <a href="javascript:;" style="background-color: #62c554"></a>
     </div>
     <div class="menu">
       <ul id="ul">
         <li v-for="item in menu"
-            @click="changeMenu"
-            @mouseover="menuHover">
+            @click="changeMenu($event, item.name)">
           <span :class=""></span>
           {{item.title}}
         </li>
@@ -20,25 +19,29 @@
 
 <script>
   export default {
-    name: 'HelloWorld',
+    name: 'slide-bar',
     data() {
       return {
         menu: [
           {
             id: 1,
-            title: '首页'
+            title: '首页',
+            name: 'home'
           },
           {
             id: 2,
-            title: 'VIP专区'
+            title: 'VIP专区',
+            name: 'vip'
           },
           {
             id: 3,
-            title: '电视剧'
+            title: '电视剧',
+            name: 'tv'
           },
           {
             id: 4,
-            title: '电影'
+            title: '电影',
+            name: 'movie'
           },
           {
             id: 5,
@@ -72,18 +75,31 @@
             id: 12,
             title: '更多'
           },
-        ]
+        ],
       }
     },
     methods: {
       pageLoad() {
         document.getElementById('ul').children[1].className = 'VIP';
+        let lis = this.$el.querySelectorAll('#ul li');
+        lis[0].style.color = "#7ee554";
+        lis[0].children[0].style.opacity = "1";
       },
-      changeMenu() {
-
+      changeMenu(event, route) {
+        let lis = this.$el.querySelectorAll('#ul li');
+        for (var j = 0; j < lis.length; j++) {
+          lis[j].children[0].style.opacity = "0";
+          if (j !== 1) {
+            lis[j].style.color = "#fff";
+          }
+        }
+        event.path[0].style.color = "#7ee554";
+        event.path[0].children[0].style.opacity = "1";
+        this.$router.push(route);
       },
-      menuHover() {
-        console.log('123');
+      close() {
+        window.location.href = 'about:blank';
+        window.close();
       }
     },
     mounted() {
@@ -148,7 +164,7 @@
     left: -6px;
     top: 0;
     opacity: 0;
-    transition: all 0.2s;
+    transition: all 0.5s;
   }
 
   .menu ul .active {
